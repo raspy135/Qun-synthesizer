@@ -4,6 +4,11 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 
 ### Overview
 - Connectivity: Standard MIDI(TRS A type), BLE MIDI, UART MIDI(Supports MAC OS X and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
+
+* ESP32 Lyrat
+  * It can be battery operated.
+  * It can drive small speakers.
+
 * Analog Modeling engine
   * The engine is made from scratch.
   * All analog modeling engine can be configured through MIDI. 
