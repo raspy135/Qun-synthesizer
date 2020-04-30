@@ -12,7 +12,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 * Analog Modeling engine
   * The engine is made from scratch.
   * All analog modeling engine can be configured through MIDI. 
-  * 2 Alias free sscillators, it can be used as dual tone. 
+  * 2 Alias noise free oscillators, it can be used as dual tone. 
   * 2 Envelove Generators
   * FM
   * 1 LFO, rate can be controlled by MIDI notes
