@@ -127,7 +127,8 @@ OSC MIX
 
 FM
 
-	FM modulation Osc2 to Osc1. That means that each oscillator has internal 4 operator FM, on top of it, you can modulate OSC1 by OSC2.
+	FM modulation Osc2 to Osc1. 
+	That means that each oscillator has internal 4 operator FM, on top of it, you can modulate OSC1 by OSC2.
 
 VCF VOLUME
 
