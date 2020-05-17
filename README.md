@@ -80,7 +80,7 @@ Pressing “Mode” button on the base board (not Red top board) will turn on / 
 ### PRM:OSCILLATOR1,2
 ![diagram_osc](manual_images/diagram_osc.jpg)
 
-(Blue : sources, Green: output) This diagram shows OSC1 and OSC2 features. (Actually all parameters can be controlled via MIDI even it's shown as dial)
+**Blue : sources, Green: output**. This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike real hardware synths, all parameters can be controlled via MIDI even it's shown as dial.
 
 The oscillator is a hybrid of classic analog synth and FM. FM has its own parameters, it can be configured in FM conf / ENV3/4 Other Mode.
 
