@@ -35,7 +35,16 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
     * Looper can record the sound up to 30 sec, synchronized with the sequencer.
     
     * Play / Rec / Overdub
-    
+
+### CONNECTIONS
+
+* Power : Use good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
+* BLE MIDI : IOS or Mac OS X are supported. Windows are NOT supported. BLE MIDI has 15 to 20ms latency in general, it's limitation of BLE spec. For lower latency, use MIDI or UART MIDI.
+* MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
+* UART MIDI: You can use UART MIDI instead of traditional MIDI interface. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
+	* For detail of UART MIDI, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
+* The synthesizer can process external audio signals. It also has microphones.
+
 ### MAJOR MODES
 
  The synth has three major modes, it can be changed by pressing ESP32 Lyrat's three touch buttons. Parameter mode is the main mode of the synthesizer. :
@@ -509,10 +518,12 @@ Often time you may forget to set the channel to recording mode on DAW, then para
 * Don’t be afraid to get clipped. Clipping could be the entrance to the new sound.
 
 * I want to use AUX as CV IN
-	* AUX is connected to a lot of CV controls so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
+	* CV signal from modular synthesizers may have **HIGH VOLTAGE**! Please attenuate the voltage to normal LINE level (1 to 1.5V).
+	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
+	* If you have advanced soldering skill or SMD rework station, you can get DC couplied LINE IN. Please let the following DC Coupling section.
 
-### DC Coupling (ADVANCED and HIGH RISK of BREAK)
-ESP32 Lyrat board has capacitors for HPF.
+### DC Coupling (ADVANCED : HIGH RISK of BREAKING BOARD)
+ESP32 Lyrat board has capacitors in LINE IN signal path to cut DC.
 https://dl.espressif.com/dl/schematics/esp32-lyrat-v4.3-schematic.pdf
 Technically you can get DC-coupled input by removing and shorting C61 and C63.
 ![dc_coupling](manual_images/dc_coupling.jpg)
@@ -520,6 +531,8 @@ Technically you can get DC-coupled input by removing and shorting C61 and C63.
 They are extremely small chips so put extra caution not to break the board.
 
 It is OK to short even between channels, the signal will be downmixed. Using hot air for SMD reworking is recommended.
+
+Even after the modification, still you can enable internal HPF in the ES8388 code chip. You can configure this in the system menu.
 
 
 
