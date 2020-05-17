@@ -143,6 +143,7 @@ EFFECT DEPTH
 	Amount of effect
 
 EFFECT FEEDBACK
+
 	Feedback for Delay
 
 Delay can set very short. Very short delay will make an interesting to simulate flute or violin. 
@@ -154,30 +155,38 @@ ENV1 and ENV2 are grouped to first voice with Duo mode. Env3 and Env4 are groupe
 ![diagram_eg](manual_images/diagram_eg.jpg)
 
 ATTACK
+
 	Attach time
 
 DECAY
+
 	Decay time
 
 SUSTAIN
+
 	Sustain level
 
 RELEASE
+
 	Release time
 
 ### PRM:OSC Switches
 OSC has many switches to change its behavior.
 
 ENV Sel
+
 	Selects Envelope(VCA) for the oscillator.
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
 WIDE TUNE
+
 	When it is ON,you can tune wider range by OSC’s tune parameter.
 MOD SEL
+
 	Select Mod signal source. It is connected to OSC's tune or width.
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
 
 ENV INV SW
+
 	It inverts Envelope Generator’s polarity. Env1 and Env2 can change its polarity.
 
 ### PRM:LFO
@@ -186,28 +195,43 @@ LFO is similar to OSC, although selectable shape is slightly different.
 ![diagram_lfo](manual_images/diagram_lfo.jpg)
 
 LFO TUNE
+
 	Tune
+
 LFO SHAPE
+
 	`Saw, Sine, RevSaw, S&H, Square, Triangle, AUX, OSC2, OSC2EG`
 	*AUX is audio input from LINE / MIC.
 	*You can use OSC2 as LFO source. Even you can modulate OSC2 by OSC2.
 	*OSC2EG is the signal from OSC after Envelope Generator processing.
+
 LFO PULSE WIDTH
+
 	Pulse width
+
 LFO MOD TUNE
+
 	Envelope generator feedback to tune.
+	
 LFO MOD WIDTH
+
 	Envelope generator feedback to pulse width.
+	
 KEYSPLIT
+
 	This is very unique feature of the synth.
 	When it is not zero,  then note number above the parameter becomes LFO rate controller.
 	(If you set 60, then C4 or higher note becomes LFO controller)
 	Higher notes will generate higher LFO rate.
 	If you press multiple notes, it doubles and triples the rate.
 	It is great for live playing.
+	
 LFO GATESYNC
+
 	LFO’s phase is reset by every note hit when it is ON.
+	
 LFO MOD SEL
+
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
 
 ### PRM:VCF
@@ -216,20 +240,35 @@ The synth has one filter.
 ![diagram_vcf](manual_images/diagram_vcf.jpg)
 
 CUTOFF
+
 	Set the cutoff frequency.
+
 RESONANCE
+
 	Resonance
+
 VCF TYPE
+
 	`LPF,BPF,HPF,Notch`
+
 VCF MOD CUTOFF
+
 	Mod feedback to cutoff. Mod source selection is located in `Prm:Key / Other` sub mode.
+
 VCF LFO CUTOFF
+
 	LFO to cutoff feedback.
+
 VCF LFO Volume
+
 	LFO feedback to VCF’s input volume.
+
 OSC1 BYPASS
+
 	Filter bypass switch for OSC1
+
 VCF KEYSYNC
+
 	When it is not zero, VCF’s cutoff will follow s the playing note.  Higher value is more sensitive.
 	Great with Mono, but not working well with Duo tone because it has only one VCF.
 
@@ -237,24 +276,39 @@ VCF KEYSYNC
 Configures other parameters.
 
 VCF 4/2 POLE SW
+
 	Change filter's number of poles. 2 poles(12dB/Oct) when it is ON. 4 poles(24dB/Oct) when it is OFF.
+
 VCF MOD SEL
+
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
+
 GLIDE
+
 	Tune changes gradient when the value is not zero. Works with Mono.
+
 BEND RANGE
+
 	Pitch bend range.
+
 MOD MODE
+
 	Modulation mode.
+
 VELOCITY SW
+
 	Envelope generators become velocity sensitive when  it’s ON.
+
 MONO/DUO/POLY
+
 	* Mono = Mono (2OSCs per voice)
 	* Duo = Duo Tone (1 OSC per voice)
 	With duo tone mode, MIX should be middle and set the same parameters to both EGs.
 	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to combine polyphonic synth.
 	Please see  “Poly operation” for detail.
+
 LFO SYNC SW
+
 	LFO rate will synchronize with MIDI clock when it is ON.
 
 ### PRM:FM CONF
@@ -266,26 +320,41 @@ OSC1 and OSC2 share the FM parameter.
 On top of two FM engines, you can do FM modulation between oscillators.
 
 FM ALGORITHM
+
 	Selects FM algorithm
+
 FM (ABCD) AMP
+
 	Oscillator (ABCD)’s amplitude.
+
 FM (ABC) FREQ
+
 	Oscillator (ABC)’s frequency (multiple of frequency of D)
+
 PRM:ENV3/4 / Other
 
 OSC1 KEYSYNC SW
+
 	Frequency lock SW for OSC1. When it's OFF, it will ignore MIDI note.
+
 OSC2 KEYSYNC SW
+
 	Frequency lock SW for OSC2
+
 FM ENV3 CONN
+
 	Select operator(s) to connect ENV3
 		FM engine's operaters can use Envelope generator (Env3/Env4).
 	Part of Operators can be connected to ENV3. The connection is configurable by this parameter.
 	Technically ENV4 exists for OSC2’s FM engine, but the parameter is shared with ENV3.
 	After the processing it will be modulated by ENV1 or ENV2.
+
 ENV3/4 ATTACK
+
 ENV3/4 DECAY
+
 ENV3/4 SUSTAIN
+
 ENV3/4 RELEASE
 
 ### PLY:PLAY
@@ -296,23 +365,32 @@ Main Sequencer control mode.
 Some buttons will do the action just by pressing button, without rotating the dial.
 
 Button 1: Play/Stop the sequencer.
+
 Button 2: Transpose
+
 Button 3: Width(Note length)
+
 Button 4: Note Randomness
+
 Button 5: Arpeggiator
 
 Button 6 to Button 8 are for Looper. It always synchronizes with the sequencer.
 
 Button 6: Record / Overdub
+
 Button 7: Play the looper
+
 Button 8: Stop the playback or delete the recording.
 
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
 
 Left-filled circle : One note in the step.
+
 Right-filled circle : One note in the step but it plays at the second half.
+
 Full-filled circle : Two notes in the step(1/16th)
+
 Striped circle : 3 notes in the step (Triplet)
 
 ### PLY:SEQ BANK
@@ -320,6 +398,7 @@ The sequencer has 7 banks, you can switch the bank while playing.
 This will not be saved unless you press button 8.
 
 Button 1 to 7: Change bank 1 to 7
+
 Button 8: Save all banks to flash memory.
 
 ### PLY:SEQ TUNE
@@ -329,9 +408,13 @@ Press one of the eight buttons and turn the dial, then it will modify tune offse
 Press one of the eight buttons and turn the dial, then it will modify width(note length) offset for each step.
 
 ### PLY:SEQ CONFIG
+
 Button 1: BPM
+
 Button 2: Key (For Scale)
+
 Button 3: Scale. Playing note will be quantized by this scale.
+
 Button 4: Sequencer loop count. Default is 8.
 
 ### SET:LOAD(Bank 1 to 4)
@@ -394,30 +477,42 @@ Often time you may forget to set the channel to recording mode on DAW, then para
 
 
 ### TIPS/TROUBLESHOOT
+
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
 	Mix (set to center)
 	Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
 	Set OSCs setting identical to get the same tone.
 	VCF’s Keysync will not work well.
 	I suggest to start with simple patch.
+	
 * Suddenly NO SOUND!
+
 	Reset the device by pressing RST button if you are OK with it.
 	Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
 	Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
 	Level overflow may cause the silent (e.g. Giving massive delay feedback).
 	Maybe it’s not worth to spend time to figure out why, reset the device.
 	Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
+
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use UART MIDI or MIDI TRS A.
+
 * A Noise when you connect multiple devices (chained audio)
+
 	Probably it is because of ground loop. Use separated power supply. 
+
 * I hear the noise but I don’t connect anything to line in.
+
 	Toggle MIC/LINE select (in Prm:System), set to Line in.
 	Toggle Line THRU to off.
 	Check Mono/Poly Mode setting. If it’s poly mode, LINE IN pass through is ON.
 	Use different power supply. Basically it’s less noise by using separated charger.
+
 * Use hardware effectors to get better result. That’s one of the benefit using hardware synth.
+
 * Don’t be afraid to get clipped. Clipping could be the entrance to the new sound.
+
 * I want to use AUX as CV IN
+
 	AUX is connected to a lot of CV controls so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
 
 ### DC Coupling (ADVANCED and HIGH RISK of BREAK)
