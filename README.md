@@ -302,7 +302,7 @@ BEND RANGE
 
 MOD MODE
 
-	Modulation mode.
+	Modulation mode. `OSC1 and OSC2 (Pulse Width), OSC1 only, OSC2 only, or VCF's cutoff.`
 
 VELOCITY SW
 
@@ -310,11 +310,12 @@ VELOCITY SW
 
 MONO/DUO/POLY
 
+	One synthesizer can be used as Monophonic or Duophonic.
 	* Mono = Mono (2OSCs per voice)
 	* Duo = Duo Tone (1 OSC per voice)
 	With duo tone mode, MIX should be middle and set the same parameters to both EGs.
-	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to combine polyphonic synth.
-	Please see  “Poly operation” for detail.
+	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to build polyphonic synth.
+	Please see  “Polyphonic setup” for detail.
 
 LFO SYNC SW
 
