@@ -80,6 +80,7 @@ One CV is connected to LFO (For tune/width)
 Another one is selectable. It could be one of EG1 to EG4, AUX (Audio in), OSC2 signal, OSC2 signal after EG processing, Freq level out from OSC1, or Freq level out from OSC2.
 
 SHAPE
+
 	`Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX`
 	*AUX means audio input from LINE or MIC.
 	*FM has 4 operator inside. See FM Conf Sub mode for detail.
@@ -91,15 +92,19 @@ TUNE
 OCTAVE
 
 MOD TUNE
+
 	MOD bus feedback to tune.
 
 MOD WIDTH
+
 	MOD bus feedback to pulse width.
 
 LFO TUNE
+
 	LFO feedback to tune.
 
 LFO WIDTH
+
 	LFO feedback to pulse width.
 
 ### PRM:MIX
@@ -108,26 +113,33 @@ Mix controls mixer and effects.
 ![diagram_mix_aux](manual_images/diagram_mix_aux.jpg)
 
 OSC MIX
+
 	Balance between Osc1 and Osc2
 
 FM
+
 	FM modulation Osc2 to Osc1
 
 VCF VOLUME
+
 	Volume to VCF. It can be used as generic volume control.
 
 AUDIO IN GAIN
+
 	GAIN from Line in / Mic In
 
 ![diagram_effector](manual_images/diagram_effector.jpg)
 
 EFFECT TYPE
+
 	Delay, Chorus1, Chorus2, Flanger1, Flanger2
 
 EFFECT SPEED
+
 	Controls Effect LFO rate
 
 EFFECT DEPTH
+
 	Amount of effect
 
 EFFECT FEEDBACK
