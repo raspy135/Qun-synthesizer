@@ -212,11 +212,11 @@ LFO PULSE WIDTH
 LFO MOD TUNE
 
 	Envelope generator feedback to tune.
-	
+
 LFO MOD WIDTH
 
 	Envelope generator feedback to pulse width.
-	
+
 KEYSPLIT
 
 	This is very unique feature of the synth.
@@ -225,11 +225,11 @@ KEYSPLIT
 	Higher notes will generate higher LFO rate.
 	If you press multiple notes, it doubles and triples the rate.
 	It is great for live playing.
-	
+
 LFO GATESYNC
 
 	LFO’s phase is reset by every note hit when it is ON.
-	
+
 LFO MOD SEL
 
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
@@ -480,40 +480,36 @@ Often time you may forget to set the channel to recording mode on DAW, then para
 
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
 	Mix (set to center)
-	Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
-	Set OSCs setting identical to get the same tone.
-	VCF’s Keysync will not work well.
-	I suggest to start with simple patch.
+	* Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
+	* Set OSCs setting identical to get the same tone.
+	* VCF’s Keysync will not work well.
+	* I suggest to start with simple patch.
 	
 * Suddenly NO SOUND!
-
-	Reset the device by pressing RST button if you are OK with it.
-	Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
-	Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
-	Level overflow may cause the silent (e.g. Giving massive delay feedback).
-	Maybe it’s not worth to spend time to figure out why, reset the device.
-	Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
+	* Reset the device by pressing RST button if you are OK with it.
+	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
+	* Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
+	* Level overflow may cause the silent (e.g. Giving massive delay feedback).
+	* Maybe it’s not worth to spend time to figure out why, reset the device.
+	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
 
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use UART MIDI or MIDI TRS A.
 
 * A Noise when you connect multiple devices (chained audio)
-
-	Probably it is because of ground loop. Use separated power supply. 
+	* Probably it is because of ground loop. Use separated power supply. 
 
 * I hear the noise but I don’t connect anything to line in.
-
-	Toggle MIC/LINE select (in Prm:System), set to Line in.
-	Toggle Line THRU to off.
-	Check Mono/Poly Mode setting. If it’s poly mode, LINE IN pass through is ON.
-	Use different power supply. Basically it’s less noise by using separated charger.
+	* Toggle MIC/LINE select (in Prm:System), set to Line in.
+	* Toggle Line THRU to off.
+	* Check Mono/Poly Mode setting. If it’s poly mode, LINE IN pass through is ON.
+	* Use different power supply. Basically it’s less noise by using separated charger.
 
 * Use hardware effectors to get better result. That’s one of the benefit using hardware synth.
 
 * Don’t be afraid to get clipped. Clipping could be the entrance to the new sound.
 
 * I want to use AUX as CV IN
-
-	AUX is connected to a lot of CV controls so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
+	* AUX is connected to a lot of CV controls so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
 
 ### DC Coupling (ADVANCED and HIGH RISK of BREAK)
 ESP32 Lyrat board has capacitors for HPF.
