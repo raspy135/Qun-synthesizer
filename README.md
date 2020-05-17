@@ -396,7 +396,7 @@ Often time you may forget to set the channel to recording mode on DAW, then para
 ESP32 Lyrat board has capacitors for HPF.
 https://dl.espressif.com/dl/schematics/esp32-lyrat-v4.3-schematic.pdf
 Technically you can get DC-coupled input by removing and shorting C61 and C63.
-![dc_coupling](manual_images/dc_coupling.png)
+![dc_coupling](manual_images/dc_coupling.jpg)
 
 They are extremely small chips so put extra caution not to break the board.
 
