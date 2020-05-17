@@ -83,15 +83,22 @@ SHAPE
 	`Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX`
 	*AUX means audio input from LINE or MIC.
 	*FM has 4 operator inside. See FM Conf Sub mode for detail.
+
 PULSE WIDTH
+
 TUNE
+
 OCTAVE
+
 MOD TUNE
 	MOD bus feedback to tune.
+
 MOD WIDTH
 	MOD bus feedback to pulse width.
+
 LFO TUNE
 	LFO feedback to tune.
+
 LFO WIDTH
 	LFO feedback to pulse width.
 
@@ -102,10 +109,13 @@ Mix controls mixer and effects.
 
 OSC MIX
 	Balance between Osc1 and Osc2
+
 FM
 	FM modulation Osc2 to Osc1
+
 VCF VOLUME
 	Volume to VCF. It can be used as generic volume control.
+
 AUDIO IN GAIN
 	GAIN from Line in / Mic In
 
@@ -113,10 +123,13 @@ AUDIO IN GAIN
 
 EFFECT TYPE
 	Delay, Chorus1, Chorus2, Flanger1, Flanger2
+
 EFFECT SPEED
 	Controls Effect LFO rate
+
 EFFECT DEPTH
 	Amount of effect
+
 EFFECT FEEDBACK
 	Feedback for Delay
 
@@ -130,10 +143,13 @@ ENV1 and ENV2 are grouped to first voice with Duo mode. Env3 and Env4 are groupe
 
 ATTACK
 	Attach time
+
 DECAY
 	Decay time
+
 SUSTAIN
 	Sustain level
+
 RELEASE
 	Release time
 
