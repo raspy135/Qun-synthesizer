@@ -21,7 +21,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * 1 Organic sounding VCF
     * 2/4 Poles, Low-pass, Band-pass, High-pass, Notch)
     * Keysync
-  * 1 Effect (Delay, Chrus, Flanger)
+  * 1 Effect (Delay, Chorus, Flanger)
   * MIDI clock sync
 * Player / Sequencer
   * Player (Piano mode)
