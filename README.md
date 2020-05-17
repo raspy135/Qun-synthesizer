@@ -331,7 +331,21 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 FM ALGORITHM
 
-	Selects FM algorithm
+	Selects FM algorithm. "ABCD" incidates each operators.
+	Vertical relationship means upper operator modulates lower operator.
+	For example,
+	```
+	    A
+	B C D
+	```
+	This means that operator A modulates operator D. B, C and modulated D will be mixed in parallel.
+	```
+	A
+	B
+	C
+	D
+	```
+	This means A modulates B, the result modulates C, the result modulates D.
 
 FM (ABCD) AMP
 
