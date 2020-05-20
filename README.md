@@ -11,6 +11,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 
 * Analog Modeling engine
   * The analog modeling engine is **made from scratch**.
+  * Uses small buffer to audio codec chip. Audio driver latency is about 1 ms.
   * All analog modeling engine parameters can be configured through MIDI. 
   * 2 Oscillators, it can be used as dual tone. 
   * **Flexible** MOD (CV) routing. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
