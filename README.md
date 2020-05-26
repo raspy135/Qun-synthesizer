@@ -558,6 +558,7 @@ If it start making ground loop noise, use separated power supply.
 ## TIPS/TROUBLESHOOT
 
 * Unknown MIDI messages sent with device reset?
+  
   * When booting some noise is sent (It's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
 	* Mix in Mix sub menu has to be center (64).
@@ -567,9 +568,9 @@ If it start making ground loop noise, use separated power supply.
 	* I suggest to start with simple patch.
 	  	1. Initialize a patch (Long pressing (4 sec) Rec button)
    	2. Set Mix to 64 (in Mix submenu)
-	   	3. Set OSC2 Env Sel to EG2 (in OSC Switches)
-	   	4. Set Mono/Duo/Poly mode to "Duo"
-	   	5. Now you should be able to play up to 2 voices.
+	      	3. Set OSC2 Env Sel to EG2 (in OSC Switches)
+	         	4. Set Mono/Duo/Poly mode to "Duo"
+	            	5. Now you should be able to play up to 2 voices.
 	
 * Suddenly NO SOUND!
 	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
@@ -603,6 +604,7 @@ If it start making ground loop noise, use separated power supply.
 	* If you have advanced soldering skill or SMD rework station, you can get DC coupled LINE IN. Please read the following DC Coupling section.
 	
 * MIDI is flooding when I connect MIDI out.
+	
 	* Probably MIDI forwarding is ON.
 
 ## External Audio processing
