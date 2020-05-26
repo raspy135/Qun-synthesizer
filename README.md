@@ -10,7 +10,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * Originally designed for smart speaker. Qun synthesizer uses it to archive affordable pricing.
 
 * **Analog Modeling engine**
-  * The analog modeling engine is **an original, made from scratch**. It uses advanced argorithms for great organic sound. The engine is not a copy of one of classic synths, it is designed to make a modern sound.
+  * The analog modeling engine is **an original, made from scratch**. It uses advanced algorithms for great organic sound. The engine is not a copy of one of classic synths, it is designed to make a modern sound.
   * It utilizes every single clock of ESP32's CPU power.
   * Ultra low latency around  < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be archived because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
   * All analog modeling engine parameters can be configured through MIDI. 
@@ -27,7 +27,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
     * Keysync
   * 1 Effect (Delay, Chorus, Flanger)
   * MIDI clock sync
-  * **Advanced 3 Clipping alrorithms** gives an organic clipping sound
+  * **Advanced 3 Clipping algorithms gives an organic clipping sound
 * Player / Sequencer
   * Player (Piano mode)
   * Random mind inspiring 8 step sequencer will generate beats for you
@@ -44,7 +44,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 ## CONNECTIONS
 
 * Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
-* BLE MIDI : IOS or Mac OS X are supported. Windows are NOT supported. BLE MIDI has 15 to 20ms latency in general, it's limitation of BLE spec. For lower latency, use MIDI or UART MIDI.
+* BLE MIDI : IOS or Mac OS X are supported. Windows are NOT supported. BLE MIDI has 15 to 20ms latency in general, it is limitation of BLE spec. For lower latency, use MIDI or UART MIDI.
 * MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
 * UART MIDI: You can use UART MIDI instead of traditional MIDI interface. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of UART MIDI, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
@@ -61,7 +61,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 * ![major_mode_change](manual_images/major_mode_change.gif)
 
 ## BASIC OPERATION
-Each major mode has sub modes. Select sub mode (For example, `Prm:OSC1` is a sub mode for Oscillator 1.
+Each major mode has sub modes. Select sub mode. For example, `Prm:OSC1` is a sub mode for Oscillator 1.
 * To switch sub mode, press Mode button (on the top board) + rotate dial. Keep pressing Mode button while you are selecting sub mode.
 * ![sub_mode_change](manual_images/sub_mode_change.gif)
 * If you press Mode button and released, sticky mode button is activated(Square is indicated next to mode name)). If you press one of 8 buttons, this will change first 8 of Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2(Second button of the 8 buttons) will switch to OSC2 sub mode.
@@ -73,7 +73,7 @@ Once you selected the parameter, the parameter is assigned to the dial.
 * Rotate the dial = Change the current parameter. 
 * ![parameter_select_change](manual_images/parameter_select_change.gif)
 
-*Some parameters does action just by pressing the button. (e.g. load preset)
+*Some parameters do an action just by pressing the button. (e.g. load preset)
 
 ### Dumping current preset
 All tone configuration can be specified as sort of MIDI CC signals.Pressing “REC” button will dump all configuration.
@@ -87,7 +87,7 @@ Pressing “Mode” button on the base board (not Red top board) will turn on / 
 ### PRM:OSCILLATOR1,2
 ![diagram_osc](manual_images/diagram_osc.jpg)
 
-**Blue : sources, Green: output**. This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike real hardware synths, all parameters can be controlled via MIDI even it's shown as dial.
+**Blue : sources, Green: output**. This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike real hardware synths, all parameters can be controlled via MIDI including dials.
 
 The oscillator is a hybrid of classic analog synth and FM. FM has its own parameters, it can be configured in FM conf / ENV3/4 Other Mode.
 
@@ -397,7 +397,7 @@ ENV3/4 RELEASE
 ## PLAY MODE
 
 ### PLY:PLAY
-Simple playing mode by using 8buttons. Scale will be determined by the scale setting. Useful to check the sound. Probably not useful for live performance. The sequencer is more practical for live performance (Or just use external sequencer / DAW).
+The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. Probably it is not useful for live performance. The sequencer is more practical for live performance (Or just use external sequencer / DAW).
 
 ### PLY:SEQ PLAY
 Main Sequencer control mode.
@@ -515,7 +515,7 @@ Configure master device (MIDI keyboard or DAW software) to echo all received MID
 
 ### Method B. Standalone setup
 
-Connect Master's MIDI out to Slave's MIDI IN. Or Master's TX to Slave's RX (Master's pin 2 to Slave's pin3, pin4 to pin4.
+Connect Master's MIDI out to Slave's MIDI IN. Or Master's TX to Slave's RX (Master's pin 2 to Slave's pin3, pin4 to pin4).
 Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more stable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW.
 Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. MIDI forwarding setting will cause MIDI message flood.
 
@@ -588,7 +588,7 @@ If it start making ground loop noise, use separated power supply.
 	* Check Mono/Poly Mode setting. If it’s poly mode, LINE IN pass through is ON.
 * Use different power supply. Basically it’s less noise by using separated charger.
 	
-* Use hardware effectors to get better result. That’s one of the benefit using hardware synth.
+* Use other hardware effectors!
 
 * Don’t be afraid to get clipped! The synth has a great clipping algorithms. Clipping could be the entrance to the new sound.
 
@@ -608,7 +608,7 @@ If it start making ground loop noise, use separated power supply.
 You can use LINE IN signal for various purposes.
 
 * As CV input to control synth parameters
-* As audio signal. VCF / effector / Clipping will be applied.
+* As an audio signal. VCF / effector / Clipping will be applied.
 
 If you want to use LINE IN signal as an audio signal, then set Oscillator(1/2)'s signal as "AUXR" or "AUXL", and set the ENV SEL as "ON" (in OSC Switches). Set the gain by changing "VCF Volume" and "AUX In Gain" in Mix submenu. 
 
