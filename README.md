@@ -3,27 +3,21 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 
 ![qun_synth](./manual_images/qun_synth.jpg)
 
-### Overview
+## Overview
 - Connectivity: Standard MIDI(TRS A type), BLE MIDI, UART MIDI(Supports MAC OS X and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
 
 * ESP32 Lyrat
   * Originally designed for smart speaker. Qun synthesizer uses it to archive affordable pricing.
 
-<<<<<<< HEAD
 * **Analog Modeling engine**
   * The analog modeling engine is **an original, made from scratch**. It uses advanced argorithms for great organic sound. The engine is not a copy of one of classic synths, it is designed to make a modern sound.
   * It utilizes every single clock of ESP32's CPU power.
   * Ultra low latency around  < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be archived because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
-=======
-* Analog Modeling engine
-  * The analog modeling engine is **made from scratch**.
-  * Uses small buffer to audio codec chip. Audio driver latency is about 1 ms.
->>>>>>> 58b8264afcb6be2bc73cadc9b088ef551b222c26
   * All analog modeling engine parameters can be configured through MIDI. 
   * Clean 2 Oscillators, it can be used as dual tone. 
   * The synth can be stacked to archive **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
-  * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for external audio signal, or **External CV inputs**
+  * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
   * 4 Envelove Generators
   * FM (4 Operators x 2)
   * 1 LFO, rate can be controlled by MIDI notes
