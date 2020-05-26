@@ -7,22 +7,27 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 - Connectivity: Standard MIDI(TRS A type), BLE MIDI, UART MIDI(Supports MAC OS X and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
 
 * ESP32 Lyrat
-  * Originally designed for smart speaker.
+  * Originally designed for smart speaker. Qun synthesizer uses it to archive affordable pricing.
 
-* Analog Modeling engine
-  * The analog modeling engine is **made from scratch**.
+* **Analog Modeling engine**
+  * The analog modeling engine is **an original, made from scratch**. It uses advanced argorithms for great organic sound. The engine is not a copy of one of classic synths, it is designed to make a modern sound.
+  * It utilizes every single clock of ESP32's CPU power.
+  * Ultra low latency around  < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be archived because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
   * All analog modeling engine parameters can be configured through MIDI. 
-  * 2 Oscillators, it can be used as dual tone. 
-  * **Flexible** MOD (CV) routing. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
-  * AUX input can be used for external audio signal, or **External CV input**.
+  * Clean 2 Oscillators, it can be used as dual tone. 
+  * The synth can be stacked to archive **Polyphonic** setup. 
+  * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
+  * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for external audio signal, or **External CV inputs**
   * 4 Envelove Generators
   * FM (4 Operators x 2)
   * 1 LFO, rate can be controlled by MIDI notes
   * 1 Organic sounding VCF
     * 2/4 Poles, Low-pass, Band-pass, High-pass, Notch)
+    * **Organic Linear and classic Non-linear**
     * Keysync
   * 1 Effect (Delay, Chorus, Flanger)
   * MIDI clock sync
+  * **Advanced 3 Clipping alrorithms** gives an organic clipping sound
 * Player / Sequencer
   * Player (Piano mode)
   * Random mind inspiring 8 step sequencer will generate beats for you
@@ -38,7 +43,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 
 ### CONNECTIONS
 
-* Power : Use good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
+* Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
 * BLE MIDI : IOS or Mac OS X are supported. Windows are NOT supported. BLE MIDI has 15 to 20ms latency in general, it's limitation of BLE spec. For lower latency, use MIDI or UART MIDI.
 * MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
 * UART MIDI: You can use UART MIDI instead of traditional MIDI interface. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
@@ -186,14 +191,14 @@ OSC has many switches to change its behavior.
 ENV Sel
 
 	Selects Envelope(VCA) for the oscillator.
-	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
+	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`
 WIDE TUNE
 
 	When it is ON,you can tune wider range by OSC’s tune parameter.
 MOD SEL
 
 	Select Mod signal source. It is connected to OSC's tune or width.
-	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
+	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`
 
 ENV INV SW
 
@@ -245,7 +250,7 @@ LFO MOD SEL
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
 
 ### PRM:VCF
-The synth has one filter.
+The synth has one filter. LPF / BPF/ HPF / Notch can be selected. Also it has 4/2 poles switch, and linear and non-linear switch. Linear gives organic resonance, Non-linear gives more character.
 
 ![diagram_vcf](manual_images/diagram_vcf.jpg)
 
@@ -279,19 +284,20 @@ OSC1 BYPASS
 
 VCF KEYSYNC
 
-	When it is not zero, VCF’s cutoff will follow s the playing note.  Higher value is more sensitive.
+	When it is not zero, VCF’s cutoff will follows the playing note.  Higher value is more sensitive.
 	Great with Mono, but not working well with Duo tone because it has only one VCF.
 
 ### PRM:KEY/OTHER
 Configures other parameters.
 
-VCF 4/2 POLE SW
+VCF 4/2 POLE / NoLinear
 
-	Change filter's number of poles. 2 poles(12dB/Oct) when it is ON. 4 poles(24dB/Oct) when it is OFF.
+	Change filter's number of poles, and selects linear or non-linear. 2 Poles is -12db/oct, 4 Poles is -24db/oct. 2 Poles filter gives brighter character. Linear(LI) has less character, but resonances sharp and more organic like real instruments. Non-linear(NL) has more character, has more harmonics, close to other synthesizers. 
+	If you use cutoff envelope, typically Non-linear is suitable.
 
 VCF MOD SEL
 
-	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
+	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`
 
 GLIDE
 
@@ -356,7 +362,7 @@ FM (ABC) FREQ
 
 	Oscillator (ABC)’s frequency (multiple of frequency of D)
 
-PRM:ENV3/4 / Other
+### PRM:ENV3/4 / Other
 
 OSC1 KEYSYNC SW
 
@@ -365,6 +371,10 @@ OSC1 KEYSYNC SW
 OSC2 KEYSYNC SW
 
 	Frequency lock SW for OSC2
+
+Clipping
+
+	Clipping algorithm. "GRAIN", "MID" or "SOFT". The clipping alrorithm will give a good distortion sound, you can even use the synth as multi-effector. See "External Audio processing" for detail.
 
 FM ENV3 CONN
 
@@ -381,6 +391,8 @@ ENV3/4 DECAY
 ENV3/4 SUSTAIN
 
 ENV3/4 RELEASE
+
+## PLAY MODE
 
 ### PLY:PLAY
 Simple playing mode by using 8buttons. Scale will be determined by the scale setting. Useful to check the sound. Probably not useful for live performance. The sequencer is more practical for live performance (Or just use external sequencer / DAW).
@@ -442,6 +454,8 @@ Button 3: Scale. Playing note will be quantized by this scale.
 
 Button 4: Sequencer loop count. Default is 8.
 
+## SETTING MODE
+
 ### SET:LOAD(Bank 1 to 4)
 Load from the saved preset.
 Pressing button 1 to 8 will load preset 1 to 8. It has 4 banks.
@@ -453,7 +467,7 @@ Pressing button 1 to 8 will save to preset 1 to 8. It has 4 banks.
 ### SET:SYSTEM
 System Setting is the setting that is not included in the patch setting. To change the parameter, press the one of 8 buttons and rotate the dial.
 
-AUX:Audio source select. Mic(the board has two onboard microphones) or Line in. To avoid confusion, the setting will not be saved. LINE in is the default.
+AUX:Audio source select. Mic(the board has two onboard microphones) or Line in. To avoid confusion, the setting will not be saved. LINE in is the default. When MIC is selected, turn on "Line in HPF" to eliminate DC. 
 
 Number of devices: Number of devices for poly mode. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
@@ -461,99 +475,166 @@ Device Index : Device Index. Set 1 if you don’t have multiple devices. It will
 
 LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory.
 
-LINE in HPF: Off is default. LINE in has external(On the Lyrat board) and internal(In the ES8388 codec chip) high-pass filter. This setting changes internal HPF. Technically you can get DC-coupled LINE in by changing ESP32 Lyrat board. This is useful when you use LINE IN as CV from external modules. See `DC coupling` section for detail.
+LINE in HPF: Off is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Technically you can get DC-coupled LINE in by changing ESP32 Lyrat board. This setting is useful when you use LINE IN as CV from external modules. See `DC coupling` section for detail.
 
-### POLYPHONIC SETUP
+## POLYPHONIC SETUP
 The synth can be used as Mono or Duo tone if you have one device.
 The voice number can be increased up to 8(with Duo mode), by stacking up the synths.
 
-Connection / Configuration:
+(Tested well with two devices, more than 2 devices is experimental)
 
-Polyphonic setup won’t work as standalone.
+### Audio connection
+
+There are two ways for audio setup:
+
+1. Connect Slave's audio out to Master's Line IN. It is recommended for most of cases. It will save audio input to the mixer or audio interface, and Master will process Slave's audio digitally, so it will get a nice soft clipping. That is great for polyphonic (Polyphonic is easier to reach clipping level). It has a little latency by the process, but probably it is not noticable. 
+2. Connect all audio signals to your mixer. Technically there is no latency but it will use more audio inputs.
+
+### Method A. With DAW or MIDI control center and the device will route all imcoming messages to MIDI OUT. 
 
 It assumes you connect the synths to the DAW or MIDI controller that will echo the synth’s MIDI OUT to MIDI IN. Normally it can be done by just turning on recording mode in the DAW.
 Some hardware MIDI keyboard might have the feature.
 Set up MIDI to receive exact same data for all devices. It can be done by any way of MIDI connection, but using UART or classic MIDI will be easier than BLE MIDI.
-If you use UART or classic MIDI, use the 4 pin located above the OLED screen.
+If you use UART or classic MIDI, you can use the 4 pin located above the OLED screen to connect between devices.
 
 Pin connection is showing as below:
+
 ```
+1   2   3   4
 V   T   R   G
 C   X   X   N
 C           D
 ```
 Determine master and slave devices. Slave device can be headless.
-Connect Master’s RX to slave’s RX, Master’s GND to slave’s GND. This will connect MIDI-IN signal between devices. VCC and TX are not used.
-Power both devices. Sometimes ground-loop noise can be happened. This case use separated power supply.
+Connect Master’s RX to slave’s RX, Master’s GND to slave’s GND (pin 3 to 3, pin 4 to 4). This will connect MIDI-IN signal between devices. VCC and TX are not used.
+Sometimes ground-loop noise can be happened. This case use separated power supply.
 Connect MIDI to the master.
 Configure master device (MIDI keyboard or DAW software) to echo all received MIDI signal. Typically it means set the channel to recording mode. All DAW should have the capability.Some MIDI keyboard may not have the setting.
 
-If the set up is correct, you will hear the sound from both devices when you play notes.
-After you confirmed it, connect slave’s output to Master’s line in. Then you don’t need two audio inputs for audio interface.
+### Method B. Standalone setup
 
-Set number of devices and Device index in the System configuration. Device index = 1 is master. This configuration will be stored in the flash memory.
-Configure master’s tone, get your favorite sound.
-If you use Mono mode, set MONO/DUO/POLY config to “PolyMono” mode. Then you will get two voices if the number of device is two.
-If you use Duo mode, set MONO/DUO/POLY config to “PolyDuo” mode. Then you will get four voices if the number of device is two.
-At the point the parameters are not synchronized state, only master is configured properly. To synchronize all parameters, press “Rec” button to dump all parameters. It will be sent to slave devices.
-You can play notes.
-Often time you may forget to set the channel to recording mode on DAW, then parameter will be out of sync state. Pressing “Rec” button will sync the parameters.
+Connect Master's MIDI out to Slave's MIDI IN. Or Master's TX to Slave's RX (Master's pin 2 to Slave's pin3, pin4 to pin4.
+Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more stable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW.
+Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. MIDI forwarding setting will cause MIDI message flood.
+
+Also because it is forwarding MIDI signal, it has a bit of latency.
+
+### Preset setup for Polyphonic
+
+Minimum setup to archive PolyMono (2 Oscillators per voice) will be the following with 2 devices setup:
+
+1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
+2. Iniaialize a preset (4 second press of Rec button) on Master device.
+3. Make sure it can play initial SAW wave sound.
+4. Go Key / Other submenu and set MonoDuoPolyMode to "PolyMono"
+5. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
+6. Play multiple notes. You should hear two voices.
+
+Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following with 2 devices setup:
+
+1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
+2. Iniaialize a preset (4 second press of Rec button) on Master device.
+3. Make sure it can play initial SAW wave sound.
+4. Set "MIX" parameter in Mix menu to 64. It should mix Osc1 and Osc2.
+5. Set "OSC Env SEL" to use EG2.
+6. Go Key / Other submenu and set MonoDuoPolyMode to "PolyDuo"
+7. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
+8. Play multiple notes. You should hear four voices.
+
+### Polyphonic tips
+
+Two devices becomes out of synchronized easily.
+To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. 
+
+If it start making ground loop noise, use separated power supply.
 
 
+## TIPS/TROUBLESHOOT
 
-### TIPS/TROUBLESHOOT
-
+* Unknown MIDI messages sent with device reset?
+  * When booting some noise is sent (It's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
-	Mix (set to center)
+	* Mix in Mix sub menu has to be center (64).
 	* Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
-	* Set OSCs setting identical to get the same tone.
+	* Set OSCs setting identical to get the same tone. Associated Envelopes parameters also need to be identical. (e.g. EG1 and EG2 setting should be identical)
 	* VCF’s Keysync will not work well.
 	* I suggest to start with simple patch.
+	  	1. Initialize a patch (Long pressing (4 sec) Rec button)
+   	2. Set Mix to 64 (in Mix submenu)
+	   	3. Set OSC2 Env Sel to EG2 (in OSC Switches)
+	   	4. Set Mono/Duo/Poly mode to "Duo"
+	   	5. Now you should be able to play up to 2 voices.
 	
 * Suddenly NO SOUND!
-	* Reset the device by pressing RST button if you are OK with it.
 	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
 	* Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
 	* Level overflow may cause the silent (e.g. Giving massive delay feedback).
-	* Maybe it’s not worth to spend time to figure out why, reset the device.
+	* Maybe it’s not worth to spend time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
-
+	
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use UART MIDI or MIDI TRS A.
 
 * A Noise when you connect multiple devices (chained audio)
+	
 	* Probably it is because of ground loop. Use separated power supply. 
-
+	
 * I hear the noise but I don’t connect anything to line in.
 	* Toggle MIC/LINE select (in Prm:System), set to Line in.
 	* Toggle Line THRU to off.
+	* Initialize a preset.
 	* Check Mono/Poly Mode setting. If it’s poly mode, LINE IN pass through is ON.
-	* Use different power supply. Basically it’s less noise by using separated charger.
-
+* Use different power supply. Basically it’s less noise by using separated charger.
+	
 * Use hardware effectors to get better result. That’s one of the benefit using hardware synth.
 
-* Don’t be afraid to get clipped. Clipping could be the entrance to the new sound.
+* Don’t be afraid to get clipped! The synth has a great clipping algorithms. Clipping could be the entrance to the new sound.
 
 * I want to use AUX as CV IN
 	* CV signal from modular synthesizers may have **HIGH VOLTAGE**! Please attenuate the voltage to normal LINE level (1 to 1.5V).
+	
 	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
+	
 	* If you have advanced soldering skill or SMD rework station, you can get DC coupled LINE IN. Please read the following DC Coupling section.
+	
+* MIDI is flooding when I connect MIDI out.
+	* Probably MIDI forwarding is ON.
 
-### DC Coupling (ADVANCED : HIGH RISK of BREAKING BOARD)
+## External Audio processing
+
+You can use LINE IN signal for various purposes.
+
+* As CV input to control synth parameters
+* As audio signal. VCF / effector / Clipping will be applied.
+
+If you want to use LINE IN signal as an audio signal, then set Oscillator(1/2)'s signal as "AUXR" or "AUXL", and set the ENV SEL as "ON" (in OSC Switches). Set the gain by changing "VCF Volume" and "AUX In Gain" in Mix submenu. 
+
+The synth's clipping algorithm can be used as guitar distortion and it is really good. However the interfaces are not designed for guitar, so you need the following things:
+
+* LINE IN's input impedance is low, it cannot take guitar signal directly. Insert buffer amp to get proper sound.
+* LINE IN is stereo input. Use a proper cable to convert the signal path.
+
+
+
+## DC Coupling LINE IN (ADVANCED : HIGH RISK of BREAKING BOARD)
 ESP32 Lyrat board has capacitors in LINE IN signal path to cut DC.
 https://dl.espressif.com/dl/schematics/esp32-lyrat-v4.3-schematic.pdf
-Technically you can get DC-coupled input by removing and shorting C61 and C63.
+Technically you can get DC-coupled input by removing C61, C62, C63 and shorting C61 and C63 (**Do not short C62**).
 ![dc_coupling](manual_images/dc_coupling.jpg)
 
 They are extremely small chips so put extra caution not to break the board.
 
-It is OK to short even between channels, the signal will be downmixed. Using hot air for SMD reworking is recommended.
+If it is hard to short C61 and C63 individually, It is OK to short even between channels, the signal will be downmixed in this case. If you want 2 CV channels, you need to short them individually. Using hot air for SMD reworking is recommended.
 
 Even after the modification, still you can enable internal HPF in the ES8388 code chip. You can configure this in the system menu.
 
 
 
-
 ### Supported MIDI Control numbers
+
+Basically all tone-related parameters can be controlled by MIDI CC signal.
+
+Therefore a set of MIDI CC signal can be used as preset save data.
+
 ```
                             "Save Preset", //0x0
                             "Mod Wheel", //1
@@ -599,7 +680,7 @@ Even after the modification, still you can enable internal HPF in the ES8388 cod
                             "Efct Speed", //7
                             "VCF Type", //8
                             "Efct Depth", //9
-                            "", //a
+                            "Clipping", //a
                             "", //b
                             "Efct Type", //c
                             "VCF OSC1 bypass SW", //d
