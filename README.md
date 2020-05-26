@@ -41,7 +41,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
     
     * Play / Rec / Overdub
 
-### CONNECTIONS
+## CONNECTIONS
 
 * Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
 * BLE MIDI : IOS or Mac OS X are supported. Windows are NOT supported. BLE MIDI has 15 to 20ms latency in general, it's limitation of BLE spec. For lower latency, use MIDI or UART MIDI.
@@ -50,7 +50,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 	* For detail of UART MIDI, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals. It also has microphones.
 
-### MAJOR MODES
+## MAJOR MODES
 
  The synth has three major modes, it can be changed by pressing ESP32 Lyrat's three touch buttons. Parameter mode is the main mode of the synthesizer. :
 
@@ -60,7 +60,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 (VOL- button is disabled by hardware)
 * ![major_mode_change](manual_images/major_mode_change.gif)
 
-### BASIC OPERATION
+## BASIC OPERATION
 Each major mode has sub modes. Select sub mode (For example, `Prm:OSC1` is a sub mode for Oscillator 1.
 * To switch sub mode, press Mode button (on the top board) + rotate dial. Keep pressing Mode button while you are selecting sub mode.
 * ![sub_mode_change](manual_images/sub_mode_change.gif)
@@ -81,6 +81,8 @@ If you record the MIDI signals to your MIDI recorder or DAW, it can be used as t
 
 ### All note off
 Pressing “Mode” button on the base board (not Red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
+
+## Parameter Mode
 
 ### PRM:OSCILLATOR1,2
 ![diagram_osc](manual_images/diagram_osc.jpg)
@@ -564,7 +566,7 @@ If it start making ground loop noise, use separated power supply.
    	2. Set Mix to 64 (in Mix submenu)
 	      	3. Set OSC2 Env Sel to EG2 (in OSC Switches)
 	         	4. Set Mono/Duo/Poly mode to "Duo"
-	            	5. Now you should be able to play up to 2 voices.
+	                  	5. Now you should be able to play up to 2 voices.
 	
 * Suddenly NO SOUND!
 	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
