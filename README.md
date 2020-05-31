@@ -644,6 +644,7 @@ Even after the modification, still you can enable internal HPF in the ES8388 cod
 Basically all tone-related parameters can be controlled by MIDI CC signal.
 
 Therefore a set of MIDI CC signal can be used as preset save data.
+Program change will load a preset.
 
 ```
                             "Save Preset", //0x0
@@ -763,7 +764,7 @@ Therefore a set of MIDI CC signal can be used as preset save data.
                             "ENV2 Release", //c
                             "OSC1 Mod Tune", //d
                             "OSC1 Mod Width", //e
-                            "VCF 4/2 Pole SW", //f
+                            "VCF Pole / NoLinear", //f
                             //-----------------------0x70
                             "OSC2 Mod Tune", //0x0
                             "OSC2 Mod Width", //1
@@ -777,6 +778,144 @@ Therefore a set of MIDI CC signal can be used as preset save data.
                             "", //9
                             "", //a
                             "All Notes Off", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "" //f
+};
+
+char *system_config_names[] = {
+                            "Num of Devices", //0x0
+                            "Device Index", //1
+                            "MIDI channel", //2
+                            "MIDI Baud rate", //3
+                            "Recv MIDI ch", //4
+                            "MIDI FW SW", //5
+                            "LINE IN THRU", //6
+                            "LINE IN HPF", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "", //f
+                            //-----------------------0x10
+                            "", //0x0
+                            "", //1
+                            "", //2
+                            "", //3
+                            "", //4
+                            "", //5
+                            "", //6
+                            "", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "", //f
+                            //-----------------------0x20
+                            "", //0x0
+                            "", //1
+                            "", //2
+                            "", //3
+                            "", //4
+                            "", //5
+                            "", //6
+                            "", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "", //f
+                            //-----------------------0x30
+                            "", //0x0
+                            "", //1
+                            "", //2
+                            "", //3
+                            "", //4
+                            "", //5
+                            "", //6
+                            "", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "", //f
+                            //-----------------------0x40
+                            "", //0x0
+                            "", //1
+                            "", //2
+                            "", //3
+                            "", //4
+                            "", //5
+                            "", //6
+                            "", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "", //f
+                            //-----------------------0x50
+                            "", //0x0
+                            "", //1
+                            "", //2
+                            "", //3
+                            "", //4
+                            "", //5
+                            "", //6
+                            "", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "", //f
+                            //-----------------------0x60
+                            "", //0x0
+                            "", //1
+                            "", //2
+                            "", //3
+                            "", //4
+                            "", //5
+                            "", //6
+                            "", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
+                            "", //c
+                            "", //d
+                            "", //e
+                            "", //f
+                            //-----------------------0x70
+                            "", //0x0
+                            "", //1
+                            "", //2
+                            "", //3
+                            "", //4
+                            "", //5
+                            "", //6
+                            "", //7
+                            "", //8
+                            "", //9
+                            "", //a
+                            "", //b
                             "", //c
                             "", //d
                             "", //e
