@@ -14,7 +14,8 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * It utilizes every single clock of ESP32's CPU power.
   * Ultra low latency around  < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be archived because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
   * All analog modeling engine parameters can be configured through MIDI. 
-  * Clean 2 Oscillators, it can be used as dual tone. 
+  * Clean 2 Oscillators. Cheap synthesizers compromise this part sometimes, but QUN has no-alias noise Oscillators. Also all of internal calculation is done by floating point for the sound quality.
+  * Oscillators can be used as dual tone. 
   * The synth can be stacked to archive **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
   * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
