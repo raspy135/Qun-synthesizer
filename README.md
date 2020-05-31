@@ -102,6 +102,12 @@ SHAPE
 	*FM has 4 operator inside. See FM Conf Sub mode for detail.
 
 PULSE WIDTH
+	
+	The synth has an unique behavior with pulse width.
+	You can modulate the wave shape by pulse width, not only limited to Square wave.
+	* Triangle
+	* SAW
+	* Square
 
 TUNE
 
