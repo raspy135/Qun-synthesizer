@@ -486,6 +486,8 @@ LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass thro
 
 LINE in HPF: Off is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Technically you can get DC-coupled LINE in by changing ESP32 Lyrat board. This setting is useful when you use LINE IN as CV from external modules. See `DC coupling` section for detail.
 
+Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and LFO. See `Clock synchronization` for detail. This could make some confusion so this setting will not be saved to flash memory.
+
 ## POLYPHONIC SETUP
 The synth can be used as Mono or Duo tone if you have one device.
 The voice number can be increased up to 8(with Duo mode), by stacking up the synths.
@@ -522,7 +524,7 @@ Configure master device (MIDI keyboard or DAW software) to echo all received MID
 
 ### Method B. Standalone setup
 
-Connect Master's MIDI out to Slave's MIDI IN. Or Master's TX to Slave's RX (Master's pin 2 to Slave's pin3, pin4 to pin4).
+Connect Master's MIDI out to Slave's MIDI IN. This will not make any ground connection, it will prevent ground loop noise.
 Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more stable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW.
 Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. MIDI forwarding setting will cause MIDI message flood.
 
@@ -624,12 +626,25 @@ The synth's clipping algorithm can be used as guitar distortion and it is really
 * LINE IN's input impedance is low, it cannot take guitar signal directly. Insert buffer amp to get proper sound.
 * LINE IN is stereo input. Use a proper cable to convert the signal path.
 
+## Clock synchronization
+
+The synth can take external clock sources from other synthesizers. When the sync is enabled, sequencer BPM / start / stop is synchronized with external synthesizer or sequencer.
+The synth cannot be a master.
+
+### MIDI clock
+Set your DAW to send MIDI clock. We tested Ableton Live and Logic Pro X. It has some latency so please adjust latency setting in your DAW to match the timing.
+### Sync IN
+The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage (e.g. 8V) to the synth, it will break. The signal must be supplied to LEFT channel (TIP of TRS connector). Using TIP as a sync signal is compatible with Teenage engineering's Pocket Operator. Supply voltage needs to be more than 500mV. RIGHT channel(AUXR) still can be used as audio signal or CV in.
+
 
 
 ## DC Coupling LINE IN (ADVANCED : HIGH RISK of BREAKING BOARD)
 ESP32 Lyrat board has capacitors in LINE IN signal path to cut DC.
 https://dl.espressif.com/dl/schematics/esp32-lyrat-v4.3-schematic.pdf
-Technically you can get DC-coupled input by removing C61, C62, C63 and shorting C61 and C63 (**Do not short C62**).
+
+**C62 is removed by us** to get channel separation.
+
+Technically you can get DC-coupled input by removing C61 and C63 and shorting C61 and C63 (**Do not short C62**).
 ![dc_coupling](manual_images/dc_coupling.jpg)
 
 They are extremely small chips so put extra caution not to break the board.
@@ -784,141 +799,4 @@ Program change will load a preset.
                             "", //e
                             "" //f
 };
-
-char *system_config_names[] = {
-                            "Num of Devices", //0x0
-                            "Device Index", //1
-                            "MIDI channel", //2
-                            "MIDI Baud rate", //3
-                            "Recv MIDI ch", //4
-                            "MIDI FW SW", //5
-                            "LINE IN THRU", //6
-                            "LINE IN HPF", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
-                            //-----------------------0x10
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
-                            //-----------------------0x20
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
-                            //-----------------------0x30
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
-                            //-----------------------0x40
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
-                            //-----------------------0x50
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
-                            //-----------------------0x60
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
-                            //-----------------------0x70
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "" //f
 ```
