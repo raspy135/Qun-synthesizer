@@ -216,6 +216,8 @@ ENV INV SW
 ### PRM:LFO
 LFO is similar to OSC, although selectable shape is slightly different.
 
+External clock sync setting is available in "PRM:KEY/OTHER" menu.
+
 ![diagram_lfo](manual_images/diagram_lfo.jpg)
 
 LFO TUNE
@@ -301,8 +303,9 @@ Configures other parameters.
 
 VCF 4/2 POLE / NoLinear
 
-	Change filter's number of poles, and selects linear or non-linear. 2 Poles is -12db/oct, 4 Poles is -24db/oct. 2 Poles filter gives brighter character. Linear(LI) has less character, but resonances sharp and more organic like real instruments. Non-linear(NL) has more character, has more harmonics, close to other synthesizers. 
-	If you use cutoff envelope, typically Non-linear is suitable.
+	Change filter's number of poles, and selects linear or non-linear. 2 Poles is -12db/oct, 4 Poles is -24db/oct. 2 Poles filter gives brighter character. Linear(LI) has less character, but linear's resonance is sharp and more organic like real instruments. Non-linear(NL) has more character, has more harmonics, close to other synthesizers. 
+	If you use cutoff envelope or copying patch from other synths, typically Non-linear is suitable.
+	If you try to archive something close to real instrument or you want clear sound, linear is suitable.
 
 VCF MOD SEL
 
@@ -482,17 +485,17 @@ Number of devices: Number of devices for poly mode. Set 1 if you don’t have mu
 
 Device Index : Device Index. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
-LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory.
+LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory. It only takes R channel. Gain is fixed to 1.
 
 LINE in HPF: Off is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Technically you can get DC-coupled LINE in by changing ESP32 Lyrat board. This setting is useful when you use LINE IN as CV from external modules. See `DC coupling` section for detail.
 
 Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and LFO. See `Clock synchronization` for detail. This could make some confusion so this setting will not be saved to flash memory.
 
 ## POLYPHONIC SETUP
-The synth can be used as Mono or Duo tone if you have one device.
+The synth can be used as Mono or Duo tone if you have more than one device.
 The voice number can be increased up to 8(with Duo mode), by stacking up the synths.
 
-(Tested well with two devices, more than 2 devices is experimental)
+(Tested well with two devices, using more than 2 devices is experimental)
 
 ### Audio connection
 
@@ -557,32 +560,40 @@ Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following 
 Two devices becomes out of synchronized easily.
 To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. 
 
-If it start making ground loop noise, use separated power supply.
+If it start making ground loop noise, use separated power supply, and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
 
 ## TIPS/TROUBLESHOOT
 
+* Sound engine stopped when saving preset
+  
+  * When system writes to Flash memory, CPU power was taken by this, and it may cause glitches. Avoid any writing to Flash while playing.
+* MIDI CC dump is not properly saved to my DAW
+	
+	* Some DAWs suppress MIDI CC messages when DAW believes the value was not changed. Ableton Live is one of this. To work around, press STOP key before the dump. This will reset CC values. 
 * Unknown MIDI messages sent with device reset?
   
   * When booting some noise is sent (It's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
+  
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
-	* Mix in Mix sub menu has to be center (64).
-	* Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
-	* Set OSCs setting identical to get the same tone. Associated Envelopes parameters also need to be identical. (e.g. EG1 and EG2 setting should be identical)
-	* VCF’s Keysync will not work well.
-	* I suggest to start with simple patch.
-	  	1. Initialize a patch (Long pressing (4 sec) Rec button)
-   	2. Set Mix to 64 (in Mix submenu)
-	      	3. Set OSC2 Env Sel to EG2 (in OSC Switches)
-	         	4. Set Mono/Duo/Poly mode to "Duo"
-	                  	5. Now you should be able to play up to 2 voices.
-	
+  * Mix in Mix sub menu has to be center (64).
+  * Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
+  * Set OSCs setting identical to get the same tone. Associated Envelopes parameters also need to be identical. (e.g. EG1 and EG2 setting should be identical)
+  * VCF’s Keysync will not work well.
+  * I suggest to start with simple patch.
+     1. Initialize a patch. Long pressing (4 sec) Rec button.
+     2. Set Mix to 64 (in Mix submenu). You can hear both OSC's sound.
+     3. Set OSC2 Env Sel to EG2 (in OSC Switches). OSC2 will use EG2.
+     4. Set Mono/Duo/Poly mode to "Duo".  EG2 will be triggered separately with Duo mode.
+     5. Now you should be able to play up to 2 voices.
+
 * Suddenly NO SOUND!
 	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
 	* Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
 	* Level overflow may cause the silent (e.g. Giving massive delay feedback).
 	* Maybe it’s not worth to spend time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
+	* Check "Device Index" and "Number of Devices" in system menu.
 	
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use UART MIDI or MIDI TRS A.
 
@@ -595,6 +606,7 @@ If it start making ground loop noise, use separated power supply.
 	* Toggle Line THRU to off.
 	* Initialize a preset.
 	* Check Mono/Poly Mode setting. If it’s poly mode, LINE IN pass through is ON.
+	
 * Use different power supply. Basically it’s less noise by using separated charger.
 	
 * Use other hardware effectors!
@@ -608,7 +620,7 @@ If it start making ground loop noise, use separated power supply.
 	
 	* If you have advanced soldering skill or SMD rework station, you can get DC coupled LINE IN. Please read the following DC Coupling section.
 	
-* MIDI is flooding when I connect MIDI out.
+* MIDI is flooding when I connect MIDI out to DAW.
 	
 	* Probably MIDI forwarding is ON.
 
@@ -644,18 +656,19 @@ https://dl.espressif.com/dl/schematics/esp32-lyrat-v4.3-schematic.pdf
 
 **C62 is removed by us** to get channel separation.
 
-Technically you can get DC-coupled input by removing C61 and C63 and shorting C61 and C63 (**Do not short C62**).
+Technically you can get DC-coupled input by removing C61 and C63 and shorting C61 and C63 individually. **Do not short C62**.
+
 ![dc_coupling](manual_images/dc_coupling.jpg)
 
 They are extremely small chips so put extra caution not to break the board.
 
-If it is hard to short C61 and C63 individually, It is OK to short even between channels, the signal will be downmixed in this case. If you want 2 CV channels, you need to short them individually. Using hot air for SMD reworking is recommended.
+Using hot air for SMD reworking is recommended.
 
-Even after the modification, still you can enable internal HPF in the ES8388 code chip. You can configure this in the system menu.
+Even after the modification, still you can enable internal HPF in the ES8388 code chip. You can configure this in the system menu. HPF is needed when you process LINE as audio signal.
 
 
 
-### Supported MIDI Control numbers
+## Supported MIDI Control numbers
 
 Basically all tone-related parameters can be controlled by MIDI CC signal.
 
