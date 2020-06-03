@@ -618,8 +618,6 @@ If it start making ground loop noise, use separated power supply, and use standa
 	
 	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
 	
-	* If you have advanced soldering skill or SMD rework station, you can get DC coupled LINE IN. Please read the following DC Coupling section.
-	
 * MIDI is flooding when I connect MIDI out to DAW.
 	
 	* Probably MIDI forwarding is ON.
@@ -649,22 +647,6 @@ Set your DAW to send MIDI clock. We tested Ableton Live and Logic Pro X. It has 
 The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage (e.g. 8V) to the synth, it will break. The signal must be supplied to LEFT channel (TIP of TRS connector). Using TIP as a sync signal is compatible with Teenage engineering's Pocket Operator. Supply voltage needs to be more than 500mV. RIGHT channel(AUXR) still can be used as audio signal or CV in.
 
 
-
-## DC Coupling LINE IN (ADVANCED : HIGH RISK of BREAKING BOARD)
-ESP32 Lyrat board has capacitors in LINE IN signal path to cut DC.
-https://dl.espressif.com/dl/schematics/esp32-lyrat-v4.3-schematic.pdf
-
-**C62 is removed by us** to get channel separation.
-
-Technically you can get DC-coupled input by removing C61 and C63 and shorting C61 and C63 individually. **Do not short C62**.
-
-![dc_coupling](manual_images/dc_coupling.jpg)
-
-They are extremely small chips so put extra caution not to break the board.
-
-Using hot air for SMD reworking is recommended.
-
-Even after the modification, still you can enable internal HPF in the ES8388 code chip. You can configure this in the system menu. HPF is needed when you process LINE as audio signal.
 
 
 
