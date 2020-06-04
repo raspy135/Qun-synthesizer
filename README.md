@@ -1,6 +1,6 @@
 ## Links
 
-[Wiki](./wiki) for ideas and tips
+[Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips
 
 [patches](./patches) for tone patches
 
