@@ -487,7 +487,7 @@ Device Index : Device Index. Set 1 if you don’t have multiple devices. It will
 
 LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory. It only takes R channel. Gain is fixed to 1.
 
-LINE in HPF: Off is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Technically you can get DC-coupled LINE in by changing ESP32 Lyrat board. This setting is useful when you use LINE IN as CV from external modules. See `DC coupling` section for detail.
+LINE in HPF: Off is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Turning this off will reduce HPF effect.
 
 Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and LFO. See `Clock synchronization` for detail. This could make some confusion so this setting will not be saved to flash memory.
 
