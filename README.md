@@ -1,4 +1,11 @@
+## Links
+
+[Wiki](./wiki) for ideas and tips
+
+[patches](./patches) for tone patches
+
 # Qun-synthesizer
+
 Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked with Nunomo's daughter board.
 
 ![qun_synth](./manual_images/qun_synth.jpg)
