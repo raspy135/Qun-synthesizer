@@ -47,9 +47,10 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 * Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
 * BLE MIDI : IOS or Mac OS X are supported. Windows are NOT supported. BLE MIDI has 15 to 20ms latency in general, it is limitation of BLE spec. For lower latency, use MIDI or UART MIDI.
 * MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
-* UART MIDI: You can use UART MIDI instead of traditional MIDI interface. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
+* UART MIDI: You can use UART MIDI instead of traditional MIDI interface. It requires special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for Mac) but once you set them up then you can use it like USB MIDI. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of UART MIDI, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals. It also has microphones.
+* LINE IN and PHONE OUT is located at right side. The output is stereo but right and left channel will put the same signal.
 
 ## MAJOR MODES
 
@@ -485,7 +486,7 @@ Number of devices: Number of devices for poly mode. Set 1 if you don’t have mu
 
 Device Index : Device Index. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
-LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory. It only takes R channel. Gain is fixed to 1.
+LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory. It only takes Right channel. Gain is fixed to 1.
 
 LINE in HPF: Off is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Turning this off will reduce HPF effect.
 
@@ -566,13 +567,12 @@ If it start making ground loop noise, use separated power supply, and use standa
 ## TIPS/TROUBLESHOOT
 
 * Sound engine stopped when saving preset
-  
   * When system writes to Flash memory, CPU power was taken by this, and it may cause glitches. Avoid any writing to Flash while playing.
-* MIDI CC dump is not properly saved to my DAW
-	
+
+* MIDI CC dump is not properly saved to my DAW	
 	* Some DAWs suppress MIDI CC messages when DAW believes the value was not changed. Ableton Live is one of this. To work around, press STOP key before the dump. This will reset CC values. 
-* Unknown MIDI messages sent with device reset?
-  
+
+* Unknown MIDI messages sent with device reset?  
   * When booting some noise is sent (It's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
   
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
@@ -594,6 +594,7 @@ If it start making ground loop noise, use separated power supply, and use standa
 	* Maybe it’s not worth to spend time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
 	* Check "Device Index" and "Number of Devices" in system menu.
+	* Check MIDI Receiving status. To toggle it, press "Mode" button on Lyrat board (next to Rec button).
 	
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use UART MIDI or MIDI TRS A.
 
@@ -617,10 +618,13 @@ If it start making ground loop noise, use separated power supply, and use standa
 	* CV signal from modular synthesizers may have **HIGH VOLTAGE**! Please attenuate the voltage to normal LINE level (1 to 1.5V).
 	
 	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
-	
+
 * MIDI is flooding when I connect MIDI out to DAW.
-	
 	* Probably MIDI forwarding is ON.
+
+* No volume?
+	* VCF Volume works for most of purpose.
+	* Other than this, also MIDI CC #7 will contol hardware volume.
 
 ## External Audio processing
 
@@ -643,8 +647,9 @@ The synth cannot be a master.
 
 ### MIDI clock
 Set your DAW to send MIDI clock. We tested Ableton Live and Logic Pro X. It has some latency so please adjust latency setting in your DAW to match the timing.
+
 ### Sync IN
-The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage (e.g. 8V) to the synth, it will break. The signal must be supplied to LEFT channel (TIP of TRS connector). Using TIP as a sync signal is compatible with Teenage engineering's Pocket Operator. Supply voltage needs to be more than 500mV. RIGHT channel(AUXR) still can be used as audio signal or CV in.
+The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage to the synth, it will break. The signal must be supplied to LEFT channel (TIP of TRS connector). Using TIP as a sync signal is compatible with Teenage engineering's Pocket Operator. Supply voltage needs to be more than 500mV. RIGHT channel(AUXR) still can be used as audio signal or CV in.
 
 
 
@@ -652,10 +657,21 @@ The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage (e.g.
 
 ## Supported MIDI Control numbers
 
-Basically all tone-related parameters can be controlled by MIDI CC signal.
+The synth is initially designede as sound module without any user interface. All tone-related parameters can be controlled by MIDI CC signal.
 
-Therefore a set of MIDI CC signal can be used as preset save data.
-Program change will load a preset.
+A set of MIDI CC signal can be used as preset save data. Press "Rec" button to dump MIDI CC messages.
+If the synth goes wrong state, you can use Lyrat's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as "Panic" button.
+
+Here is some special command available through MIDI
+* Program change will load a preset. Through UI, 32 presets can be accessed through UI, but actually it has 128 slots.
+* For saving preset, use CC #0. It will save current preset to Flash (0-127). 
+
+If you want to control parameters by your MIDI keyboard, use below chart to check the CC number.
+Or, you can see the CC# in the screen at the top of the parameter name.
+Assigned CC# cannot be configured.
+
+When you change CC parameters through MIDI keyboard or any other devices, the changed parameter will be shown on the display in real time. So you will see what you are changing, the value and mode names just like when you change parameters on the device.
+
 
 ```
                             "Save Preset", //0x0
@@ -793,5 +809,4 @@ Program change will load a preset.
                             "", //d
                             "", //e
                             "" //f
-};
 ```
