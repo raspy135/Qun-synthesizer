@@ -381,6 +381,8 @@ FM (ABCD) AMP
 FM (ABC) FREQ
 
 	Oscillator (ABC)’s frequency (multiple of frequency of D)
+	It cannot be adjust to the exact frequency of hamonics (2,3,4,5..)
+	It's design decision.
 
 ### PRM:ENV3/4 / Other
 
@@ -487,7 +489,7 @@ Pressing button 1 to 8 will save to preset 1 to 8. It has 4 banks.
 ### SET:SYSTEM
 System Setting is the setting that is not included in the patch setting. To change the parameter, press the one of 8 buttons and rotate the dial.
 
-AUX:Audio source select. Mic(the board has two onboard microphones) or Line in. To avoid confusion, the setting will not be saved. LINE in is the default. When MIC is selected, turn on "Line in HPF" to eliminate DC. 
+AUX: Audio source select. (It's Lyrat's microphone, The microphone's quality is not high). Mic(the board has two onboard microphones) or Line in. It will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)".
 
 Number of devices: Number of devices for poly mode. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
@@ -537,7 +539,7 @@ Configure master device (MIDI keyboard or DAW software) to echo all received MID
 
 Connect Master's MIDI out to Slave's MIDI IN. This will not make any ground connection, it will prevent ground loop noise.
 Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more stable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW.
-Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. MIDI forwarding setting will cause MIDI message flood.
+Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. Normally DAW echoes the received MIDI packet, so MIDI forwarding setting will cause MIDI message flood.
 
 Also because it is forwarding MIDI signal, it has a bit of latency.
 
@@ -568,13 +570,13 @@ Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following 
 Two devices becomes out of synchronized easily.
 To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. 
 
-If it start making ground loop noise, use separated power supply, and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
+If it starts making ground loop noise, use separated power supply, and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
 
 ## TIPS/TROUBLESHOOT
 
 * Sound engine stopped when saving preset
-  * When system writes to Flash memory, CPU power was taken by this, and it may cause glitches. Avoid any writing to Flash while playing.
+  * When system writes to Flash memory, CPU power is taken by this, and it may cause glitches. Avoid any writing to Flash while playing.
 
 * MIDI CC dump is not properly saved to my DAW	
 	* Some DAWs suppress MIDI CC messages when DAW believes the value was not changed. Ableton Live is one of this. To work around, press STOP key before the dump. This will reset CC values. 
@@ -600,7 +602,7 @@ If it start making ground loop noise, use separated power supply, and use standa
 	* Level overflow may cause the silent (e.g. Giving massive delay feedback).
 	* Maybe it’s not worth to spend time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
-	* Check "Device Index" and "Number of Devices" in system menu.
+	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
 	* Check MIDI Receiving status. To toggle it, press "Mode" button on Lyrat board (next to Rec button).
 	
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use UART MIDI or MIDI TRS A.
@@ -609,7 +611,7 @@ If it start making ground loop noise, use separated power supply, and use standa
 	
 	* Probably it is because of ground loop. Use separated power supply. 
 	
-* I hear the noise but I don’t connect anything to line in.
+* I hear noise but I don’t connect anything to line in.
 	* Toggle MIC/LINE select (in Prm:System), set to Line in.
 	* Toggle Line THRU to off.
 	* Initialize a preset.
