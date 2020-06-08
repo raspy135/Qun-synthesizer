@@ -10,7 +10,7 @@ Distorted SAW wave. Filter cutoff and VCF Volume was changed in the demo play.
 
 ## Patch Information
 
-Use short time delay to make the sound thick.
+It uses short time delay with a lot of feedback to make the sound thick.
 
 ## Author
 
