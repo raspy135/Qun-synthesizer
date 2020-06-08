@@ -381,18 +381,18 @@ FM (ABCD) AMP
 FM (ABC) FREQ
 
 	Oscillator (ABC)’s frequency (multiple of frequency of D)
-	It cannot be adjust to the exact frequency of hamonics (2,3,4,5..)
-	It's design decision.
+	When FM FREQ SNAP (In ENV3/4 Other submenu) is off, it be adjust to the exact frequency of hamonics (2,3,4,5..). If you want clean FM sound, turn FM FREQ SNAP on.
 
 ### PRM:ENV3/4 / Other
 
-OSC1 KEYSYNC SW
+OSC1/2 KEYSYNC
 
-	Frequency lock SW for OSC1. When it's OFF, it will ignore MIDI note.
+	Frequency lock SW for OSC1. When it's OFF(Indicated as "N"), it will ignore MIDI note.
 
-OSC2 KEYSYNC SW
+FM FREQ SNAP SW
 
-	Frequency lock SW for OSC2
+	Frequency snapping for FM. When it's ON, FM sound will be clear, no detune.
+	When it's OFF, FM has more character, signature sound.
 
 Clipping
 
@@ -495,9 +495,13 @@ Number of devices: Number of devices for poly mode. Set 1 if you don’t have mu
 
 Device Index : Device Index. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
+RECV MIDI Ch: Configure receiving MIDI channel. Default is ALL. If you use it with Polyphonic setup, set the same channel or ALL for all devices.
+
+MIDI Forwarding: MIDI message fowarding for standalone polyphonic configuration. When the option is ON, the message forwarding is active with PolyMono or PolyDuo configuration. It's not for generic MIDI forwarding like MIDI THRU. Do not turn this option with DAW configuration. Most of DAW will echo received MIDI message, it will make infinite MIDI message loop. 
+
 LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory. It only takes Right channel. Gain is fixed to 1.
 
-LINE in HPF: Off is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Turning this off will reduce HPF effect.
+LINE in HPF: On is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Turning this off will reduce HPF effect.
 
 Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and LFO. See `Clock synchronization` for detail. This could make some confusion so this setting will not be saved to flash memory.
 
@@ -568,7 +572,7 @@ Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following 
 ### Polyphonic tips
 
 Two devices becomes out of synchronized easily.
-To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. 
+To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices.  If you still see issues like out of tune for slave device, try MIDI RECV toggle switch (Lyrat's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
 
 If it starts making ground loop noise, use separated power supply, and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
@@ -632,8 +636,8 @@ If it starts making ground loop noise, use separated power supply, and use stand
 	* Probably MIDI forwarding is ON.
 
 * No volume?
-	* VCF Volume works for most of purpose.
-	* Other than this, also MIDI CC #7 will contol hardware volume.
+	* VCF Volume works for most of purpose. However in order to utilize clipping(overdrive) logic, attenuate volume at other equipments is recommended.
+	* Other than this, also MIDI CC #7 will contol hardware volume. It will lose dynamic range. It's not available to control through UI.
 
 ## External Audio processing
 
