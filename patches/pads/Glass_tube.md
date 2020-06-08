@@ -13,3 +13,7 @@ Cutoff and FM parameter was changed while playing.
 ## Patch Information
 
 Layers of FM sound with long glide time, Notch filter.
+
+## Author
+
+Nonomo LLC
