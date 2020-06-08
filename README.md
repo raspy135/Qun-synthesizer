@@ -4,6 +4,10 @@
 
 [patches](./patches) for tone patches
 
+[Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
+
+**We are looking for Pull requests for patches**
+
 # Qun-synthesizer
 
 Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked with Nunomo's daughter board.
