@@ -1,4 +1,4 @@
-## Links
+## Links and Information
 
 [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips
 
@@ -6,7 +6,9 @@
 
 [Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
 
+
 **We are looking for Pull requests for patches, we will add it to this repository**
+
 **We are looking for your feedback! For generic impression / feedback, email to info@nunomo.com**
 
 # Qun-synthesizer
