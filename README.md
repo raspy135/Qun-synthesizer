@@ -526,8 +526,11 @@ There are two ways for audio setup:
 
 It assumes you connect the synths to the DAW or MIDI controller that will echo the synth’s MIDI OUT to MIDI IN. Normally it can be done by just turning on recording mode in the DAW.
 Some hardware MIDI keyboard might have the feature.
-Set up MIDI to receive exact same data for all devices. It can be done by any way of MIDI connection, but using UART or classic MIDI will be easier than BLE MIDI.
-If you use UART or classic MIDI, you can use the 4 pin located above the OLED screen to connect between devices.
+
+Make sure MIDI forwarding is OFF before you connect it to DAW, otherwise it will make infinite MIDI message loop.
+
+Set up MIDI to receive exact same data for all devices. It can be done by any method of MIDI connection, but using UART or classic MIDI will be easier than BLE MIDI.
+If you use UART or classic MIDI, also you can use the 4 pin located above the OLED screen to connect between devices.
 
 Pin connection is showing as below:
 
@@ -538,7 +541,7 @@ C   X   X   N
 C           D
 ```
 Determine master and slave devices. Slave device can be headless.
-Connect Master’s RX to slave’s RX, Master’s GND to slave’s GND (pin 3 to 3, pin 4 to 4). This will connect MIDI-IN signal between devices. VCC and TX are not used.
+Connect Master’s RX to slave’s RX, Master’s GND to slave’s GND (pin 3 to 3, pin 4 to 4). This will connect MIDI-IN signal between devices. VCC and TX are not used. The benefit of this method is that it's no latency, the connection is true MIDI through. However it will be easier to be out-of-sync state because MIDI data forwarding is relying on DAW.
 Sometimes ground-loop noise can be happened. This case use separated power supply.
 Connect MIDI to the master.
 Configure master device (MIDI keyboard or DAW software) to echo all received MIDI signal. Typically it means set the channel to recording mode. All DAW should have the capability.Some MIDI keyboard may not have the setting.
@@ -546,7 +549,7 @@ Configure master device (MIDI keyboard or DAW software) to echo all received MID
 ### Method B. Standalone setup
 
 Connect Master's MIDI out to Slave's MIDI IN. This will not make any ground connection, it will prevent ground loop noise.
-Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more stable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW.
+Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more reliable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW. Also the MIDI forwarding is done by software so it will have a bit of latency to slave device.
 Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. Normally DAW echoes the received MIDI packet, so MIDI forwarding setting will cause MIDI message flood.
 
 Also because it is forwarding MIDI signal, it has a bit of latency.
