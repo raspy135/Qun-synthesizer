@@ -526,7 +526,7 @@ There are two ways for audio setup:
 1. Connect Slave's audio out to Master's Line IN. It is recommended for most of cases. It will save audio input to the mixer or audio interface, and Master will process Slave's audio digitally, so it will get a nice soft clipping. That is great for polyphonic (Polyphonic is easier to reach clipping level). It has a little latency by the process, but probably it is not noticable. 
 2. Connect all audio signals to your mixer. Technically there is no latency but it will use more audio inputs.
 
-### Method A. With DAW or MIDI control center and the device will route all imcoming messages to MIDI OUT. 
+### Method A. With DAW : DAW will route all imcoming messages to all MIDI OUT. 
 
 It assumes you connect the synths to the DAW or MIDI controller that will echo the synth’s MIDI OUT to MIDI IN. Normally it can be done by just turning on recording mode in the DAW.
 Some hardware MIDI keyboard might have the feature.
@@ -544,19 +544,29 @@ V   T   R   G
 C   X   X   N
 C           D
 ```
-Determine master and slave devices. Slave device can be headless.
+Determine master and slave devices. 
+
 Connect Master’s RX to slave’s RX, Master’s GND to slave’s GND (pin 3 to 3, pin 4 to 4). This will connect MIDI-IN signal between devices. VCC and TX are not used. The benefit of this method is that it's no latency, the connection is true MIDI through. However it will be easier to be out-of-sync state because MIDI data forwarding is relying on DAW.
+
+Alternatively, you can use 2 MIDI OUT port from DAW to Master and Slave. 
+
 Sometimes ground-loop noise can be happened. This case use separated power supply.
-Connect MIDI to the master.
-Configure master device (MIDI keyboard or DAW software) to echo all received MIDI signal. Typically it means set the channel to recording mode. All DAW should have the capability.Some MIDI keyboard may not have the setting.
 
-### Method B. Standalone setup
+Connect DAW's MIDI OUT to Master's MIDI IN.
 
-Connect Master's MIDI out to Slave's MIDI IN. This will not make any ground connection, it will prevent ground loop noise.
-Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more reliable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW. Also the MIDI forwarding is done by software so it will have a bit of latency to slave device.
+Configure DAW to echo all received MIDI signal. 
+
+### Method B. Standalone setup (not using DAW as MIDI router)
+
+It's simpler setup than Method A. 
+
+Use TRS cable to connect Master's MIDI out to Slave's MIDI IN. This will not make any ground connection, it will prevent ground loop noise.
+
+Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more reliable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW. (Still you may be able to use Slave's MIDI out though)
+
+Also the MIDI forwarding is done by software so it will have a bit of latency to slave device.
+
 Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. Normally DAW echoes the received MIDI packet, so MIDI forwarding setting will cause MIDI message flood.
-
-Also because it is forwarding MIDI signal, it has a bit of latency.
 
 ### Preset setup for Polyphonic
 
