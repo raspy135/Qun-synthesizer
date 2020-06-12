@@ -526,7 +526,7 @@ There are two ways for audio setup:
 1. Connect Slave's audio out to Master's Line IN. It is recommended for most of cases. It will save audio input to the mixer or audio interface, and Master will process Slave's audio digitally, so it will get a nice soft clipping. That is great for polyphonic (Polyphonic is easier to reach clipping level). It has a little latency by the process, but probably it is not noticable. 
 2. Connect all audio signals to your mixer. Technically there is no latency but it will use more audio inputs.
 
-### Method A. With DAW : DAW will route all imcoming messages to all MIDI OUT. 
+### Method A. Use DAW as MIDI router. 
 
 It assumes you connect the synths to the DAW or MIDI controller that will echo the synth’s MIDI OUT to MIDI IN. Normally it can be done by just turning on recording mode in the DAW.
 Some hardware MIDI keyboard might have the feature.
@@ -556,7 +556,7 @@ Connect DAW's MIDI OUT to Master's MIDI IN.
 
 Configure DAW to echo all received MIDI signal. 
 
-### Method B. Standalone setup (not using DAW as MIDI router)
+### Method B. Use the synth as MIDI router
 
 It's simpler setup than Method A. 
 
