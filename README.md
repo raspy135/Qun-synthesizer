@@ -572,11 +572,11 @@ Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW n
 
 Minimum setup to archive PolyMono (2 Oscillators per voice) will be the following with 2 devices setup:
 
-1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
+1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device. This will be saved to flash memory.
 2. Iniaialize a preset (4 second press of Rec button) on Master device.
-3. Make sure it can play initial SAW wave sound.
+3. Make sure it plays initial SAW wave sound.
 4. Go Key / Other submenu and set MonoDuoPolyMode to "PolyMono"
-5. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
+5. Press "Rec" button on Master device. It will dump all preset parameters as MIDI CC messages. After the dump, all preset state should be in sync between devices.
 6. Play multiple notes. You should hear two voices.
 
 Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following with 2 devices setup:
@@ -584,7 +584,7 @@ Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following 
 1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
 2. Iniaialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it can play initial SAW wave sound.
-4. Set "MIX" parameter in Mix menu to 64. It should mix Osc1 and Osc2.
+4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix Osc1 and Osc2.
 5. Set "OSC Env SEL" to use EG2.
 6. Go Key / Other submenu and set MonoDuoPolyMode to "PolyDuo"
 7. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
@@ -592,10 +592,10 @@ Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following 
 
 ### Polyphonic tips
 
-Two devices becomes out of synchronized easily.
-To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices.  If you still see issues like out of tune for slave device, try MIDI RECV toggle switch (Lyrat's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
+Two devices becomes out of synchronized easily for various reasons.
+To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices.  If you still see issues like out of tune in slave device, try MIDI RECV toggle switch (Lyrat's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
 
-If it starts making ground loop noise, use separated power supply, and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
+If it starts making ground loop noise, use separated power supply and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
 
 ## TIPS/TROUBLESHOOT
@@ -677,7 +677,7 @@ The synth's clipping algorithm can be used as guitar distortion and it is really
 ## Clock synchronization
 
 The synth can take external clock sources from other synthesizers. When the sync is enabled, sequencer BPM / start / stop is synchronized with external synthesizer or sequencer.
-The synth cannot be a master.
+The synth cannot be a master. Setting is available in the System menu. Default is OFF.
 
 ### MIDI clock
 Set your DAW to send MIDI clock. We tested Ableton Live and Logic Pro X. It has some latency so please adjust latency setting in your DAW to match the timing.
@@ -691,7 +691,7 @@ The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage to th
 
 ## Supported MIDI Control numbers
 
-The synth is initially designede as sound module without any user interface. All tone-related parameters can be controlled by MIDI CC signal.
+The synth is initially designed as a sound module without any user interface. All tone-related parameters can be controlled by MIDI CC signal.
 
 A set of MIDI CC signal can be used as preset save data. Press "Rec" button to dump MIDI CC messages.
 If the synth goes wrong state, you can use Lyrat's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as "Panic" button.
