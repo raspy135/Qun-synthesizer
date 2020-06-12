@@ -6,6 +6,7 @@
 
 [Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
 
+Firmware : For a firmware update.
 
 **We are looking for Pull requests for patches, we will add it to this repository**
 
