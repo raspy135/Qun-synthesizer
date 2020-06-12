@@ -33,8 +33,9 @@ QUN V1.01
 ![screenshot](../manual_images/flash_downloader.jpg)
 
 
-5. If you stall at  `Connecting......____`, then the board is not in firmware uploading mode. 
-6. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
+8. Press green button to flash the program. 
+9. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
 ```
 QUN V1.01
 ```
+
