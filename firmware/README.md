@@ -45,6 +45,12 @@ QUN V1.01
 
 # Release history
 
+### V1.10
+
+- Improved filter transition response.
+- ADC button logic update, affected only for specific Lyrat boards which have unusual value.
+
 ### V1.01
 
 - Improved stability
+
