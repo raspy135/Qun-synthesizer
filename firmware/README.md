@@ -45,6 +45,11 @@ QUN V1.01
 
 # Release history
 
+### V1.20
+
+- Non-linear filter character was changed slightly.
+- Improved pulse width transition
+
 ### V1.10
 
 - Improved filter transition response.
