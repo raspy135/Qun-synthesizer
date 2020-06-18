@@ -45,6 +45,11 @@ QUN V1.01
 
 # Release history
 
+### v1.21
+
+- Small performance improvement to reduce possible glitch in extreme setting
+- Improved stability
+
 ### V1.20
 
 - Non-linear filter character was changed slightly.
