@@ -706,6 +706,17 @@ Assigned CC# cannot be configured.
 
 When you change CC parameters through MIDI keyboard or any other devices, the changed parameter will be shown on the display in real time. So you will see what you are changing, the value and mode names just like when you change parameters on the device.
 
+Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs:
+
+- MIX (92) 
+- FM(33)
+- Cutoff(22)
+- Resonance(91)
+- LFO Tune(24)
+- VCF Volume(72)
+
+
+
 
 ```
                             "Save Preset", //0x0
