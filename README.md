@@ -1,5 +1,7 @@
 ## Links and Information
 
+Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
+
 [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips
 
 [patches](./patches) for tone patches
