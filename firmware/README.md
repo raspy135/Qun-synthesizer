@@ -45,6 +45,10 @@ QUN V1.01
 
 # Release history
 
+### v1.23
+
+- ADC button logic rollback. Update is not necessary from v1.22 unless you have issues with button recognition. 
+
 ### v1.22
 
 - Improved stability
