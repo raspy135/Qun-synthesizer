@@ -190,9 +190,9 @@ EFFECT FEEDBACK
 
 Delay can set very short. Very short delay will make an interesting to simulate flute or violin. 
 
-### PRM:Env1/2
+### PRM:ENV1/2
 The synth has four Envelope generators. ENV1 and ENV2 are independently and fully configurable.ENV3 and ENV4 shares the parameter. Also ENV3 / ENV4 is connected to FM operators.
-ENV1 and ENV2 are grouped to first voice with Duo mode. Env3 and Env4 are grouped to second voice with Duo mode.
+ENV1 and ENV2 are grouped to first voice with Duo mode. ENV3 and ENV4 are grouped to second voice with Duo mode.
 
 ![diagram_eg](manual_images/diagram_eg.jpg)
 
@@ -229,7 +229,7 @@ MOD SEL
 
 ENV INV SW
 
-	It inverts Envelope Generator’s polarity. Env1 and Env2 can change its polarity.
+	It inverts Envelope Generator’s polarity. ENV1 and ENV2 can change its polarity.
 
 ### PRM:LFO
 LFO is similar to OSC, although selectable shape is slightly different.
@@ -411,7 +411,7 @@ Clipping
 FM ENV3 CONN
 
 	Select operator(s) to connect ENV3
-		FM engine's operaters can use Envelope generator (Env3/Env4).
+		FM engine's operaters can use Envelope generator (ENV3/ENV4).
 	Part of Operators can be connected to ENV3. The connection is configurable by this parameter.
 	Technically ENV4 exists for OSC2’s FM engine, but the parameter is shared with ENV3.
 	After the processing it will be modulated by ENV1 or ENV2.
@@ -775,7 +775,7 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
                             "LFO Mod Tune", //0x0
                             "LFO Mod Width", //1
                             "FM Algorithm", //2
-                            "FM Env3 Conn", //3
+                            "FM ENV3 Conn", //3
                             "", //4
                             "OSC1 Tune(LSB)", //5
                             "Cutoff(LSB)", //6
@@ -792,10 +792,10 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
                             "", //0x0
                             "OSC2 Mod Sel", //1
                             "LFO Mod Sel", //2
-                            "Env1 Inv SW", //3
+                            "ENV1 Inv SW", //3
                             "OSC1 Env Sel", //4
                             "OSC2 Env Sel", //5
-                            "Env2 Inv SW", //6
+                            "ENV2 Inv SW", //6
                             "LFO Gatesync SW", //7
                             "OSC2 Keysync SW", //8
                             "OSC1 Wide Tune SW", //9
