@@ -50,7 +50,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * Player (Piano mode)
   * Random mind inspiring 8 step sequencer will generate beats for you
     * Note On/Off/Double/Triple
-    * Transpose / Note width(Length)
+    * Transpose / Note width (Length)
     * Randomness control
     * Scale quantize
     * Arpeggiate steps
