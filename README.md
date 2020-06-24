@@ -155,11 +155,11 @@ Mix controls mixer and effects.
 
 OSC MIX
 
-	Balance between Osc1 and Osc2
+	Balance between OSC1 and OSC2
 
 FM
 
-	FM modulation Osc2 to Osc1. 
+	FM modulation OSC2 to OSC1. 
 	That means that each oscillator has internal 4 operator FM, on top of it, you can modulate OSC1 by OSC2.
 
 VCF VOLUME
@@ -586,7 +586,7 @@ Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following 
 1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
 2. Initialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it can play initial SAW wave sound.
-4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix Osc1 and Osc2.
+4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix OSC1 and OSC2.
 5. Set "OSC Env SEL" to use EG2.
 6. Go Key / Other submenu and set MonoDuoPolyMode to "PolyDuo"
 7. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
