@@ -36,7 +36,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * The synth can be stacked to archive **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
   * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
-  * 4 Envelove Generators
+  * 4 Envelope Generators
   * FM (4 Operators x 2)
   * 1 LFO, rate can be controlled by MIDI notes
   * 1 Organic sounding VCF
@@ -118,7 +118,7 @@ SHAPE
 
 	`Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX`
 	*AUX means audio input from LINE or MIC.
-	*FM has 4 operator inside. See FM Conf Sub mode for detail.
+	*FM has 4 operators inside. See FM Conf Sub mode for detail.
 
 PULSE WIDTH
 	
@@ -263,7 +263,7 @@ LFO MOD WIDTH
 
 KEYSPLIT
 
-	This is very unique feature of the synth.
+	This is a unique feature of the synth.
 	When it is not zero,  then note number above the parameter becomes LFO rate controller.
 	(If you set 60, then C4 or higher note becomes LFO controller)
 	Higher notes will generate higher LFO rate.
