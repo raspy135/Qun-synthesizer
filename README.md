@@ -517,7 +517,7 @@ Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and
 
 ## POLYPHONIC SETUP
 The synth can be used as Mono or Duo tone if you have more than one device.
-The voice number can be increased up to 8(with Duo mode), by stacking up the synths.
+The voice number can be increased up to 8 (with Duo mode), by stacking up the synths.
 
 (Tested well with two devices, using more than 2 devices is experimental)
 
