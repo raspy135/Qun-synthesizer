@@ -36,7 +36,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * The synth can be stacked to archive **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
   * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
-  * 4 Envelove Generators
+  * 4 Envelope Generators
   * FM (4 Operators x 2)
   * 1 LFO, rate can be controlled by MIDI notes
   * 1 Organic sounding VCF
@@ -50,7 +50,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * Player (Piano mode)
   * Random mind inspiring 8 step sequencer will generate beats for you
     * Note On/Off/Double/Triple
-    * Transpose / Note width(Length)
+    * Transpose / Note width (Length)
     * Randomness control
     * Scale quantize
     * Arpeggiate steps
@@ -118,7 +118,7 @@ SHAPE
 
 	`Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX`
 	*AUX means audio input from LINE or MIC.
-	*FM has 4 operator inside. See FM Conf Sub mode for detail.
+	*FM has 4 operators inside. See FM Conf Sub mode for detail.
 
 PULSE WIDTH
 	
@@ -155,11 +155,11 @@ Mix controls mixer and effects.
 
 OSC MIX
 
-	Balance between Osc1 and Osc2
+	Balance between OSC1 and OSC2
 
 FM
 
-	FM modulation Osc2 to Osc1. 
+	FM modulation OSC2 to OSC1. 
 	That means that each oscillator has internal 4 operator FM, on top of it, you can modulate OSC1 by OSC2.
 
 VCF VOLUME
@@ -190,9 +190,9 @@ EFFECT FEEDBACK
 
 Delay can set very short. Very short delay will make an interesting to simulate flute or violin. 
 
-### PRM:Env1/2
+### PRM:ENV1/2
 The synth has four Envelope generators. ENV1 and ENV2 are independently and fully configurable.ENV3 and ENV4 shares the parameter. Also ENV3 / ENV4 is connected to FM operators.
-ENV1 and ENV2 are grouped to first voice with Duo mode. Env3 and Env4 are grouped to second voice with Duo mode.
+ENV1 and ENV2 are grouped to first voice with Duo mode. ENV3 and ENV4 are grouped to second voice with Duo mode.
 
 ![diagram_eg](manual_images/diagram_eg.jpg)
 
@@ -229,7 +229,7 @@ MOD SEL
 
 ENV INV SW
 
-	It inverts Envelope Generator’s polarity. Env1 and Env2 can change its polarity.
+	It inverts Envelope Generator’s polarity. ENV1 and ENV2 can change its polarity.
 
 ### PRM:LFO
 LFO is similar to OSC, although selectable shape is slightly different.
@@ -263,7 +263,7 @@ LFO MOD WIDTH
 
 KEYSPLIT
 
-	This is very unique feature of the synth.
+	This is a unique feature of the synth.
 	When it is not zero,  then note number above the parameter becomes LFO rate controller.
 	(If you set 60, then C4 or higher note becomes LFO controller)
 	Higher notes will generate higher LFO rate.
@@ -411,7 +411,7 @@ Clipping
 FM ENV3 CONN
 
 	Select operator(s) to connect ENV3
-		FM engine's operaters can use Envelope generator (Env3/Env4).
+		FM engine's operaters can use Envelope generator (ENV3/ENV4).
 	Part of Operators can be connected to ENV3. The connection is configurable by this parameter.
 	Technically ENV4 exists for OSC2’s FM engine, but the parameter is shared with ENV3.
 	After the processing it will be modulated by ENV1 or ENV2.
@@ -517,7 +517,7 @@ Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and
 
 ## POLYPHONIC SETUP
 The synth can be used as Mono or Duo tone if you have more than one device.
-The voice number can be increased up to 8(with Duo mode), by stacking up the synths.
+The voice number can be increased up to 8 (with Duo mode), by stacking up the synths.
 
 (Tested well with two devices, using more than 2 devices is experimental)
 
@@ -575,7 +575,7 @@ Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW n
 Minimum setup to archive PolyMono (2 Oscillators per voice) will be the following with 2 devices setup:
 
 1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device. This will be saved to flash memory.
-2. Iniaialize a preset (4 second press of Rec button) on Master device.
+2. Initialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it plays initial SAW wave sound.
 4. Go Key / Other submenu and set MonoDuoPolyMode to "PolyMono"
 5. Press "Rec" button on Master device. It will dump all preset parameters as MIDI CC messages. After the dump, all preset state should be in sync between devices.
@@ -584,9 +584,9 @@ Minimum setup to archive PolyMono (2 Oscillators per voice) will be the followin
 Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following with 2 devices setup:
 
 1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
-2. Iniaialize a preset (4 second press of Rec button) on Master device.
+2. Initialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it can play initial SAW wave sound.
-4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix Osc1 and Osc2.
+4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix OSC1 and OSC2.
 5. Set "OSC Env SEL" to use EG2.
 6. Go Key / Other submenu and set MonoDuoPolyMode to "PolyDuo"
 7. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
@@ -775,7 +775,7 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
                             "LFO Mod Tune", //0x0
                             "LFO Mod Width", //1
                             "FM Algorithm", //2
-                            "FM Env3 Conn", //3
+                            "FM ENV3 Conn", //3
                             "", //4
                             "OSC1 Tune(LSB)", //5
                             "Cutoff(LSB)", //6
@@ -792,10 +792,10 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
                             "", //0x0
                             "OSC2 Mod Sel", //1
                             "LFO Mod Sel", //2
-                            "Env1 Inv SW", //3
+                            "ENV1 Inv SW", //3
                             "OSC1 Env Sel", //4
                             "OSC2 Env Sel", //5
-                            "Env2 Inv SW", //6
+                            "ENV2 Inv SW", //6
                             "LFO Gatesync SW", //7
                             "OSC2 Keysync SW", //8
                             "OSC1 Wide Tune SW", //9
