@@ -64,7 +64,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 * Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
 * BLE MIDI : iOS or macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is a limitation of the BLE spec. For lower latency, use MIDI or MIDI UART.
 * MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
-* MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
+* MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect Lyrat's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals. It also has microphones.
 * LINE IN and PHONE OUT is located at right side. The output is stereo but right and left channel will put the same signal.
@@ -96,7 +96,7 @@ Once you selected the parameter, the parameter is assigned to the dial.
 
 ### Dumping current preset
 All tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
-If you record the MIDI signals to your MIDI recorder or DAW, it can be used as tone preset.
+If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a tone preset.
 
 ### All note off
 Pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
@@ -191,7 +191,7 @@ EFFECT FEEDBACK
 Delay can set very short. Very short delay will make an interesting to simulate flute or violin. 
 
 ### PRM:ENV1/2
-The synth has four Envelope generators. ENV1 and ENV2 are independently and fully configurable. ENV3 and ENV4 shares the parameter. Also ENV3 / ENV4 is connected to FM operators.
+The synth has four Envelope generators. ENV1 and ENV2 are both independently and fully configurable. ENV3 and ENV4 shares the parameter. Also ENV3 / ENV4 is connected to FM operators.
 ENV1 and ENV2 are grouped to first voice with Duo mode. ENV3 and ENV4 are grouped to second voice with Duo mode.
 
 ![diagram_eg](manual_images/diagram_eg.jpg)
