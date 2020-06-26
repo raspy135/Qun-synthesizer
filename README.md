@@ -348,7 +348,7 @@ VELOCITY SW
 MONO/DUO/POLY
 
 	One synthesizer can be used as Monophonic or Duophonic.
-	* Mono = Mono (2OSCs per voice)
+	* Mono = Mono (2 OSCs per voice)
 	* Duo = Duo Tone (1 OSC per voice)
 	With duo tone mode, MIX should be middle and set the same parameters to both EGs.
 	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to build polyphonic synth.
@@ -368,7 +368,7 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 FM ALGORITHM
 
-	Selects FM algorithm. "ABCD" incidates each operators.
+	Selects FM algorithm. "ABCD" indicates each operator.
 	Vertical relationship means upper operator modulates lower operator.
 	For example,
 	```
@@ -391,7 +391,7 @@ FM (ABCD) AMP
 FM (ABC) FREQ
 
 	Oscillator (ABC)’s frequency (multiple of frequency of D)
-	When FM FREQ SNAP (In ENV3/4 Other submenu) is off, it be adjust to the exact frequency of harmonics (2,3,4,5..). If you want clean FM sound, turn FM FREQ SNAP on.
+	When FM FREQ SNAP (In ENV3/4 Other sub-menu) is off, it be adjust to the exact frequency of harmonics (2,3,4,5..). If you want clean FM sound, turn FM FREQ SNAP on.
 
 ### PRM:ENV3/4 / Other
 
@@ -406,12 +406,12 @@ FM FREQ SNAP SW
 
 Clipping
 
-	Clipping algorithm. "GRAIN", "MID" or "SOFT". The clipping alrorithm will give a good distortion sound, you can even use the synth as multi-effector. See "External Audio processing" for further details.
+	Clipping algorithm. "GRAIN", "MID" or "SOFT". The clipping algorithm will give a good distortion sound, you can even use the synth as multi-effector. See "External Audio processing" for further details.
 
 FM ENV3 CONN
 
 	Select operator(s) to connect ENV3
-		FM engine's operaters can use Envelope generator (ENV3/ENV4).
+		FM engine's operators can use Envelope generator (ENV3/ENV4).
 	Part of Operators can be connected to ENV3. The connection is configurable by this parameter.
 	Technically ENV4 exists for OSC2’s FM engine, but the parameter is shared with ENV3.
 	After the processing it will be modulated by ENV1 or ENV2.
@@ -507,13 +507,13 @@ Device Index : Device Index. Set 1 if you don’t have multiple devices. It will
 
 RECV MIDI Ch: Configure receiving MIDI channel. Default is ALL. If you use it with Polyphonic setup, set the same channel or ALL for all devices.
 
-MIDI Forwarding: MIDI message fowarding for standalone polyphonic configuration. When the option is ON, the message forwarding is active with PolyMono or PolyDuo configuration. It's not for generic MIDI forwarding like MIDI THRU. Do not turn this option with DAW configuration. Most of DAW will echo received MIDI message, it will make infinite MIDI message loop. 
+MIDI Forwarding: MIDI message forwarding for standalone polyphonic configuration. When the option is ON, the message forwarding is active with PolyMono or PolyDuo configuration. It's not for generic MIDI forwarding like MIDI THRU. Do not turn this option with DAW configuration. Most of DAW will echo received MIDI message, it will make infinite MIDI message loop. 
 
 LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass through by mono / poly setting. If it is on, the synth always passes the signal. This setting will be stored in the flash memory. It only takes Right channel. Gain is fixed to 1.
 
 LINE in HPF: On is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Turning this off will reduce HPF effect.
 
-Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and LFO. See `Clock synchronization` for detail. This could make some confusion so this setting will not be saved to flash memory.
+Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock source for sequencer and LFO. See `Clock synchronization` for detail. This could make some confusion so this setting will not be saved to flash memory.
 
 ## POLYPHONIC SETUP
 The synth can be used as Mono or Duo tone if you have more than one device.
@@ -577,7 +577,7 @@ Minimum setup to achieve PolyMono (2 Oscillators per voice) will be the followin
 1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device. This will be saved to flash memory.
 2. Initialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it plays initial SAW wave sound.
-4. Go Key / Other submenu and set MonoDuoPolyMode to "PolyMono"
+4. Go Key / Other sub-menu and set MonoDuoPolyMode to "PolyMono"
 5. Press "Rec" button on Master device. It will dump all preset parameters as MIDI CC messages. After the dump, all preset state should be in sync between devices.
 6. Play multiple notes. You should hear two voices.
 
@@ -588,7 +588,7 @@ Minimum setup to achieve PolyDuo (1 Oscillator per voice) will be the following 
 3. Make sure it can play initial SAW wave sound.
 4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix OSC1 and OSC2.
 5. Set "OSC Env SEL" to use EG2.
-6. Go Key / Other submenu and set MonoDuoPolyMode to "PolyDuo"
+6. Go Key / Other sub-menu and set MonoDuoPolyMode to "PolyDuo"
 7. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
 8. Play multiple notes. You should hear four voices.
 
@@ -618,7 +618,7 @@ If it starts making ground loop noise, use separated power supply and use standa
   * VCF’s key sync will not work well.
   * I suggest to start with simple patch.
      1. Initialize a patch. Long pressing (4 sec) Rec button.
-     2. Set Mix to 64 (in Mix submenu). You can hear both OSC's sound.
+     2. Set Mix to 64 (in Mix sub-menu). You can hear both OSC's sound.
      3. Set OSC2 Env Sel to EG2 (in OSC Switches). OSC2 will use EG2.
      4. Set Mono/Duo/Poly mode to "Duo". EG2 will be triggered separately with Duo mode.
      5. Now you should be able to play up to 2 voices.
@@ -660,7 +660,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 
 * No volume?
 	* VCF Volume works for most of purpose. However in order to utilize clipping(overdrive) logic, attenuate volume at other equipments is recommended.
-	* Other than this, also MIDI CC #7 will contol hardware volume. It will lose dynamic range. It's not available to control through UI.
+	* Other than this, also MIDI CC #7 will control hardware volume. It will lose dynamic range. It's not available to control through UI.
 
 ## External Audio processing
 
