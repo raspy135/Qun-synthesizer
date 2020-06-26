@@ -6,6 +6,8 @@ Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
 
 [patches](./patches) for tone patches
 
+[configurations](./configurations) for configuration files to use with Native Instruments Maschine.
+
 [Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
 
 Firmware : For a firmware update.
