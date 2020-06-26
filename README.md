@@ -24,7 +24,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 - Connectivity: Standard MIDI (TRS A type), BLE MIDI, MIDI UART sSupports macOS and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
 
 * ESP32 Lyrat
-  * The ESP32 Lyrat is originally designed for use in smart speakers. QUN synthesizer successfully uses it to achieve affordable pricing as a synthesizer. Though since the ESP32 Lyrat is not designed to be a synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB-MIDI, it's MIDI UART)
+  * The ESP32 Lyrat was originally designed for use in smart speakers. QUN synthesizer successfully uses it to achieve affordable pricing as a synthesizer. Though since the ESP32 Lyrat is not designed to be a synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB-MIDI, it's MIDI UART)
 
 * **Analog Modeling engine**
   * The analog modeling engine is **an original, made from scratch**. It uses advanced algorithms for great organic sound. The engine is not a copy of a classic synth, it is designed to make modern sounds.
@@ -62,7 +62,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 ## CONNECTIONS
 
 * Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
-* BLE MIDI : iOS or macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is limitation of BLE spec. For lower latency, use MIDI or MIDI UART.
+* BLE MIDI : iOS or macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is a limitation of the BLE spec. For lower latency, use MIDI or MIDI UART.
 * MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
 * MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
@@ -279,7 +279,7 @@ LFO MOD SEL
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
 
 ### PRM:VCF
-The synth has one filter. LPF / BPF/ HPF / Notch can be selected. Also it has 4/2 poles switch, and linear and non-linear switch. Linear gives organic resonance, Non-linear gives more character.
+The synth has one filter. LPF / BPF/ HPF / Notch can be selected. It also has a 4/2 poles switch, and linear and non-linear switch. Linear gives organic resonance, Non-linear gives more character.
 
 ![diagram_vcf](manual_images/diagram_vcf.jpg)
 
@@ -289,11 +289,11 @@ CUTOFF
 
 RESONANCE
 
-	Resonance
+	Resonance.
 
 VCF TYPE
 
-	`LPF,BPF,HPF,Notch`
+	`LPF,BPF,HPF,Notch`.
 
 VCF MOD CUTOFF
 
@@ -309,7 +309,7 @@ VCF LFO Volume
 
 OSC1 BYPASS
 
-	Filter bypass switch for OSC1
+	Filter bypass switch for OSC1.
 
 VCF KEYSYNC
 
@@ -327,7 +327,7 @@ VCF 4/2 POLE / NoLinear
 
 VCF MOD SEL
 
-	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`
+	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`.
 
 GLIDE
 
@@ -406,7 +406,7 @@ FM FREQ SNAP SW
 
 Clipping
 
-	Clipping algorithm. "GRAIN", "MID" or "SOFT". The clipping alrorithm will give a good distortion sound, you can even use the synth as multi-effector. See "External Audio processing" for detail.
+	Clipping algorithm. "GRAIN", "MID" or "SOFT". The clipping alrorithm will give a good distortion sound, you can even use the synth as multi-effector. See "External Audio processing" for further details.
 
 FM ENV3 CONN
 
@@ -437,7 +437,7 @@ Button 1: Play/Stop the sequencer.
 
 Button 2: Transpose
 
-Button 3: Width (Note length)
+Button 3: Width (note length)
 
 Button 4: Note Randomness
 
@@ -460,7 +460,7 @@ Right-filled circle : One note in the step but it plays at the second half.
 
 Full-filled circle : Two notes in the step (1/16th)
 
-Striped circle : 3 notes in the step (Triplet)
+Striped circle : 3 notes in the step (triplet)
 
 ### PLY:SEQ BANK
 The sequencer has 7 banks, you can switch the bank while playing.
@@ -480,7 +480,7 @@ Press one of the eight buttons and turn the dial, then it will modify width (not
 
 Button 1: BPM
 
-Button 2: Key (For Scale)
+Button 2: Key (for scale)
 
 Button 3: Scale. Playing note will be quantized by this scale.
 
@@ -519,7 +519,7 @@ Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock souce for sequencer and
 The synth can be used as Mono or Duo tone if you have more than one device.
 The voice number can be increased up to 8 (with Duo mode), by stacking up the synths.
 
-(Tested well with two devices, using more than 2 devices is experimental)
+_Tested well with two devices, using more than 2 devices is experimental at this stage_
 
 ### Audio connection
 
@@ -628,15 +628,15 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
 	* Level overflow may cause the silent (e.g. Giving massive delay feedback).
 	* Maybe it’s not worth to spend time to figure out why, reset the preset.
-	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t loose the preset.
+	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t lose the preset.
 	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
 	* Check MIDI Receiving status. To toggle it, press "Mode" button on Lyrat board (next to Rec button).
 	
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
 
-* A Noise when you connect multiple devices (chained audio)
+* A noise when you connect multiple devices (chained audio)
 	
-	* Probably it is because of ground loop. Use separated power supply. 
+	* It is likely because of a ground loop. Use separated power supply. 
 	
 * I hear noise but I don’t connect anything to line in.
 	* Toggle MIC/LINE select (in Prm:System), set to Line in.
