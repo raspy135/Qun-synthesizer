@@ -4,7 +4,7 @@ Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
 
 [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips
 
-[patches](./patches) for tone patches
+[Patches](./patches) for tone patches
 
 [Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
 
@@ -21,15 +21,15 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 ![qun_synth](./manual_images/qun_synth.jpg)
 
 ## Overview
-- Connectivity: Standard MIDI(TRS A type), BLE MIDI, UART MIDI(Supports MAC OS X and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
+- Connectivity: Standard MIDI (TRS A type), BLE MIDI, MIDI UART sSupports macOS and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
 
 * ESP32 Lyrat
-  * Originally designed for smart speaker. Qun synthesizer uses it to achieve affordable pricing. Since the board is not designed for Synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB MIDI, it's UART MIDI)
+  * Originally designed for smart speaker. Qun synthesizer uses it to achieve affordable pricing. Since the board is not designed for Synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB-MIDI, it's MIDI UART)
 
 * **Analog Modeling engine**
   * The analog modeling engine is **an original, made from scratch**. It uses advanced algorithms for great organic sound. The engine is not a copy of one of classic synths, it is designed to make a modern sound.
   * It utilizes every single clock of ESP32's CPU power.
-  * Ultra low latency around  < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be achieved because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
+  * Ultra low latency around < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be achieved because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
   * All analog modeling engine parameters can be configured through MIDI. 
   * Clean 2 Oscillators. Cheap synthesizers compromise this part sometimes, but QUN has no-alias noise Oscillators. Also all of internal calculation is done by floating point for the sound quality.
   * Oscillators can be used as dual tone. 
@@ -62,10 +62,10 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 ## CONNECTIONS
 
 * Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
-* BLE MIDI : IOS or Mac OS X are supported. Windows are NOT supported. BLE MIDI has 15 to 20ms latency in general, it is limitation of BLE spec. For lower latency, use MIDI or UART MIDI.
+* BLE MIDI : iOS or macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is limitation of BLE spec. For lower latency, use MIDI or MIDI UART.
 * MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
-* UART MIDI: You can use UART MIDI instead of traditional MIDI interface. It requires special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for Mac) but once you set them up then you can use it like USB MIDI. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
-	* For detail of UART MIDI, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
+* MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect Lyrat's `UART` labeled USB to your computer. You may need to install UART driver(https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
+	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals. It also has microphones.
 * LINE IN and PHONE OUT is located at right side. The output is stereo but right and left channel will put the same signal.
 
@@ -83,7 +83,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 Each major mode has sub modes. Select sub mode. For example, `Prm:OSC1` is a sub mode for Oscillator 1.
 * To switch sub mode, press Mode button (on the top board) + rotate dial. Keep pressing Mode button while you are selecting sub mode.
 * ![sub_mode_change](manual_images/sub_mode_change.gif)
-* Alternatevely, if you press Mode button and released, sticky mode button is activated(Square is indicated next to mode name)). If you press one of 8 buttons, this will change first 8 of Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2(Second button of the 8 buttons) will switch to OSC2 sub mode. This might be quicker way to access the sub mode once you remember the position.
+* Alternatively, if you press Mode button and released, sticky mode button is activated (Square is indicated next to mode name). If you press one of 8 buttons, this will change first 8 of Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2 (second button of the 8 buttons) will switch to OSC2 sub mode. This might be quicker way to access the sub mode once you remember the position.
 
 After you enter the sub mode you want, then next you need to select and change the parameter.
 * Press one of 8 buttons + rotate dial = Change parameter
@@ -95,11 +95,11 @@ Once you selected the parameter, the parameter is assigned to the dial.
 *Some parameters do an action just by pressing the button. (e.g. load preset)
 
 ### Dumping current preset
-All tone configuration can be specified as sort of MIDI CC signals.Pressing “REC” button will dump all configuration.
+All tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
 If you record the MIDI signals to your MIDI recorder or DAW, it can be used as tone preset.
 
 ### All note off
-Pressing “Mode” button on the base board (not Red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
+Pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
 
 ## Parameter Mode
 
@@ -198,7 +198,7 @@ ENV1 and ENV2 are grouped to first voice with Duo mode. ENV3 and ENV4 are groupe
 
 ATTACK
 
-	Attach time
+	Attack time
 
 DECAY
 
@@ -221,7 +221,7 @@ ENV Sel
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`
 WIDE TUNE
 
-	When it is ON,you can tune wider range by OSC’s tune parameter.
+	When it is ON, you can tune wider range by OSC’s tune parameter.
 MOD SEL
 
 	Select Mod signal source. It is connected to OSC's tune or width.
@@ -264,7 +264,7 @@ LFO MOD WIDTH
 KEYSPLIT
 
 	This is a unique feature of the synth.
-	When it is not zero,  then note number above the parameter becomes LFO rate controller.
+	When it is not zero, then note number above the parameter becomes LFO rate controller.
 	(If you set 60, then C4 or higher note becomes LFO controller)
 	Higher notes will generate higher LFO rate.
 	If you press multiple notes, it doubles and triples the rate.
@@ -313,7 +313,7 @@ OSC1 BYPASS
 
 VCF KEYSYNC
 
-	When it is not zero, VCF’s cutoff will follows the playing note.  Higher value is more sensitive.
+	When it is not zero, VCF’s cutoff will follows the playing note. Higher value is more sensitive.
 	Great with Mono, but not working well with Duo tone because it has only one VCF.
 
 ### PRM:KEY/OTHER
@@ -343,7 +343,7 @@ MOD MODE
 
 VELOCITY SW
 
-	Envelope generators become velocity sensitive when  it’s ON.
+	Envelope generators become velocity sensitive when it’s ON.
 
 MONO/DUO/POLY
 
@@ -352,7 +352,7 @@ MONO/DUO/POLY
 	* Duo = Duo Tone (1 OSC per voice)
 	With duo tone mode, MIX should be middle and set the same parameters to both EGs.
 	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to build polyphonic synth.
-	Please see  “Polyphonic setup” for detail.
+	Please see “Polyphonic setup” for detail.
 
 LFO SYNC SW
 
@@ -427,7 +427,7 @@ ENV3/4 RELEASE
 ## PLAY MODE
 
 ### PLY:PLAY
-The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. Probably it is not useful for live performance. The sequencer is more practical for live performance (Or just use external sequencer / DAW).
+The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance (or just use external sequencer / DAW).
 
 ### PLY:SEQ PLAY
 Main Sequencer control mode.
@@ -437,7 +437,7 @@ Button 1: Play/Stop the sequencer.
 
 Button 2: Transpose
 
-Button 3: Width(Note length)
+Button 3: Width (Note length)
 
 Button 4: Note Randomness
 
@@ -458,7 +458,7 @@ Left-filled circle : One note in the step.
 
 Right-filled circle : One note in the step but it plays at the second half.
 
-Full-filled circle : Two notes in the step(1/16th)
+Full-filled circle : Two notes in the step (1/16th)
 
 Striped circle : 3 notes in the step (Triplet)
 
@@ -474,7 +474,7 @@ Button 8: Save all banks to flash memory.
 Press one of the eight buttons and turn the dial, then it will modify tune offset for each step.
 
 ### PLY:SEQ WIDTH
-Press one of the eight buttons and turn the dial, then it will modify width(note length) offset for each step.
+Press one of the eight buttons and turn the dial, then it will modify width (note length) offset for each step.
 
 ### PLY:SEQ CONFIG
 
@@ -499,7 +499,7 @@ Pressing button 1 to 8 will save to preset 1 to 8. It has 4 banks.
 ### SET:SYSTEM
 System Setting is the setting that is not included in the patch setting. To change the parameter, press the one of 8 buttons and rotate the dial.
 
-AUX: Audio source select. (It's Lyrat's microphone, The microphone's quality is not high). Mic(the board has two onboard microphones) or Line in. It will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)".
+AUX: Audio source select. It's Lyrat's microphone, the microphone is not high quality. Mic (the board has two onboard microphones) or Line in. It will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)".
 
 Number of devices: Number of devices for poly mode. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
@@ -583,7 +583,7 @@ Minimum setup to achieve PolyMono (2 Oscillators per voice) will be the followin
 
 Minimum setup to achieve PolyDuo (1 Oscillator per voice) will be the following with 2 devices setup:
 
-1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
+1. In System menu, "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
 2. Initialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it can play initial SAW wave sound.
 4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix OSC1 and OSC2.
@@ -594,8 +594,8 @@ Minimum setup to achieve PolyDuo (1 Oscillator per voice) will be the following 
 
 ### Polyphonic tips
 
-Two devices becomes out of synchronized easily for various reasons.
-To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices.  If you still see issues like out of tune in slave device, try MIDI RECV toggle switch (Lyrat's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
+Two devices can lose sync for a variety of reasons.
+To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. If you still see issues like out of tune in slave device, try MIDI RECV toggle switch (Lyrat's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
 
 If it starts making ground loop noise, use separated power supply and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
@@ -608,7 +608,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 * MIDI CC dump is not properly saved to my DAW	
 	* Some DAWs suppress MIDI CC messages when DAW believes the value was not changed. Ableton Live is one of this. To work around, press STOP key before the dump. This will reset CC values. 
 
-* Unknown MIDI messages sent with device reset?  
+* Unknown MIDI messages sent with device reset?
   * When booting some noise is sent (It's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
   
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
@@ -620,7 +620,7 @@ If it starts making ground loop noise, use separated power supply and use standa
      1. Initialize a patch. Long pressing (4 sec) Rec button.
      2. Set Mix to 64 (in Mix submenu). You can hear both OSC's sound.
      3. Set OSC2 Env Sel to EG2 (in OSC Switches). OSC2 will use EG2.
-     4. Set Mono/Duo/Poly mode to "Duo".  EG2 will be triggered separately with Duo mode.
+     4. Set Mono/Duo/Poly mode to "Duo". EG2 will be triggered separately with Duo mode.
      5. Now you should be able to play up to 2 voices.
 
 * Suddenly NO SOUND!
@@ -632,7 +632,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
 	* Check MIDI Receiving status. To toggle it, press "Mode" button on Lyrat board (next to Rec button).
 	
-* BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use UART MIDI or MIDI TRS A.
+* BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
 
 * A Noise when you connect multiple devices (chained audio)
 	
