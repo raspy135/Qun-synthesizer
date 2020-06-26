@@ -83,7 +83,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 Each major mode has sub modes. Select sub mode. For example, `Prm:OSC1` is a sub mode for Oscillator 1.
 * To switch sub mode, press Mode button (on the top board) + rotate dial. Keep pressing Mode button while you are selecting sub mode.
 * ![sub_mode_change](manual_images/sub_mode_change.gif)
-* If you press Mode button and released, sticky mode button is activated(Square is indicated next to mode name)). If you press one of 8 buttons, this will change first 8 of Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2(Second button of the 8 buttons) will switch to OSC2 sub mode.
+* Alternatevely, if you press Mode button and released, sticky mode button is activated(Square is indicated next to mode name)). If you press one of 8 buttons, this will change first 8 of Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2(Second button of the 8 buttons) will switch to OSC2 sub mode. This might be quicker way to access the sub mode once you remember the position.
 
 After you enter the sub mode you want, then next you need to select and change the parameter.
 * Press one of 8 buttons + rotate dial = Change parameter

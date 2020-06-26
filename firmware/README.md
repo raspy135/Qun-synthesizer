@@ -45,6 +45,10 @@ QUN V1.01
 
 # Release history
 
+### v1.25
+
+- Fixed MIDI receiving channel bug. (Dial cannot change the value when receiving MIDI channel is more than 1)
+
 ### v1.23
 
 - ADC button logic rollback. Update is not necessary from v1.22 unless you have issues with button recognition. 
