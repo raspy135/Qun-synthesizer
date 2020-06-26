@@ -45,6 +45,10 @@ QUN V1.01
 
 # Release history
 
+### v1.26
+
+- Fixed a bug : System crashes when Effect type values set to the max(127)
+
 ### v1.25
 
 - Fixed MIDI receiving channel bug. (Dial cannot change the value when receiving MIDI channel is more than 1)
