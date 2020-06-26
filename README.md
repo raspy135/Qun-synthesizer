@@ -45,7 +45,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
     * Keysync
   * 1 Effect (Delay, Chorus, Flanger)
   * MIDI clock sync
-  * **Advanced 3 Clipping algorithms** gives an organic clipping sound
+  * **3 Advanced Clipping algorithms** gives an organic clipping sound
 * Player / Sequencer
   * Player (Piano mode)
   * Random mind inspiring 8 step sequencer will generate beats for you
@@ -648,7 +648,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	
 * Use other hardware effectors!
 
-* Don’t be afraid to get clipped! The synth has a great clipping algorithms. Clipping could be the entrance to the new sound.
+* Don’t be afraid to get clipped! The synth has 3 great clipping algorithms. Clipping could be the gateway to a whole new sound.
 
 * I want to use AUX as CV IN
 	* CV signal from modular synthesizers may have **HIGH VOLTAGE**! Please attenuate the voltage to normal LINE level (1 to 1.5V).
@@ -656,7 +656,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
 
 * MIDI is flooding when I connect MIDI out to DAW.
-	* Probably MIDI forwarding is ON.
+	* MIDI forwarding is probably ON.
 
 * No volume?
 	* VCF Volume works for most of purpose. However in order to utilize clipping(overdrive) logic, attenuate volume at other equipments is recommended.
