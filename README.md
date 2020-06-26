@@ -42,7 +42,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
   * 1 Organic sounding VCF
     * 2/4 Poles, Low-pass, Band-pass, High-pass, Notch)
     * **Organic Linear and classic Non-linear**
-    * Keysync
+    * Key sync
   * 1 Effect (Delay, Chorus, Flanger)
   * MIDI clock sync
   * **3 advanced clipping algorithms** gives an organic clipping sound
@@ -311,7 +311,7 @@ OSC1 BYPASS
 
 	Filter bypass switch for OSC1.
 
-VCF KEYSYNC
+VCF KEY SYNC
 
 	When it is not zero, VCF’s cutoff will follows the playing note. Higher value is more sensitive.
 	Great with Mono, but not working well with Duo tone because it has only one VCF.
@@ -391,11 +391,11 @@ FM (ABCD) AMP
 FM (ABC) FREQ
 
 	Oscillator (ABC)’s frequency (multiple of frequency of D)
-	When FM FREQ SNAP (In ENV3/4 Other submenu) is off, it be adjust to the exact frequency of hamonics (2,3,4,5..). If you want clean FM sound, turn FM FREQ SNAP on.
+	When FM FREQ SNAP (In ENV3/4 Other submenu) is off, it be adjust to the exact frequency of harmonics (2,3,4,5..). If you want clean FM sound, turn FM FREQ SNAP on.
 
 ### PRM:ENV3/4 / Other
 
-OSC1/2 KEYSYNC
+OSC1/2 KEY SYNC
 
 	Frequency lock SW for OSC1. When it's OFF(Indicated as "N"), it will ignore MIDI note.
 
@@ -615,7 +615,7 @@ If it starts making ground loop noise, use separated power supply and use standa
   * Mix in Mix sub menu has to be center (64).
   * Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
   * Set OSCs setting identical to get the same tone. Associated Envelopes parameters also need to be identical. (e.g. EG1 and EG2 setting should be identical)
-  * VCF’s Keysync will not work well.
+  * VCF’s key sync will not work well.
   * I suggest to start with simple patch.
      1. Initialize a patch. Long pressing (4 sec) Rec button.
      2. Set Mix to 64 (in Mix submenu). You can hear both OSC's sound.
