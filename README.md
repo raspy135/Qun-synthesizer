@@ -24,16 +24,16 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 - Connectivity: Standard MIDI(TRS A type), BLE MIDI, UART MIDI(Supports MAC OS X and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
 
 * ESP32 Lyrat
-  * Originally designed for smart speaker. Qun synthesizer uses it to archive affordable pricing. Since the board is not designed for Synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB MIDI, it's UART MIDI)
+  * Originally designed for smart speaker. Qun synthesizer uses it to achieve affordable pricing. Since the board is not designed for Synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB MIDI, it's UART MIDI)
 
 * **Analog Modeling engine**
   * The analog modeling engine is **an original, made from scratch**. It uses advanced algorithms for great organic sound. The engine is not a copy of one of classic synths, it is designed to make a modern sound.
   * It utilizes every single clock of ESP32's CPU power.
-  * Ultra low latency around  < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be archived because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
+  * Ultra low latency around  < 1ms. (Sound latency. Total latency varies by connecting method.) The low latency can be achieved because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like PC.
   * All analog modeling engine parameters can be configured through MIDI. 
   * Clean 2 Oscillators. Cheap synthesizers compromise this part sometimes, but QUN has no-alias noise Oscillators. Also all of internal calculation is done by floating point for the sound quality.
   * Oscillators can be used as dual tone. 
-  * The synth can be stacked to archive **Polyphonic** setup. 
+  * The synth can be stacked to achieve **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
   * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
   * 4 Envelope Generators
@@ -323,7 +323,7 @@ VCF 4/2 POLE / NoLinear
 
 	Change filter's number of poles, and selects linear or non-linear. 2 Poles is -12db/oct, 4 Poles is -24db/oct. 2 Poles filter gives brighter character. Linear(LI) has less character, but linear's resonance is sharp and more organic like real instruments. Non-linear(NL) has more character, has more harmonics, close to other synthesizers. 
 	If you use cutoff envelope or copying patch from other synths, typically Non-linear is suitable.
-	If you try to archive something close to real instrument or you want clear sound, linear is suitable.
+	If you try to achieve something close to real instrument or you want clear sound, linear is suitable.
 
 VCF MOD SEL
 
@@ -572,7 +572,7 @@ Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW n
 
 ### Preset setup for Polyphonic
 
-Minimum setup to archive PolyMono (2 Oscillators per voice) will be the following with 2 devices setup:
+Minimum setup to achieve PolyMono (2 Oscillators per voice) will be the following with 2 devices setup:
 
 1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device. This will be saved to flash memory.
 2. Initialize a preset (4 second press of Rec button) on Master device.
@@ -581,7 +581,7 @@ Minimum setup to archive PolyMono (2 Oscillators per voice) will be the followin
 5. Press "Rec" button on Master device. It will dump all preset parameters as MIDI CC messages. After the dump, all preset state should be in sync between devices.
 6. Play multiple notes. You should hear two voices.
 
-Minimum setup to archive PolyDuo (1 Oscillator per voice) will be the following with 2 devices setup:
+Minimum setup to achieve PolyDuo (1 Oscillator per voice) will be the following with 2 devices setup:
 
 1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
 2. Initialize a preset (4 second press of Rec button) on Master device.
