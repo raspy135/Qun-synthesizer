@@ -45,6 +45,10 @@ QUN V1.01
 
 # Release history
 
+##v1.27
+
+- Bug fix: Some UI malfunctions caused by v1.25 fix. Please update if you use v1.25
+
 ### v1.26
 
 - Fixed a bug : System crashes when Effect type values set to the max(127)
