@@ -8,7 +8,7 @@ Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
 
 [Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
 
-Firmware : For a firmware update.
+[Firmware](https://github.com/raspy135/Qun-synthesizer/tree/master/firmware) : For a firmware update.
 
 **We are looking for Pull requests for patches, we will add it to this repository**
 
@@ -77,6 +77,9 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 * “Set” Button = Setting. For load / save / system setting.
 * “Vol+” Button = Parameter Mode. Change synthesizer’s parameters.
 (VOL- button is disabled by hardware)
+
+* RST button will reset the board. Boot button is used only for firmware update.
+
 * ![major_mode_change](manual_images/major_mode_change.gif)
 
 ## BASIC OPERATION
@@ -114,13 +117,13 @@ CV input routing is very flexible.
 One CV is connected to LFO (for tune/width).
 Another one is selectable. It could be one of EG1 to EG4, AUX (Audio in), OSC2 signal, OSC2 signal after EG processing, Freq level out from OSC1, or Freq level out from OSC2.
 
-SHAPE
+1. SHAPE
 
 	`Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX`
 	*AUX means audio input from LINE or MIC.
 	*FM has 4 operators inside. See FM Conf Sub mode for detail.
 
-PULSE WIDTH
+2. PULSE WIDTH
 	
 	The synth has an unique behavior with pulse width.
 	You can modulate the wave shape by pulse width, not only limited to Square wave.
@@ -128,23 +131,23 @@ PULSE WIDTH
 	* SAW
 	* Square
 
-TUNE
+3. TUNE
 
-OCTAVE
+4. OCTAVE
 
-MOD TUNE
+5. MOD TUNE
 
 	MOD bus feedback to tune.
 
-MOD WIDTH
+6. MOD WIDTH
 
 	MOD bus feedback to pulse width.
 
-LFO TUNE
+7. LFO TUNE
 
 	LFO feedback to tune.
 
-LFO WIDTH
+8. LFO WIDTH
 
 	LFO feedback to pulse width.
 
@@ -153,38 +156,38 @@ Mix controls mixer and effects.
 
 ![diagram_mix_aux](manual_images/diagram_mix_aux.jpg)
 
-OSC MIX
+1. OSC MIX
 
 	Balance between OSC1 and OSC2
 
-FM
+2. FM
 
 	FM modulation OSC2 to OSC1. 
 	That means that each oscillator has internal 4 operator FM, on top of it, you can modulate OSC1 by OSC2.
 
-VCF VOLUME
+3. VCF VOLUME
 
 	Volume to VCF. It can be used as generic volume control.
 
-AUDIO IN GAIN
+4. AUDIO IN GAIN
 
 	GAIN from Line in / Mic In
 
 ![diagram_effector](manual_images/diagram_effector.jpg)
 
-EFFECT TYPE
+5. EFFECT TYPE
 
 	Delay, Chorus1, Chorus2, Flanger1, Flanger2
 
-EFFECT SPEED
+6. EFFECT SPEED
 
 	Controls Effect LFO rate
 
-EFFECT DEPTH
+7. EFFECT DEPTH
 
 	Amount of effect
 
-EFFECT FEEDBACK
+8. EFFECT FEEDBACK
 
 	Feedback for Delay
 
@@ -196,38 +199,38 @@ ENV1 and ENV2 are grouped to first voice with Duo mode. ENV3 and ENV4 are groupe
 
 ![diagram_eg](manual_images/diagram_eg.jpg)
 
-ATTACK
+1/5 . ATTACK
 
 	Attack time
 
-DECAY
+2/6 . DECAY
 
 	Decay time
 
-SUSTAIN
+3/7 . SUSTAIN
 
 	Sustain level
 
-RELEASE
+4/8 . RELEASE
 
 	Release time
 
 ### PRM:OSC Switches
 OSC has many switches to change its behavior.
 
-ENV Sel
+1/5 . ENV Sel
 
 	Selects Envelope(VCA) for the oscillator.
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`
-WIDE TUNE
+2/6 . WIDE TUNE
 
 	When it is ON, you can tune wider range by OSC’s tune parameter.
-MOD SEL
+3/7 . MOD SEL
 
 	Select Mod signal source. It is connected to OSC's tune or width.
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`
 
-ENV INV SW
+4/8 . ENV INV SW
 
 	It inverts Envelope Generator’s polarity. ENV1 and ENV2 can change its polarity.
 
@@ -238,30 +241,30 @@ External clock sync setting is available in "PRM:KEY/OTHER" menu.
 
 ![diagram_lfo](manual_images/diagram_lfo.jpg)
 
-LFO TUNE
+1. LFO TUNE
 
 	Tune
 
-LFO SHAPE
+2. LFO SHAPE
 
 	`Saw, Sine, RevSaw, S&H, Square, Triangle, AUX, OSC2, OSC2EG`
 	*AUX is audio input from LINE / MIC.
 	*You can use OSC2 as LFO source. Even you can modulate OSC2 by OSC2.
 	*OSC2EG is the signal from OSC after Envelope Generator processing.
 
-LFO PULSE WIDTH
+3. LFO PULSE WIDTH
 
 	Pulse width
 
-LFO MOD TUNE
+4. LFO MOD TUNE
 
 	Envelope generator feedback to tune.
 
-LFO MOD WIDTH
+5. LFO MOD WIDTH
 
 	Envelope generator feedback to pulse width.
 
-KEYSPLIT
+6. KEYSPLIT
 
 	This is a unique feature of the synth.
 	When it is not zero, then note number above the parameter becomes LFO rate controller.
@@ -270,11 +273,11 @@ KEYSPLIT
 	If you press multiple notes, it doubles and triples the rate.
 	It is great for live playing.
 
-LFO GATESYNC
+7. LFO GATESYNC
 
 	LFO’s phase is reset by every note hit when it is ON.
 
-LFO MOD SEL
+8. LFO MOD SEL
 
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2`
 
@@ -283,35 +286,35 @@ The synth has one filter. LPF / BPF/ HPF / Notch can be selected. It also has a 
 
 ![diagram_vcf](manual_images/diagram_vcf.jpg)
 
-CUTOFF
+1. CUTOFF
 
 	Set the cutoff frequency.
 
-RESONANCE
+2. RESONANCE
 
 	Resonance.
 
-VCF TYPE
+3. VCF TYPE
 
 	`LPF,BPF,HPF,Notch`.
 
-VCF MOD CUTOFF
+4. VCF MOD CUTOFF
 
 	Mod feedback to cutoff. Mod source selection is located in `Prm:Key / Other` sub mode.
 
-VCF LFO CUTOFF
+5. VCF LFO CUTOFF
 
 	LFO to cutoff feedback.
 
-VCF LFO Volume
+6. VCF LFO Volume
 
 	LFO feedback to VCF’s input volume.
 
-OSC1 BYPASS
+7. OSC1 BYPASS
 
 	Filter bypass switch for OSC1.
 
-VCF KEY SYNC
+8. VCF KEY SYNC
 
 	When it is not zero, VCF’s cutoff will follows the playing note. Higher value is more sensitive.
 	Great with Mono, but not working well with Duo tone because it has only one VCF.
@@ -319,33 +322,33 @@ VCF KEY SYNC
 ### PRM:KEY/OTHER
 Configures other parameters.
 
-VCF 4/2 POLE / NoLinear
+1. VCF 4/2 POLE / NoLinear
 
 	Change filter's number of poles, and selects linear or non-linear. 2 Poles is -12db/oct, 4 Poles is -24db/oct. 2 Poles filter gives brighter character. Linear(LI) has less character, but linear's resonance is sharp and more organic like real instruments. Non-linear(NL) has more character, has more harmonics, close to other synthesizers. 
 	If you use cutoff envelope or copying patch from other synths, typically Non-linear is suitable.
 	If you try to achieve something close to real instrument or you want clear sound, linear is suitable.
 
-VCF MOD SEL
+2. VCF MOD SEL
 
 	`EG1, EG2, EG3, EG4, AUX, OSC2, OSC2EG, FRQ1, FRQ2, ON`.
 
-GLIDE
+3. GLIDE
 
 	Tune changes gradient when the value is not zero. Works with Mono.
 
-BEND RANGE
+4. BEND RANGE
 
 	Pitch bend range.
 
-MOD MODE
+5. MOD MODE
 
 	Modulation mode. `OSC1 and OSC2 (Pulse Width), OSC1 only, OSC2 only, or VCF's cutoff.`
 
-VELOCITY SW
+6. VELOCITY SW
 
 	Envelope generators become velocity sensitive when it’s ON.
 
-MONO/DUO/POLY
+7. MONO/DUO/POLY
 
 	One synthesizer can be used as Monophonic or Duophonic.
 	* Mono = Mono (2 OSCs per voice)
@@ -354,7 +357,7 @@ MONO/DUO/POLY
 	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to build polyphonic synth.
 	Please see “Polyphonic setup” for detail.
 
-LFO SYNC SW
+8. LFO SYNC SW
 
 	LFO rate will synchronize with MIDI clock when it is ON.
 
@@ -366,49 +369,49 @@ Each operator has sine wave.
 OSC1 and OSC2 share the FM parameter.
 On top of two FM engines, you can do FM modulation between oscillators.
 
-FM ALGORITHM
+1. FM ALGORITHM
 
 	Selects FM algorithm. "ABCD" indicates each operator.
 	Vertical relationship means upper operator modulates lower operator.
 	For example,
-	```
+```
 	    A
 	B C D
-	```
+```
 	This means that operator A modulates operator D. B, C and modulated D will be mixed in parallel.
-	```
+```
 	A
 	B
 	C
 	D
-	```
+```
 	This means A modulates B, the result modulates C, the result modulates D.
 
-FM (ABCD) AMP
+2/4/6/8. FM (ABCD) AMP
 
 	Oscillator (ABCD)’s amplitude.
 
-FM (ABC) FREQ
+3/5/7. FM (ABC) FREQ
 
 	Oscillator (ABC)’s frequency (multiple of frequency of D)
 	When FM FREQ SNAP (In ENV3/4 Other sub-menu) is off, it be adjust to the exact frequency of harmonics (2,3,4,5..). If you want clean FM sound, turn FM FREQ SNAP on.
 
 ### PRM:ENV3/4 / Other
 
-OSC1/2 KEY SYNC
+1. OSC1/2 KEY SYNC
 
 	Frequency lock SW for OSC1. When it's OFF(Indicated as "N"), it will ignore MIDI note.
 
-FM FREQ SNAP SW
+2. FM FREQ SNAP SW
 
 	Frequency snapping for FM. When it's ON, FM sound will be clear, no detune.
 	When it's OFF, FM has more character, signature sound.
 
-Clipping
+3. Clipping
 
 	Clipping algorithm. "GRAIN", "MID" or "SOFT". The clipping algorithm will give a good distortion sound, you can even use the synth as multi-effector. See "External Audio processing" for further details.
 
-FM ENV3 CONN
+4. FM ENV3 CONN
 
 	Select operator(s) to connect ENV3
 		FM engine's operators can use Envelope generator (ENV3/ENV4).
@@ -416,13 +419,13 @@ FM ENV3 CONN
 	Technically ENV4 exists for OSC2’s FM engine, but the parameter is shared with ENV3.
 	After the processing it will be modulated by ENV1 or ENV2.
 
-ENV3/4 ATTACK
+5. ENV3/4 ATTACK
 
-ENV3/4 DECAY
+6. ENV3/4 DECAY
 
-ENV3/4 SUSTAIN
+7. ENV3/4 SUSTAIN
 
-ENV3/4 RELEASE
+8. ENV3/4 RELEASE
 
 ## PLAY MODE
 
@@ -721,139 +724,139 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 
 
 ```
-                            "Save Preset", //0x0
-                            "Mod Wheel", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "", //5
-                            "", //6
-                            "Volume", //7
-                            "", //8
-                            "", //9
-                            "", //a
-                            "VCF Volume", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "", //f
+0                            "Save Preset", //0x0
+1                            "Mod Wheel", //1
+2                            "", //2
+3                            "", //3
+4                            "", //4
+5                            "", //5
+6                            "", //6
+7                            "Volume", //7
+8                            "", //8
+9                            "", //9
+10                            "", //a
+11                            "VCF Volume", //b
+12                            "", //c
+13                            "", //d
+14                            "", //e
+15                            "", //f
                             //-----------------------0x10
-                            "", //0x0
-                            "", //1
-                            "", //2
-                            "", //3
-                            "", //4
-                            "OSC1 Tune(MSB)", //5
-                            "VCF Cutoff(MSB)", //6
-                            "OSC2 Tune(MSB)", //7
-                            "LFO Tune(MSB)", //8
-                            "ENV3/4 Attack", //9
-                            "ENV3/4 Decay", //a
-                            "ENV3/4 Sustain", //b
-                            "ENV3/4 Release", //c
-                            "", //d
-                            "", //e
-                            "", //f
+16                            "", //0x0
+17                            "", //1
+18                            "", //2
+19                            "", //3
+20                            "", //4
+21                            "OSC1 Tune(MSB)", //5
+22                            "VCF Cutoff(MSB)", //6
+23                            "OSC2 Tune(MSB)", //7
+24                            "LFO Tune(MSB)", //8
+25                            "ENV3/4 Attack", //9
+26                            "ENV3/4 Decay", //a
+27                            "ENV3/4 Sustain", //b
+28                            "ENV3/4 Release", //c
+29                            "", //d
+30                            "", //e
+31                            "", //f
                             //-----------------------0x20
-                            "", //0x0
-                            "FM", //1
-                            "Efct Feedback", //2
-                            "LFO Pulse Width", //3
-                            "OSC1 Pulse Width", //4
-                            "OSC2 Pulse Width", //5
-                            "LFO Pulse Width", //6
-                            "Efct Speed", //7
-                            "VCF Type", //8
-                            "Efct Depth", //9
-                            "Clipping", //a
-                            "", //b
-                            "Efct Type", //c
-                            "VCF OSC1 bypass SW", //d
-                            "", //e
-                            "", //f
+32                            "", //0x0
+33                            "FM", //1
+34                            "Efct Feedback", //2
+35                            "LFO Pulse Width", //3
+36                            "OSC1 Pulse Width", //4
+37                            "OSC2 Pulse Width", //5
+38                            "LFO Pulse Width", //6
+39                            "Efct Speed", //7
+40                            "VCF Type", //8
+41                            "Efct Depth", //9
+42                            "Clipping", //a
+43                            "", //b
+44                            "Efct Type", //c
+45                            "VCF OSC1 bypass SW", //d
+46                            "", //e
+47                            "", //f
                             //-----------------------0x30
-                            "LFO Mod Tune", //0x0
-                            "LFO Mod Width", //1
-                            "FM Algorithm", //2
-                            "FM ENV3 Conn", //3
-                            "", //4
-                            "OSC1 Tune(LSB)", //5
-                            "Cutoff(LSB)", //6
-                            "OSC2 Tune(LSB)", //7
-                            "LFO Tune(LSB)", //8
-                            "FM A Amp", // 9
-                            "FM A Freq", //a
-                            "FM B Amp", //b
-                            "FM B Freq", //c
-                            "FM C Amp", //d
-                            "FM C Freq", //e
-                            "FM D Amp", //f
+48                            "LFO Mod Tune", //0x0
+49                            "LFO Mod Width", //1
+50                            "FM Algorithm", //2
+51                            "FM ENV3 Conn", //3
+52                            "", //4
+53                            "OSC1 Tune(LSB)", //5
+54                            "Cutoff(LSB)", //6
+55                            "OSC2 Tune(LSB)", //7
+56                            "LFO Tune(LSB)", //8
+57                            "FM A Amp", // 9
+58                            "FM A Freq", //a
+59                            "FM B Amp", //b
+60                            "FM B Freq", //c
+61                            "FM C Amp", //d
+62                            "FM C Freq", //e
+63                            "FM D Amp", //f
                             //-----------------------0x40
-                            "", //0x0
-                            "OSC2 Mod Sel", //1
-                            "LFO Mod Sel", //2
-                            "ENV1 Inv SW", //3
-                            "OSC1 Env Sel", //4
-                            "OSC2 Env Sel", //5
-                            "ENV2 Inv SW", //6
-                            "LFO Gatesync SW", //7
-                            "OSC2 Keysync SW", //8
-                            "OSC1 Wide Tune SW", //9
-                            "OSC2 Wide Tune SW", //a
-                            "OSC2 Octave", //b
-                            "OSC1 Octave", //c
-                            "OSC1 Keysync SW", //d
-                            "Velocity SW", //e
-                            "OSC1 LFO Tune", //f
+64                            "", //0x0
+65                            "OSC2 Mod Sel", //1
+66                            "LFO Mod Sel", //2
+67                            "ENV1 Inv SW", //3
+68                            "OSC1 Env Sel", //4
+69                            "OSC2 Env Sel", //5
+70                            "ENV2 Inv SW", //6
+71                            "LFO Gatesync SW", //7
+72                            "OSC2 Keysync SW", //8
+73                            "OSC1 Wide Tune SW", //9
+74                            "OSC2 Wide Tune SW", //a
+75                            "OSC2 Octave", //b
+76                            "OSC1 Octave", //c
+77                            "OSC1 Keysync SW", //d
+78                            "Velocity SW", //e
+79                            "OSC1 LFO Tune", //f
                             //-----------------------0x50
-                            "OSC1 LFO Width", //0x0
-                            "OSC2 LFO Tune", //1
-                            "OSC2 LFO Width", //2
-                            "Mono/Duo/Polly", //3
-                            "VCF LFO Volume", //4
-                            "VCF Mod Cutoff", //5
-                            "LFO Keysplit", //6
-                            "VCF LFO cutoff", //7
-                            "OSC1 Mod Sel", //8
-                            "VCF Mod Sel", //9
-                            "VCF Volume", //a
-                            "VCF Resonance", //b
-                            "OSC Mix", //c
-                            "OSC1 Shape", //d
-                            "OSC2 Shape", //e
-                            "LFO Shape", //f
+80                            "OSC1 LFO Width", //0x0
+81                            "OSC2 LFO Tune", //1
+82                            "OSC2 LFO Width", //2
+83                            "Mono/Duo/Polly", //3
+84                            "VCF LFO Volume", //4
+85                            "VCF Mod Cutoff", //5
+86                            "LFO Keysplit", //6
+87                            "VCF LFO cutoff", //7
+88                            "OSC1 Mod Sel", //8
+89                            "VCF Mod Sel", //9
+90                            "VCF Volume", //a
+91                            "VCF Resonance", //b
+92                            "OSC Mix", //c
+93                            "OSC1 Shape", //d
+94                            "OSC2 Shape", //e
+95                            "LFO Shape", //f
                             //-----------------------0x60
-                            "ENV1 Attack", //0x0
-                            "AUX In Gain", //1
-                            "", //2 (Won't be dumped)
-                            "", //3 (Won't be dumped)
-                            "Mod Wheel Mode", //4
-                            "", //5 (Won't be dumped)
-                            "ENV1 Decay", //6
-                            "ENV1 Sustain", //7
-                            "ENV1 Release", //8
-                            "ENV2 Attack", //9
-                            "ENV2 Decay", //a
-                            "ENV2 Sustain", //b
-                            "ENV2 Release", //c
-                            "OSC1 Mod Tune", //d
-                            "OSC1 Mod Width", //e
-                            "VCF Pole / NoLinear", //f
+96                            "ENV1 Attack", //0x0
+97                            "AUX In Gain", //1
+98                            "", //2 (Won't be dumped)
+99                            "", //3 (Won't be dumped)
+100                            "Mod Wheel Mode", //4
+101                            "", //5 (Won't be dumped)
+102                            "ENV1 Decay", //6
+103                            "ENV1 Sustain", //7
+104                            "ENV1 Release", //8
+105                            "ENV2 Attack", //9
+106                            "ENV2 Decay", //a
+107                            "ENV2 Sustain", //b
+108                            "ENV2 Release", //c
+109                            "OSC1 Mod Tune", //d
+110                            "OSC1 Mod Width", //e
+111                            "VCF Pole / NoLinear", //f
                             //-----------------------0x70
-                            "OSC2 Mod Tune", //0x0
-                            "OSC2 Mod Width", //1
-                            "Glide", //2
-                            "Bend Range", //3
-                            "Mod Mode", //4
-                            "VCF Keysync", //5
-                            "Voice Number", //6
-                            "LFO Sync SW", //7
-                            "All Notes Off", //8
-                            "", //9
-                            "", //a
-                            "All Notes Off", //b
-                            "", //c
-                            "", //d
-                            "", //e
-                            "" //f
+112                            "OSC2 Mod Tune", //0x0
+113                            "OSC2 Mod Width", //1
+114                            "Glide", //2
+115                            "Bend Range", //3
+116                            "Mod Mode", //4
+117                            "VCF Keysync", //5
+118                            "Voice Number", //6
+119                            "LFO Sync SW", //7
+120                            "All Notes Off", //8
+121                            "", //9
+122                            "", //a
+123                            "All Notes Off", //b
+124                            "", //c
+125                            "", //d
+126                            "", //e
+127                            "" //f
 ```
