@@ -45,6 +45,10 @@ QUN V1.01
 
 # Release history
 
+### v1.28
+
+- Bug fix: Input volume fix with line through mode and polyphonic mode.
+
 ### v1.27
 
 - Bug fix: Some UI malfunctions caused by v1.25 fix. Please update if you use v1.25
