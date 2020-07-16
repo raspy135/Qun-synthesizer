@@ -446,23 +446,16 @@ The mode is simple piano playing mode. Scale will be determined by the scale set
 Main sequencer control mode.
 Some buttons will perform an action just by pressing the button, without rotating the dial.
 
-Button 1: Play/Stop the sequencer
-
-Button 2: Transpose
-
-Button 3: Width (note length)
-
-Button 4: Note Randomness
-
-Button 5: Arpeggiator
-
-Button 6 to Button 8 are for Looper. It always synchronizes with the sequencer.
-
-Button 6: Record / Overdub
-
-Button 7: Play the looper
-
-Button 8: Stop playback or delete the recording.
+Button | Function
+------------ | -------------
+1 | Play/Stop the sequencer.
+2 | Transpose
+3 | Width (note length).
+4 | Note Randomness
+5 | Arpeggiator.
+6 - 8 | Looper. It always synchronizes with the sequencer.
+7 | Play the looper
+5 | Stop playback or delete the recording.
 
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
