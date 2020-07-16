@@ -268,11 +268,9 @@ External clock sync setting is available in "PRM:KEY/OTHER" menu.
 6. KEYSPLIT
 
 	This is a unique feature of the synth.
-	When it is not zero, then note number above the parameter becomes LFO rate controller.
-	(If you set 60, then C4 or higher note becomes LFO controller)
+	When it is not zero, then note number above the parameter becomes LFO rate controller. If you set 60, then C4 or higher note becomes LFO controller.
 	Higher notes will generate higher LFO rate.
-	If you press multiple notes, it doubles and triples the rate.
-	It is great for live performance.
+	If you press multiple notes, it doubles and triples the rate, great for live performance.
 
 7. LFO GATESYNC
 
@@ -434,7 +432,7 @@ In Play mode, you can use piano key and sequencer. Piano key is mainly just for 
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
-The sequencer has 7 banks(patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in LyraT board.
+The sequencer has 7 banks (patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in LyraT board.
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
@@ -622,7 +620,7 @@ If it starts making ground loop noise, use separated power supply and use standa
   * When system writes to flash memory, CPU power is taken by this, and it may cause glitches. Avoid any writing to flash while playing.
 
 * MIDI CC dump is not properly saved to my DAW	
-	* Some DAWs suppress MIDI CC messages when DAW believes the value was not changed. Ableton Live is one of this. To work around, press STOP key before the dump. This will reset CC values. 
+	* Some DAWs, such as Ableton Live, suppress MIDI CC messages when DAW believes the value was not changed. To work around this, press STOP key before the dump. This will reset CC values. 
 
 * Unknown MIDI messages sent with device reset?
   * When booting some noise is sent (it's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
