@@ -73,14 +73,14 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
 
 ## MAJOR MODES
 
- The synth has three major modes, it can be changed by pressing ESP32-LyraT's three touch buttons. Parameter mode is the main mode of the synthesizer. :
+ The synth has three major modes, it can be changed by pressing ESP32-LyraT's three touch buttons. Parameter mode is the main mode of the synthesizer:
 
-* “Play” Button = Play Mode. It’s for playing and sequencer.
+* “Play” Button = Play Mode. It’s for playing the sequencer.
 * “Set” Button = Setting. For load / save / system setting.
 * “Vol+” Button = Parameter Mode. Change synthesizer’s parameters.
 (VOL- button is disabled by hardware)
 
-* RST button will reset the board. Boot button is used only for firmware update.
+* RST button will reset the board. Boot button is only used for updating the firmware.
 
 ![major_mode_change](manual_images/major_mode_change.gif)
 
