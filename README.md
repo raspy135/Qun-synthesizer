@@ -635,7 +635,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* Level overflow may cause the silent, e.g. giving massive delay feedback.
 	* Maybe it’s not worth spending time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data, then you don’t lose the preset It’s a series of CC changes.
-	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
+	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and you are using it as a primary device, then it may produce no sound.
 	* Check MIDI Receiving status. To toggle it, press "Mode" button on LyraT board, next to the Rec button.
 	
 * BLE trouble with Windows: We don’t support Windows for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
