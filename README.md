@@ -250,7 +250,7 @@ External clock sync setting is available in "PRM:KEY/OTHER" menu.
 
 	`Saw, Sine, RevSaw, S&H, Square, Triangle, AUX, OSC2, OSC2EG`
 	*AUX is audio input from LINE / MIC.
-	*You can use OSC2 as LFO source. Even you can modulate OSC2 by OSC2.
+	*You can use OSC2 as LFO source. You can even modulate OSC2 with OSC2.
 	*OSC2EG is the signal from OSC after Envelope Generator processing.
 
 3. LFO PULSE WIDTH
