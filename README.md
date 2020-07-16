@@ -638,7 +638,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
 	* Check MIDI Receiving status. To toggle it, press "Mode" button on LyraT board, next to the Rec button.
 	
-* BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
+* BLE trouble with Windows: We don’t support Windows for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
 
 * A noise when you connect multiple devices (chained audio)
 	
