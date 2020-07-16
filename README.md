@@ -517,7 +517,7 @@ AUX: Audio source select. It's LyraT's microphone, the microphone is not high qu
 
 Number of devices: Number of devices for poly mode. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
-Device Index : Device Index. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
+Device Index: Device Index. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
 RECV MIDI Ch: Configure receiving MIDI channel. Default is ALL. If you use it with Polyphonic setup, set the same channel or ALL for all devices.
 
