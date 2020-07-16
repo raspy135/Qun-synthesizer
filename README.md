@@ -1,3 +1,9 @@
+# Qun-synthesizer
+
+Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that works with Nunomo's daughter board.
+
+![qun_synth](./manual_images/qun_synth.jpg)
+
 ## Links and Information
 
 * [Online Shop](https://shop.nunomo.com/products/qun-pocket-synthesizer): Purchase your own QUN from our website.
@@ -12,17 +18,11 @@
 
 * [Firmware](https://github.com/raspy135/Qun-synthesizer/tree/master/firmware): For firmware updates.
 
-**We are looking for pull requests for patches, we will add it to this repository.**
+**We are looking for pull requests for patches, we will add them to this repository.**
 
 **We are looking for your feedback! For general impressions and feedback, please email them to info@nunomo.com.**
 
-# Qun-synthesizer
-
-Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that works with Nunomo's daughter board.
-
-![qun_synth](./manual_images/qun_synth.jpg)
-
-## Overview
+## Overview of the QUN synth
 - Connectivity: Standard MIDI (TRS A type), BLE MIDI, MIDI UART sSupports macOS and Windows through my SerialMIDI: https://github.com/raspy135/serialmidi
 
 * ESP32-LyraT
