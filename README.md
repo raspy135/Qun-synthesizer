@@ -467,13 +467,12 @@ Button 8: Stop playback or delete the recording.
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
 
-Left-filled circle: One note in the step.
-
-Right-filled circle: One note in the step but it plays at the second half.
-
-Full-filled circle: Two notes in the step (1/16th)
-
-Striped circle: 3 notes in the step (triplet)
+Status | Meaning
+------------ | -------------
+Left-filled circle | One note in the step.
+Right-filled circle | One note in the step but it plays at the second half.
+Fully-filled circle | Two notes in the step (1/16th).
+Striped circle | 3 notes in the step (triplet).
 
 ### PLY:SEQ BANK
 The sequencer has 7 banks, you can switch the bank while playing.
