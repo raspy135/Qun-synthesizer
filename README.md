@@ -530,7 +530,7 @@ LINE in THRU: If it is off, it is automatically turn on or off LINE IN pass thro
 
 LINE in HPF: On is default. LINE in has two HPFs, one is external, one is internal HPF in the chip. This setting turns internal HPF. Turning this off will reduce HPF effect.
 
-Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock source for sequencer and LFO. See `Clock synchronization` for detail. This could make some confusion so this setting will not be saved to flash memory.
+Sync Mode: `STOP, MIDI, 2PPQ, 4PPQ, 24PPQ`. Select clock source for sequencer and LFO. See `Clock synchronization` for detail. This could cause some confusion so this setting will not be saved to flash memory.
 
 ## POLYPHONIC SETUP
 The synth can be used as Mono or Duo tone if you have more than one device.
@@ -542,7 +542,7 @@ _Tested well with two devices, using more than 2 devices is experimental at this
 
 There are two ways for audio setup:
 
-1. Connect Slave's audio out to Master's Line IN. It is recommended for most of cases. It will save audio input to the mixer or audio interface, and Master will process Slave's audio digitally, so it will get a nice soft clipping. That is great for polyphonic (Polyphonic is easier to reach clipping level). It has a little latency by the process, but probably it is not noticable. 
+1. Connect Slave's audio out to Master's Line IN. It is recommended for most of cases. It will save audio input to the mixer or audio interface, and Master will process Slave's audio digitally, so it will get a nice soft clipping. That is great for polyphonic (Polyphonic is easier to reach clipping level). It has a little latency by the process, but probably it is not noticeable. 
 2. Connect all audio signals to your mixer. Technically there is no latency but it will use more audio inputs.
 
 ### Method A. Use DAW as MIDI router. 
@@ -591,7 +591,7 @@ Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW n
 
 Minimum setup to achieve PolyMono (2 Oscillators per voice) will be the following with 2 devices setup:
 
-1. In System menu , "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device. This will be saved to flash memory.
+1. In System menu, "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device. This will be saved to flash memory.
 2. Initialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it plays initial SAW wave sound.
 4. Go Key / Other sub-menu and set MonoDuoPolyMode to "PolyMono"
@@ -655,7 +655,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	
 	* It is likely because of a ground loop. Use separated power supply. 
 	
-* I hear noise but I don’t connect anything to line in.
+* I hear noise but I haven't got anything connected to the line in.
 	* Toggle MIC/LINE select (in Prm:System), set to Line in.
 	* Toggle Line THRU to off.
 	* Initialize a preset.
