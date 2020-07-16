@@ -273,7 +273,7 @@ External clock sync setting is available in "PRM:KEY/OTHER" menu.
 	(If you set 60, then C4 or higher note becomes LFO controller)
 	Higher notes will generate higher LFO rate.
 	If you press multiple notes, it doubles and triples the rate.
-	It is great for live playing.
+	It is great for live performance.
 
 7. LFO GATESYNC
 
@@ -402,7 +402,7 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 1. OSC1/2 KEY SYNC
 
-	Frequency lock SW for OSC1. When it's OFF(Indicated as "N"), it will ignore MIDI note.
+	Frequency lock SW for OSC1. When it's OFF (indicated as "N"), it will ignore MIDI notes.
 
 2. FM FREQ SNAP SW
 
