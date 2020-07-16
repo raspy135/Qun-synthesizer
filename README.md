@@ -672,9 +672,9 @@ If it starts making ground loop noise, use separated power supply and use standa
 * MIDI is flooding when I connect MIDI out to DAW.
 	* MIDI forwarding is probably ON.
 
-* No volume?
-	* VCF Volume works for most of purpose. However in order to utilize clipping(overdrive) logic, attenuate volume at other equipments is recommended.
-	* Other than this, also MIDI CC #7 will control hardware volume. It will lose dynamic range. It's not available to control through UI.
+* No volume
+	* VCF Volume works for most purposes. However in order to utilize clipping (overdrive) logic, attenuation of volume through other equipment is recommended.
+	* Other than this, MIDI CC #7 will also control hardware volume, though it will lose dynamic range. It's not available to control through UI.
 
 ## External Audio processing
 
