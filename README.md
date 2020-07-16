@@ -431,7 +431,7 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 ## PLAY MODE
 
-In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more practical. The sequencer is 8 step sequencer, but each step can have double note, second half note or triple note, thus it is more than normal 8 step sequencer.
+In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more practical. The sequencer is an 8-step sequencer, but each step can have double note, second half note or triple note, thus it is more than a normal 8-step sequencer.
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
