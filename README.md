@@ -569,7 +569,7 @@ Connect Master’s RX to slave’s RX, Master’s GND to slave’s GND (pin 3 to
 
 Alternatively, you can use 2 MIDI OUT port from DAW to Master and Slave. 
 
-Sometimes ground-loop noise can be happened. This case use separated power supply.
+Sometimes ground-loop noise can happen, in this case, use separated power supply.
 
 Connect DAW's MIDI OUT to Master's MIDI IN.
 
