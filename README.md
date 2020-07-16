@@ -620,7 +620,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 ## TIPS/TROUBLESHOOT
 
 * Sound engine stopped when saving preset
-  * When system writes to Flash memory, CPU power is taken by this, and it may cause glitches. Avoid any writing to Flash while playing.
+  * When system writes to flash memory, CPU power is taken by this, and it may cause glitches. Avoid any writing to flash while playing.
 
 * MIDI CC dump is not properly saved to my DAW	
 	* Some DAWs suppress MIDI CC messages when DAW believes the value was not changed. Ableton Live is one of this. To work around, press STOP key before the dump. This will reset CC values. 
@@ -717,7 +717,7 @@ If the synth enters an undesirable state, you can use Lyrat's "Mode" button (nex
 
 Here are some special commands available through MIDI:
 * Program change will load a preset. Through UI, 32 presets can be accessed through UI, but actually it has 128 slots.
-* For saving preset, use CC #0. It will save current preset to Flash (0-127). 
+* For saving preset, use CC #0. It will save current preset to flash (0-127). 
 
 If you want to control parameters by your MIDI keyboard, use below chart to check the CC number.
 Or, you can see the CC# in the screen at the top of the parameter name.
