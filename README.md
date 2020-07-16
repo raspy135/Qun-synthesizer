@@ -555,7 +555,7 @@ Make sure MIDI forwarding is OFF before you connect it to DAW, otherwise it will
 Set up MIDI to receive exact same data for all devices. It can be done by any method of MIDI connection, but using UART or classic MIDI will be easier than BLE MIDI.
 If you use UART or classic MIDI, also you can use the 4 pin located above the OLED screen to connect between devices.
 
-Pin connection is showing as below:
+Pin connection is shown below:
 
 ```
 1   2   3   4
