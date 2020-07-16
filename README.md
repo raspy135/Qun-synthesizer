@@ -644,13 +644,13 @@ If it starts making ground loop noise, use separated power supply and use standa
 	
 	* It is likely because of a ground loop. Use separated power supply. 
 	
-* I hear noise but I haven't got anything connected to the line in.
+* Noise but nothing is connected to the line in.
 	* Toggle MIC/LINE select (in Prm:System), set to Line in.
 	* Toggle Line THRU to off.
 	* Initialize a preset.
 	* Check Mono/Poly Mode setting. If it’s poly mode, LINE IN pass through is ON.
 	
-* Use different power supply. Basically it’s less noise by using separated charger.
+* Use different power supply, you get less noise using separated charger.
 	
 * Use other hardware effectors!
 
