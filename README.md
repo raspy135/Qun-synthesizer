@@ -626,7 +626,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* Some DAWs suppress MIDI CC messages when DAW believes the value was not changed. Ableton Live is one of this. To work around, press STOP key before the dump. This will reset CC values. 
 
 * Unknown MIDI messages sent with device reset?
-  * When booting some noise is sent (It's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
+  * When booting some noise is sent (it's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
   
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
   * Mix in Mix sub menu has to be center (64).
