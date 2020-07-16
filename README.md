@@ -405,7 +405,7 @@ On top of two FM engines, you can do FM modulation between oscillators.
 2. FM FREQ SNAP SW
 
 	Frequency snapping for FM. When it's ON, FM sound will be clear, no detune.
-	When it's OFF, FM has more character, signature sound.
+	When it's OFF, FM has more character, the signature sound of the QUN synth.
 
 3. Clipping
 
