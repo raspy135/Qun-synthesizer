@@ -71,12 +71,14 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
 
  The synth has three major modes, it can be changed by pressing ESP32-LyraT's three touch buttons. Parameter mode is the main mode of the synthesizer:
 
-* “Play” Button = Play Mode. It’s for playing the sequencer.
-* “Set” Button = Setting. For load / save / system setting.
-* “Vol+” Button = Parameter Mode. Change synthesizer’s parameters.
-(VOL- button is disabled by hardware)
-
-* RST button will reset the board. Boot button is only used for updating the firmware.
+Button | Function
+------------ | -------------
+Play | Play Mode. It’s for playing the sequencer.
+Set | Setting. For load / save / system setting.
+Vol+ | Parameter Mode. Change synthesizer’s parameters.
+Vol- | N/A. Button is disabled by hardware.
+RST | Reset the board.
+Boot | Boot button is only used for updating the firmware.
 
 ![major_mode_change](manual_images/major_mode_change.gif)
 
