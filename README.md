@@ -103,7 +103,7 @@ Once you selected the parameter, the parameter is assigned to the dial.
 When you are not in Play mode, all tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
 If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a tone preset.
 
-### All note off
+### All notes off
 When you are not in Play mode, pressing “Mode” button on the base board (not the red top board) will turn on / turn off receiving MIDI signal. It can be used as a MIDI Panic button. 
 
 ## Parameter Mode
