@@ -715,7 +715,7 @@ The synth is initially designed as a sound module without any user interface. Al
 A set of MIDI CC signal can be used as preset save data. Press "Rec" button to dump MIDI CC messages.
 If the synth enters an undesirable state, you can use Lyrat's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as a "Panic" button.
 
-Here is some special command available through MIDI
+Here are some special commands available through MIDI:
 * Program change will load a preset. Through UI, 32 presets can be accessed through UI, but actually it has 128 slots.
 * For saving preset, use CC #0. It will save current preset to Flash (0-127). 
 
