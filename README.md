@@ -111,7 +111,7 @@ When you are not in Play mode, pressing “Mode” button on the base board (not
 ### PRM:OSCILLATOR1,2
 ![diagram_osc](manual_images/diagram_osc.jpg)
 
-**Blue : sources, Green: output**. This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike real hardware synths, all parameters can be controlled via MIDI including dials.
+**Blue : sources, Green: output**. This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike most hardware synths, all parameters can be controlled via MIDI including dials.
 
 The oscillator is a hybrid of classic analog synth and FM. FM has its own parameters, it can be configured in FM conf / ENV3/4 Other Mode.
 
@@ -328,7 +328,7 @@ Configures other parameters.
 
 	Change filter's number of poles, and selects linear or non-linear. 2 Poles is -12db/oct, 4 Poles is -24db/oct. 2 Poles filter gives brighter character. Linear(LI) has less character, but linear's resonance is sharp and more organic like real instruments. Non-linear(NL) has more character, has more harmonics, close to other synthesizers. 
 	If you use cutoff envelope or copying patch from other synths, typically Non-linear is suitable.
-	If you try to achieve something close to real instrument or you want clear sound, linear is suitable.
+	If you are trying to achieve something close to a real instrument or you want clear sound, linear is suitable.
 
 2. VCF MOD SEL
 
@@ -723,7 +723,7 @@ If you want to control parameters by your MIDI keyboard, use below chart to chec
 Or, you can see the CC# in the screen at the top of the parameter name.
 Assigned CC# cannot be configured.
 
-When you change CC parameters through MIDI keyboard or any other devices, the changed parameter will be shown on the display in real time. So you will see what you are changing, the value and mode names just like when you change parameters on the device.
+When you change CC parameters through MIDI keyboard or any other devices, the changed parameter will be shown on the display in real-time. So you will see what you are changing, the value and mode names just like when you change parameters on the device.
 
 Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs:
 
