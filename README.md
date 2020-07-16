@@ -81,9 +81,9 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 (VOL- button is disabled by hardware)
 
 * RST button will reset the board. Boot button is used only for firmware update.
-
+<p align="center">
 ![major_mode_change](manual_images/major_mode_change.gif)
-
+</p>
 ## BASIC OPERATION
 Each major mode has sub modes. Select sub mode. For example, `Prm:OSC1` is a sub mode for Oscillator 1.
 * To switch sub mode, press Mode button (on the top board) + rotate dial. Keep pressing Mode button while you are selecting sub mode.
