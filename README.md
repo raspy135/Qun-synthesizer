@@ -80,7 +80,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked
 * “Vol+” Button = Parameter Mode. Change synthesizer’s parameters.
 (VOL- button is disabled by hardware)
 
-* RST button will reset the board. Boot button is used only for firmware update.
+RST button will reset the board. Boot button is used only for firmware update.
 
 * ![major_mode_change](manual_images/major_mode_change.gif)
 
