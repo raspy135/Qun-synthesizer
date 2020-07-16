@@ -34,7 +34,7 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
   * Oscillators can be used as dual tone. 
   * Multiple QUN synths can be stacked to achieve a **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
-  * 1 (2 channels with changing the LyraT circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
+  * 1 (2 channels with changing the LyraT circuit) AUX(R/L) input can be used for **external audio signal**, or **external CV inputs**
   * 4 Envelope Generators
   * FM (4 Operators x 2)
   * 1 LFO, rate can be controlled by MIDI notes
