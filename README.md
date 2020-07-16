@@ -1,6 +1,6 @@
 ## Links and Information
 
-Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
+You can purchase the QUN from our website's shop: https://shop.nunomo.com/products/qun-pocket-synthesizer
 
 [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips
 
@@ -8,9 +8,9 @@ Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
 
 [configurations](./configurations) for configuration files to use with third-party software and hardware such as Native Instruments Maschine.
 
-[Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
+[Issues](https://github.com/raspy135/Qun-synthesizer/issues): Report issues when you have problems or questions.
 
-[Firmware](https://github.com/raspy135/Qun-synthesizer/tree/master/firmware) : For a firmware update.
+[Firmware](https://github.com/raspy135/Qun-synthesizer/tree/master/firmware): For a firmware update.
 
 **We are looking for Pull requests for patches, we will add it to this repository**
 
@@ -64,7 +64,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
 ## CONNECTIONS
 
 * Power: Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
-* BLE MIDI : iOS or macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is a limitation of the BLE spec. For lower latency, use MIDI or MIDI UART.
+* BLE MIDI: iOS and macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is a limitation of the BLE spec. For lower latency, use MIDI or MIDI UART.
 * MIDI: Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and Make Noise's adapter.
 * MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect LyraT's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
@@ -110,9 +110,9 @@ When you are not in Play mode, pressing “Mode” button on the base board (not
 ## Parameter Mode
 
 ### PRM:OSCILLATOR1,2
+This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike most hardware synths, all parameters can be controlled via MIDI including dials.
+**Blue: Sources | Green: Output**
 ![diagram_osc](manual_images/diagram_osc.jpg)
-
-**Blue : sources, Green: output**. This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike most hardware synths, all parameters can be controlled via MIDI including dials.
 
 The oscillator is a hybrid of classic analog synth and FM. FM has its own parameters, it can be configured in FM conf / ENV3/4 Other Mode.
 
@@ -466,13 +466,13 @@ Button 8: Stop playback or delete the recording.
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
 
-Left-filled circle : One note in the step.
+Left-filled circle: One note in the step.
 
-Right-filled circle : One note in the step but it plays at the second half.
+Right-filled circle: One note in the step but it plays at the second half.
 
-Full-filled circle : Two notes in the step (1/16th)
+Full-filled circle: Two notes in the step (1/16th)
 
-Striped circle : 3 notes in the step (triplet)
+Striped circle: 3 notes in the step (triplet)
 
 ### PLY:SEQ BANK
 The sequencer has 7 banks, you can switch the bank while playing.
@@ -480,7 +480,7 @@ This will not be saved unless you press button 8.
 
 Button 1 to 7: Change bank 1 to 7
 
-Pressing Button 1 to 7 and changing dial : Copy bank to other bank. It's useful when you want to make a new bank by using existing data. If you want to cancel the operation, turn to the end, then "NONE" will be indicated as the destination.
+Pressing Button 1 to 7 and changing dial: Copy bank to other bank. It's useful when you want to make a new bank by using existing data. If you want to cancel the operation, turn to the end, then "NONE" will be indicated as the destination.
 
 Button 8: Save all banks to flash memory. Otherwise sequencer changes will not be saved when power is off.
 
