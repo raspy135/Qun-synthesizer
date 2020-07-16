@@ -723,7 +723,7 @@ If you want to control parameters by your MIDI keyboard, use below chart to chec
 Or, you can see the CC# in the screen at the top of the parameter name.
 Assigned CC# cannot be configured.
 
-When you change CC parameters through MIDI keyboard or any other devices, the changed parameter will be shown on the display in real-time. So you will see what you are changing, the value and mode names just like when you change parameters on the device.
+When you change CC parameters through MIDI keyboard or any other devices, the changed parameter will be shown on the display in real-time, you will see what you are changing, the value and mode names just like when you change parameters directly on the QUN.
 
 Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs:
 
