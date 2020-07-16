@@ -193,7 +193,7 @@ Mix controls mixer and effects.
 
 	Feedback for Delay
 
-Delay can set very short. Very short delay will make an interesting to simulate flute or violin. 
+Delay can set very short, a very short delay will make an interesting to simulate flute or violin. 
 
 ### PRM:ENV1/2
 The synth has four Envelope generators. ENV1 and ENV2 are both independently and fully configurable. ENV3 and ENV4 shares the parameter. Also ENV3 / ENV4 is connected to FM operators.
