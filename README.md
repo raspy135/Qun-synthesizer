@@ -78,7 +78,7 @@ Set | Setting. For load / save / system setting.
 Vol+ | Parameter Mode. Change synthesizer’s parameters.
 Vol- | N/A. Button is disabled by hardware.
 RST | Reset the board.
-Boot | Boot button is only used for updating the firmware.
+Boot | Only used for updating the firmware.
 
 ![major_mode_change](manual_images/major_mode_change.gif)
 
