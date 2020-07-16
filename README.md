@@ -699,7 +699,7 @@ The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage to th
 
 ## Supported MIDI Control numbers
 
-The synth is initially designed as a sound module without any user interface. All tone-related parameters can be controlled by MIDI CC signal.
+The QUN synth was initially designed as a sound module without any user interface, because of this, all tone-related parameters can be controlled by MIDI CC signal.
 
 A set of MIDI CC signal can be used as preset save data. Press "Rec" button to dump MIDI CC messages.
 If the synth enters an undesirable state, you can use LyraT's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as a "Panic" button.
@@ -708,7 +708,7 @@ Here are some special commands available through MIDI:
 * Program change will load a preset. Through UI, 32 presets can be accessed through UI, but actually it has 128 slots.
 * For saving preset, use CC #0. It will save current preset to flash (0-127). 
 
-If you want to control parameters by your MIDI keyboard, use below chart to check the CC number.
+If you want to control parameters by your MIDI keyboard, use the chart below to check the CC number.
 Or, you can see the CC# in the screen at the top of the parameter name.
 Assigned CC# cannot be configured.
 
