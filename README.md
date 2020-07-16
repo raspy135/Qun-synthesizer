@@ -449,12 +449,12 @@ Some buttons will perform an action just by pressing the button, without rotatin
 Button | Function
 ------------ | -------------
 1 | Play/Stop the sequencer.
-2 | Transpose
+2 | Transpose.
 3 | Width (note length).
-4 | Note Randomness
+4 | Note Randomness.
 5 | Arpeggiator.
 6 - 8 | Looper. It always synchronizes with the sequencer.
-7 | Play the looper
+7 | Play the looper.
 5 | Stop playback or delete the recording.
 
 ### PLY:SEQ ON/OFF
