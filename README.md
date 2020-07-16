@@ -111,6 +111,7 @@ When you are not in Play mode, pressing “Mode” button on the base board (not
 
 ### PRM:OSCILLATOR1,2
 This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike most hardware synths, all parameters can be controlled via MIDI including dials.
+
 **Blue: Sources | Green: Output**
 ![diagram_osc](manual_images/diagram_osc.jpg)
 
