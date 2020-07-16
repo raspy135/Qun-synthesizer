@@ -95,7 +95,7 @@ After you enter the sub mode you want, then next you need to select and change t
 If you just press one of 8 buttons and release, then it indicates the current value of the parameter.
 Once you selected the parameter, the parameter is assigned to the dial.
 * Rotate the dial = Change the current parameter. 
-* ![parameter_select_change](manual_images/parameter_select_change.gif)
+ ![parameter_select_change](manual_images/parameter_select_change.gif)
 
 * Some parameters do an action just by pressing the button. (e.g. load preset)
 
