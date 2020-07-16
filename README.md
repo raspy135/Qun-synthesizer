@@ -485,13 +485,12 @@ Press one of the eight buttons and turn the dial, then it will modify width (not
 
 ### PLY:SEQ CONFIG
 
-Button 1: BPM
-
-Button 2: Key (for scale)
-
-Button 3: Scale. Playing note will be quantized by this scale.
-
-Button 4: Sequencer loop count. Default is 8.
+Button | Function
+------------ | -------------
+1 | BPM.
+2 | Key (for scale).
+3 | Scale. Playing note will be quantized by this scale.
+4 | Sequencer loop count. Default is 8.
 
 ## SETTING MODE
 
