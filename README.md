@@ -727,12 +727,12 @@ When you change CC parameters through MIDI keyboard or any other devices, the ch
 
 Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs:
 
-- MIX (92) 
-- FM(33)
-- Cutoff(22)
-- Resonance(91)
-- LFO Tune(24)
-- VCF Volume(72)
+- MIX: (92) 
+- FM: (33)
+- Cutoff: (22)
+- Resonance: (91)
+- LFO Tune: (24)
+- VCF Volume: (72)
 
 
 
