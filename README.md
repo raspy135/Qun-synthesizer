@@ -98,7 +98,7 @@ Once you selected the parameter, the parameter is assigned to the dial.
 
  ![parameter_select_change](manual_images/parameter_select_change.gif)
 
-* Some parameters do an action just by pressing the button. (e.g. load preset)
+* Some parameters will perform an action just by pressing the button, e.g. loading a preset.
 
 ### Dumping current preset
 When you are not in Play mode, all tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
@@ -443,7 +443,7 @@ In Play mode, display always indicates mode name ("Ply"), bank number and sub-mo
 The sequencer also has Looper. You can record and overdub played notes.
 
 ### PLY:PLAY
-The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance (or just use external sequencer / DAW).
+The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance, though you can just use an external sequencer or DAW.
 
 ### PLY:SEQ PLAY
 Main sequencer control mode.
