@@ -25,8 +25,8 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
 ## Overview
 - Connectivity: Standard MIDI (TRS A type), BLE MIDI, MIDI UART sSupports macOS and Windows through my SerialMIDI: https://github.com/raspy135/serialmidi
 
-* ESP32 Lyrat
-  * The ESP32 Lyrat was originally designed for use in smart speakers. QUN synthesizer successfully uses it to achieve affordable pricing as a synthesizer. Though since the ESP32 Lyrat is not designed to be a synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB-MIDI, it's MIDI UART)
+* ESP32-LyraT
+  * The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesizer successfully uses it to achieve affordable pricing as a synthesizer. Though since the ESP32-LyraT is not designed to be a synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB-MIDI, it's MIDI UART)
 
 * **Analog Modeling engine**
   * The analog modeling engine is **an original, made from scratch**. It uses advanced algorithms for great organic sound. The engine is not a copy of a classic synth, it is designed to make modern sounds.
@@ -37,7 +37,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
   * Oscillators can be used as dual tone. 
   * Multiple QUN synths can be stacked to achieve a **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
-  * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
+  * 1 (2 channels with changing the LyraT circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
   * 4 Envelope Generators
   * FM (4 Operators x 2)
   * 1 LFO, rate can be controlled by MIDI notes
@@ -435,7 +435,7 @@ In Play mode, you can use piano key and sequencer. Piano key is mainly just for 
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
-The sequencer has 7 banks(patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in Lyrat board.
+The sequencer has 7 banks(patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in LyraT board.
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
@@ -516,7 +516,7 @@ Pressing button 1 to 8 will save to preset 1 to 8. It has 4 banks.
 ### SET:SYSTEM
 System Setting is the setting that is not included in the patch setting. To change the parameter, press the one of 8 buttons and rotate the dial.
 
-AUX: Audio source select. It's Lyrat's microphone, the microphone is not high quality. Mic (the board has two onboard microphones) or Line in. It will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)".
+AUX: Audio source select. It's LyraT's microphone, the microphone is not high quality. Mic (the board has two onboard microphones) or Line in. It will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)".
 
 Number of devices: Number of devices for poly mode. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
@@ -612,7 +612,7 @@ Minimum setup to achieve PolyDuo (1 Oscillator per voice) will be the following 
 ### Polyphonic tips
 
 Two devices can lose sync for a variety of reasons.
-To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. If you still see issues like out of tune in slave device, try MIDI RECV toggle switch (Lyrat's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
+To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. If you still see issues like out of tune in slave device, try MIDI RECV toggle switch (LyraT's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
 
 If it starts making ground loop noise, use separated power supply and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
@@ -631,7 +631,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
   * Mix in Mix sub menu has to be center (64).
   * Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
-  * Set OSCs setting identical to get the same tone. Associated Envelopes parameters also need to be identical. (e.g. EG1 and EG2 setting should be identical)
+  * Set OSCs settings identically to get the same tone. Associated Envelopes parameters also need to be identical, e.g. EG1 and EG2 setting should be identical.
   * VCF’s key sync will not work well.
   * I suggest to start with simple patch.
      1. Initialize a patch. Long pressing (4 sec) Rec button.
@@ -647,7 +647,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* Maybe it’s not worth to spend time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t lose the preset.
 	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
-	* Check MIDI Receiving status. To toggle it, press "Mode" button on Lyrat board (next to Rec button).
+	* Check MIDI Receiving status. To toggle it, press "Mode" button on LyraT board (next to Rec button).
 	
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
 
@@ -713,7 +713,7 @@ The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage to th
 The synth is initially designed as a sound module without any user interface. All tone-related parameters can be controlled by MIDI CC signal.
 
 A set of MIDI CC signal can be used as preset save data. Press "Rec" button to dump MIDI CC messages.
-If the synth enters an undesirable state, you can use Lyrat's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as a "Panic" button.
+If the synth enters an undesirable state, you can use LyraT's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as a "Panic" button.
 
 Here are some special commands available through MIDI:
 * Program change will load a preset. Through UI, 32 presets can be accessed through UI, but actually it has 128 slots.
