@@ -116,9 +116,7 @@ When you are not in Play mode, pressing “Mode” button on the base board (not
 
 The oscillator is a hybrid of classic analog synth and FM. FM has its own parameters, it can be configured in FM conf / ENV3/4 Other Mode.
 
-CV input routing is very flexible.
-One CV is connected to LFO (for tune/width).
-Another one is selectable. It could be one of EG1 to EG4, AUX (Audio in), OSC2 signal, OSC2 signal after EG processing, Freq level out from OSC1, or Freq level out from OSC2.
+The QUN's CV input routing is very flexible. One CV is connected to LFO (for tune/width), another one is selectable. It could be one of EG1 to EG4, AUX (Audio in), OSC2 signal, OSC2 signal after EG processing, Freq level out from OSC1, or Freq level out from OSC2.
 
 1. SHAPE
 
@@ -194,7 +192,7 @@ Mix controls mixer and effects.
 
 	Feedback for Delay
 
-Delay can set very short. Very short delay will make an interesting to simulate flute or violin. 
+The Delay can be set very short. Very short delay can be used to create an interesting simulation of flute or violin. 
 
 ### PRM:ENV1/2
 The synth has four Envelope generators. ENV1 and ENV2 are both independently and fully configurable. ENV3 and ENV4 shares the parameter. Also ENV3 / ENV4 is connected to FM operators.
