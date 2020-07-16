@@ -481,7 +481,7 @@ This will not be saved unless you press button 8.
 
 Button 1 to 7: Change bank 1 to 7
 
-Pressing Button 1 to 7 and changing dial : Copy bank to other bank. It's useful when you want to make a new bank by using existing data.
+Pressing Button 1 to 7 and changing dial : Copy bank to other bank. It's useful when you want to make a new bank by using existing data. If you want to cancel the operation, turn to the end, then "NONE" will be indicated as the destination.
 
 Button 8: Save all banks to flash memory. Otherwise sequencer changes will not be saved when power is off.
 
