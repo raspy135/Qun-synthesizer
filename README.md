@@ -464,7 +464,7 @@ Button 6: Record / Overdub
 
 Button 7: Play the looper
 
-Button 8: Stop the playback or delete the recording.
+Button 8: Stop playback or delete the recording.
 
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
