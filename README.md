@@ -6,7 +6,7 @@
 
 * [Patches](./patches) for tone patches.
 
-* [Configurations](./configurations) for configuration files to use with third-party software and hardware such as Native Instruments Maschine.
+* [Configurations](./configurations) for files to use with third-party software and hardware such as Native Instruments Maschine.
 
 * [Issues](https://github.com/raspy135/Qun-synthesizer/issues): Report issues when you have problems or questions.
 
