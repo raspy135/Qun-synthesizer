@@ -659,7 +659,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 * I want to use AUX as CV IN
 	* CV signal from modular synthesizers may have **HIGH VOLTAGE**! Please attenuate the voltage to normal LINE level (1 to 1.5V).
 	
-	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal (e.g. hold the same voltage 5 seconds) might not work.
+	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal, e.g. holding the same voltage 5 seconds, might not work.
 
 * MIDI is flooding when I connect MIDI out to DAW.
 	* MIDI forwarding is probably ON.
