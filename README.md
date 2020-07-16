@@ -12,7 +12,7 @@
 
 * [Firmware](https://github.com/raspy135/Qun-synthesizer/tree/master/firmware): For firmware updates.
 
-**We are looking for pull requests for patches, we will add it to this repository**
+**We are looking for pull requests for patches, we will add it to this repository.**
 
 **We are looking for your feedback! For general impressions and feedback, please email them to info@nunomo.com**
 
