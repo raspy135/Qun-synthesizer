@@ -45,6 +45,13 @@ QUN V1.01
 
 # Release history
 
+### v1.30
+
+- Bug fix: AUX channel was swapped. 
+- Buf fix: SYNC IN was not working properly.
+- New feature: You can change sequencer's bank by pressing "Rec" and "Mode" button when you are in Play mode.
+- New feature: You can copy sequencer bank in Sequencer Bank sub mode. See manual for detail.
+
 ### v1.28
 
 - Bug fix: Input volume fix with line through mode and polyphonic mode.

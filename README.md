@@ -98,11 +98,11 @@ Once you selected the parameter, the parameter is assigned to the dial.
 *Some parameters do an action just by pressing the button. (e.g. load preset)
 
 ### Dumping current preset
-All tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
+When you are not in Play mode, all tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
 If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a tone preset.
 
 ### All note off
-Pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
+When you are not in Play mode, pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
 
 ## Parameter Mode
 
@@ -429,6 +429,16 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 ## PLAY MODE
 
+In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more pratical. The sequencer is 8 step sequencer, but each step can have double note, second half note or triple note, thus it is more than normal 8 step sequencer.
+
+In Play mode, display always indicates mode name("Ply"), bank number and sub-mode name.
+
+The sequencer has 7 banks(patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in Lyrat board.
+
+In Play mode, display always indicates mode name("Ply"), bank number and sub-mode name.
+
+The sequencer also has Looper. You can record and overdub played notes.
+
 ### PLY:PLAY
 The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance (or just use external sequencer / DAW).
 
@@ -471,7 +481,9 @@ This will not be saved unless you press button 8.
 
 Button 1 to 7: Change bank 1 to 7
 
-Button 8: Save all banks to flash memory.
+Pressing Button 1 to 7 and changing dial : Copy bank to other bank. It's useful when you want to use multiple banks for the song. You can switch banks while playing.
+
+Button 8: Save all banks to flash memory. Otherwise sequencer changes will not be saved when power is off.
 
 ### PLY:SEQ TUNE
 Press one of the eight buttons and turn the dial, then it will modify tune offset for each step.
