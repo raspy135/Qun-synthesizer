@@ -640,11 +640,11 @@ If it starts making ground loop noise, use separated power supply and use standa
      4. Set Mono/Duo/Poly mode to "Duo". EG2 will be triggered separately with Duo mode.
      5. Now you should be able to play up to 2 voices.
 
-* Suddenly NO SOUND!
+* No sound suddenly
 	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
 	* Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
 	* Level overflow may cause the silent (e.g. Giving massive delay feedback).
-	* Maybe it’s not worth to spend time to figure out why, reset the preset.
+	* Maybe it’s not worth spending time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t lose the preset.
 	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
 	* Check MIDI Receiving status. To toggle it, press "Mode" button on LyraT board (next to Rec button).
