@@ -606,10 +606,10 @@ To synchronize all parameters one more time, press “Rec” button to dump all 
 If it starts making ground loop noise, use separated power supply and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
 
-## TIPS/TROUBLESHOOT
+## TIPS/TROUBLESHOOTING
 
 * Sound engine stopped when saving preset
-  * When system writes to flash memory, CPU power is taken by this, and it may cause glitches. Avoid any writing to flash while playing.
+  * When system writes to flash memory, CPU power is taken by this, and it may cause glitches. Avoid writing to flash while playing.
 
 * MIDI CC dump is not properly saved to my DAW	
 	* Some DAWs, such as Ableton Live, suppress MIDI CC messages when DAW believes the value was not changed. To work around this, press STOP key before the dump. This will reset CC values. 
@@ -632,11 +632,11 @@ If it starts making ground loop noise, use separated power supply and use standa
 * No sound suddenly
 	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
 	* Probably it’s because of last parameter you changed, or some unexpected MIDI cc signal. See the 2nd line of the display, it indicates the parameter received at last.
-	* Level overflow may cause the silent (e.g. Giving massive delay feedback).
+	* Level overflow may cause the silent, e.g. giving massive delay feedback.
 	* Maybe it’s not worth spending time to figure out why, reset the preset.
-	* Save your preset on DAW by pressing REC button to dump MIDI data. It’s a series of CC changes. Then you don’t lose the preset.
+	* Save your preset on DAW by pressing REC button to dump MIDI data, then you don’t lose the preset It’s a series of CC changes.
 	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and use it as primary device, then it may cause no sound.
-	* Check MIDI Receiving status. To toggle it, press "Mode" button on LyraT board (next to Rec button).
+	* Check MIDI Receiving status. To toggle it, press "Mode" button on LyraT board, next to the Rec button.
 	
 * BLE trouble with Windows: We don’t support WINDOWS for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
 
