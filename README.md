@@ -713,7 +713,7 @@ The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage to th
 The synth is initially designed as a sound module without any user interface. All tone-related parameters can be controlled by MIDI CC signal.
 
 A set of MIDI CC signal can be used as preset save data. Press "Rec" button to dump MIDI CC messages.
-If the synth goes wrong state, you can use Lyrat's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as "Panic" button.
+If the synth enters an undesirable state, you can use Lyrat's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as a "Panic" button.
 
 Here is some special command available through MIDI
 * Program change will load a preset. Through UI, 32 presets can be accessed through UI, but actually it has 128 slots.
