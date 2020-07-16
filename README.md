@@ -1,16 +1,16 @@
 ## Links and Information
 
-You can purchase the QUN from our website's shop: https://shop.nunomo.com/products/qun-pocket-synthesizer
+* [Online Shop](https://shop.nunomo.com/products/qun-pocket-synthesizer): Purchase your own QUN from our website.
 
-[Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips
+*[Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips.
 
-[Patches](./patches) for tone patches
+*[Patches](./patches) for tone patches.
 
 [configurations](./configurations) for configuration files to use with third-party software and hardware such as Native Instruments Maschine.
 
 [Issues](https://github.com/raspy135/Qun-synthesizer/issues): Report issues when you have problems or questions.
 
-[Firmware](https://github.com/raspy135/Qun-synthesizer/tree/master/firmware): For a firmware update.
+[Firmware](https://github.com/raspy135/Qun-synthesizer/tree/master/firmware): For firmware updates.
 
 **We are looking for Pull requests for patches, we will add it to this repository**
 
