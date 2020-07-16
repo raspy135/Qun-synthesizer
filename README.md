@@ -875,7 +875,7 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 127                            "" //f
 ```
 ## Quick Setup with Third-party MIDI Controllers
-The QUN synth can be setup quickly for use with third-party controllers by downloading a configuration file from [Configurations](./configurations). The following configurations files are currently available:
+The QUN synth can be setup quickly for use with third-party controllers by downloading the appropriate configuration file from [Configurations](./configurations). The following configurations files are currently available:
 
 * Native Instruments Maschine
 * Native Instruments Komplete Kontrol
