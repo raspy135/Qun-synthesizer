@@ -431,13 +431,13 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 ## PLAY MODE
 
-In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more pratical. The sequencer is 8 step sequencer, but each step can have double note, second half note or triple note, thus it is more than normal 8 step sequencer.
+In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more practical. The sequencer is 8 step sequencer, but each step can have double note, second half note or triple note, thus it is more than normal 8 step sequencer.
 
-In Play mode, display always indicates mode name("Ply"), bank number and sub-mode name.
+In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
 The sequencer has 7 banks(patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in Lyrat board.
 
-In Play mode, display always indicates mode name("Ply"), bank number and sub-mode name.
+In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
 The sequencer also has Looper. You can record and overdub played notes.
 
@@ -445,10 +445,10 @@ The sequencer also has Looper. You can record and overdub played notes.
 The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance (or just use external sequencer / DAW).
 
 ### PLY:SEQ PLAY
-Main Sequencer control mode.
-Some buttons will do the action just by pressing button, without rotating the dial.
+Main sequencer control mode.
+Some buttons will perform an action just by pressing the button, without rotating the dial.
 
-Button 1: Play/Stop the sequencer.
+Button 1: Play/Stop the sequencer
 
 Button 2: Transpose
 
