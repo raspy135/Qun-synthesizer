@@ -104,7 +104,7 @@ When you are not in Play mode, all tone configuration can be specified as sort o
 If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a tone preset.
 
 ### All note off
-When you are not in Play mode, pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
+When you are not in Play mode, pressing “Mode” button on the base board (not the red top board) will turn on / turn off receiving MIDI signal. It can be used as a MIDI Panic button. 
 
 ## Parameter Mode
 
