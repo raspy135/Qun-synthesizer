@@ -97,7 +97,7 @@ Once you selected the parameter, the parameter is assigned to the dial.
 * Rotate the dial = Change the current parameter. 
 * ![parameter_select_change](manual_images/parameter_select_change.gif)
 
-*Some parameters do an action just by pressing the button. (e.g. load preset)
+* Some parameters do an action just by pressing the button. (e.g. load preset)
 
 ### Dumping current preset
 When you are not in Play mode, all tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
