@@ -45,6 +45,29 @@ QUN V1.01
 
 # Release history
 
+### v1.30
+
+- Bug fix: AUX channel was swapped. 
+- Buf fix: SYNC IN was not working properly.
+- New feature: You can change sequencer's bank by pressing "Rec" and "Mode" button when you are in Play mode.
+- New feature: You can copy sequencer bank in Sequencer Bank sub mode. See manual for detail.
+
+### v1.28
+
+- Bug fix: Input volume fix with line through mode and polyphonic mode.
+
+### v1.27
+
+- Bug fix: Some UI malfunctions caused by v1.25 fix. Please update if you use v1.25
+
+### v1.26
+
+- Fixed a bug : System crashes when Effect type values set to the max(127)
+
+### v1.25
+
+- Fixed MIDI receiving channel bug. (Dial cannot change the value when receiving MIDI channel is more than 1)
+
 ### v1.23
 
 - ADC button logic rollback. Update is not necessary from v1.22 unless you have issues with button recognition. 

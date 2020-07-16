@@ -1,12 +1,10 @@
-## Links and Information
+## リンク一覧
 
 Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
 
 [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips
 
 [Patches](./patches) for tone patches
-
-[configurations](./configurations) for configuration files to use with Native Instruments Maschine.
 
 [Issues](https://github.com/raspy135/Qun-synthesizer/issues) : Report issues when you have problems or questions.
 
@@ -18,46 +16,46 @@ Shop page : https://shop.nunomo.com/products/qun-pocket-synthesizer
 
 # Qun-synthesizer
 
-Qun-synthesizer is an analog modeling synthesizer engine for ESP32 Lyrat, worked with Nunomo's daughter board.
+Qun-synthesizerはESP32LyraTをベースとしたアナログモデリングシンセで、Nunomoのドーターボードと組み合わせて動作します。
 
 ![qun_synth](./manual_images/qun_synth.jpg)
 
-## Overview
-- Connectivity: Standard MIDI (TRS A type), BLE MIDI, MIDI UART sSupports macOS and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
+## 概要
+- 接続: Standard MIDI (TRS A type), BLE MIDI, MIDI UART(UART経由のMIDI) supports macOS and Windows through my SerialMIDI https://github.com/raspy135/serialmidi .
 
 * ESP32 Lyrat
-  * The ESP32 Lyrat was originally designed for use in smart speakers. QUN synthesizer successfully uses it to achieve affordable pricing as a synthesizer. Though since the ESP32 Lyrat is not designed to be a synthesizer, it has some limitations (e.g. it has USB, but it's not typical USB-MIDI, it's MIDI UART)
+  * ESP32 Lyratは元々スマートスピーカー開発用のボードです。QUNシンセサイザーはESP32LyraTを使用することで、コストを削減しています。ESP32LyraTはシンセサイザー向けにデザインされていない為、幾つかの制限があります（例えばUSB端子がありますが、USB to MIDIではなくMIDI UARTです）
 
-* **Analog Modeling engine**
-  * The analog modeling engine is **an original, made from scratch**. It uses advanced algorithms for great organic sound. The engine is not a copy of a classic synth, it is designed to make modern sounds.
-  * It utilizes every single clock of ESP32's CPU power.
-  * Ultra low latency ~< 1ms. (Sound latency. Total latency varies by connection type.) The low latency can be achieved because it does only sound processing, it doesn't need extra buffer for unexpected CPU use like a PC.
-  * All analog modeling engine parameters can be configured through MIDI. 
-  * Clean 2 Oscillators. Cheap synthesizers compromise this part sometimes, but QUN has no-alias noise Oscillators. Also all of internal calculation is done by floating point for the sound quality.
-  * Oscillators can be used as dual tone. 
-  * Multiple QUN synths can be stacked to achieve a **Polyphonic** setup. 
-  * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
-  * 1 (2 channels with changing the Lyrat circuit) AUX(R/L) input can be used for **external audio signal**, or **External CV inputs**
-  * 4 Envelope Generators
-  * FM (4 Operators x 2)
-  * 1 LFO, rate can be controlled by MIDI notes
-  * 1 Organic sounding VCF
+* **アナログモデリングエンジン**
+  * アナログモデリングエンジンは**完全にオリジナル**で、一から作られています。最新のアルゴリズムを使用してオーガニックなサウンドを実現しています。このエンジンはクラッシックシンセのエミュレートではなく、現代的なサウンドの為にデザインされています。
+  * サウンドエンジンはESP32のCPUパワーを余すところなく使用しています。
+  * 1ms未満の超低レイテンシです。（エンジン自体のレイテンシ。MIDI接続方法によってトータルのレイテンシは異なります）。この低レイテンシはCPUがサウンドのみを処理しており、PCのように予期しない処理の為のバッファが必要ないので実現可能です。
+  * すべての音源パラメータはMIDI CCメッセージとして表現可能です。つまりすべてのパラメータがCCメッセージで制御できます。
+  * クリーンな2つのオシレータを搭載。低価格のシンセサイザーはここを妥協していることがありますが、QUNはエイリアスノイズのないオシレータを使用し、すべての内部演算は音質のため、浮動小数点で行われます。
+  * 個々のオシレータは別々に使ってDual Toneとして演奏できます。
+  * 複数のQUNを用いれば、連携してポリフォニックにもできます。
+  * **柔軟な MOD (CV) ルーティング**. 信号経路はとてもフレキシブルで、モジュラーシンセのようにルーティングすることができます。通常のようにも使用できますし、ラディカルにもできます！
+  * 2チャンネルの AUX(R/L) を外部オーディオ入力あるいは**CV Input**として使用できます。(CV InputはACカップリング）
+  * 4 つのEnvelope Generators
+  * FM 変調(4 オペレータ x 2 オシレータ。更にオシレータ間のFM変調も可能)
+  * 1 LFO, レートをMIDIノートで制御することも可能
+  * 1つの オーガニックなサウンドのVCF
     * 2/4 Poles, Low-pass, Band-pass, High-pass, Notch)
-    * **Organic linear and classic non-linear**
-    * Key sync
+    * **Organic linear もしくはクラッシックな non-linear**
+    * Key Sync
   * 1 Effect (Delay, Chorus, Flanger)
   * MIDI clock sync
-  * **3 advanced clipping algorithms** gives an organic clipping sound
+  * **3 advanced クリッピングアルゴリズム** はオーガニックなクリッピングサウンドを作ります。
 * Player / Sequencer
   * Player (piano mode)
-  * Random 8-step sequencer will generate inspiring beats for you
+  * 8-step シーケンサはランダム機能でインスピレーションを与えます。
     * Note On/Off/Double/Triple
     * Transpose / Note width (Length)
     * Randomness control
-    * Scale quantize
+    * スケールクォンタイズ
     * Arpeggiate steps
-  * Looper
-    * Looper can record the sound up to 30 sec, synchronized with the sequencer.
+  * ルーパ
+    * ルーパーは30秒まで録音可能で、シーケンサと同期します。
     
     * Play / Rec / Overdub
 
@@ -100,11 +98,11 @@ Once you selected the parameter, the parameter is assigned to the dial.
 *Some parameters do an action just by pressing the button. (e.g. load preset)
 
 ### Dumping current preset
-When you are not in Play mode, all tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
+All tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
 If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a tone preset.
 
 ### All note off
-When you are not in Play mode, pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
+Pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
 
 ## Parameter Mode
 
@@ -431,16 +429,6 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 ## PLAY MODE
 
-In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more pratical. The sequencer is 8 step sequencer, but each step can have double note, second half note or triple note, thus it is more than normal 8 step sequencer.
-
-In Play mode, display always indicates mode name("Ply"), bank number and sub-mode name.
-
-The sequencer has 7 banks(patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in Lyrat board.
-
-In Play mode, display always indicates mode name("Ply"), bank number and sub-mode name.
-
-The sequencer also has Looper. You can record and overdub played notes.
-
 ### PLY:PLAY
 The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance (or just use external sequencer / DAW).
 
@@ -483,9 +471,7 @@ This will not be saved unless you press button 8.
 
 Button 1 to 7: Change bank 1 to 7
 
-Pressing Button 1 to 7 and changing dial : Copy bank to other bank. It's useful when you want to make a new bank by using existing data. If you want to cancel the operation, turn to the end, then "NONE" will be indicated as the destination.
-
-Button 8: Save all banks to flash memory. Otherwise sequencer changes will not be saved when power is off.
+Button 8: Save all banks to flash memory.
 
 ### PLY:SEQ TUNE
 Press one of the eight buttons and turn the dial, then it will modify tune offset for each step.
