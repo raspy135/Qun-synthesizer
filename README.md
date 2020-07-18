@@ -127,10 +127,11 @@ Another one is selectable. It could be one of EG1 to EG4, AUX (Audio in), OSC2 s
 	
 	The synth has an unique behavior with pulse width.
 	You can modulate the wave shape by pulse width, not only limited to Square wave.
+	
 	* Triangle
 	* SAW
-	* Square
-
+* Square
+	
 3. TUNE
 
 4. OCTAVE
@@ -872,3 +873,8 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 126                            "", //e
 127                            "" //f
 ```
+
+## Parameter sheet
+SVG and PNG versions are available.
+![qun_synth](./manual_images/qun_cheat_sheet.png)
+./manual_images/qun_cheat_sheet.svg
