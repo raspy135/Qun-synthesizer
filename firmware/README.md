@@ -45,7 +45,9 @@ QUN V1.01
 
 # Release history
 
+### v1.32
 
+- Line in volume fix
 
 ### v1.31
 
