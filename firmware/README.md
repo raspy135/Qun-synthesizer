@@ -45,6 +45,13 @@ QUN V1.01
 
 # Release history
 
+
+
+### v1.31
+
+- Now the synth always receives MIDI ch 1 (take ch1 as global channel)
+- Bug fix: AUX L channel fix (AUX L was AUX R)
+
 ### v1.30
 
 - Bug fix: AUX channel was swapped. 
