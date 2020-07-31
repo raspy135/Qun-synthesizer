@@ -531,19 +531,21 @@ Since firmware v1.4, the synth supports Granular synthesis recorder.
 - You can record audio from LINE IN or MIC. Input sensitivity can be modified by AUX In Gain parameter.
 - The recorder engine is basically influenced by Granular synthesis, but the implementation is a bit unusual.
 - The granular synthesis signal output can be sent to AUX L channel. It can be used as one of Oscillator. 
-- Width modulation will change File position(starting position) of the audio.
-- 4 Mode are available. One shot, One shot with time stretch, Repeat, Repeat with time stretch. When you are in One shot mode and play note slur, then the playing position won't be reset. 
+- Pulse Width modulation will change File position(starting position) of the audio. That means the File position can be modulated by LFO and others.
+- 4 Modes are available. One shot, One shot with time stretch, Repeat, Repeat with time stretch. When you are in One shot mode and play note slur, then the playing position won't be reset. 
 - With Repeat mode, you can route the signal to OSC1 AUX L only.
 - With One shot mode, you can route the signal to OSC1 AUX L and OSC2 AUX L. 
 - When you use Preset 0-3, audio data can be saved.
 - Parameters can be controlled via MIDI CC. See the parameter start with GRN.
+- If you don't change any parameters, C4 is the original pitch of the audio.
 
 Typical workflow is the following:
 
 1. Record audio
-2. Adjust parameters
+2. Adjust parameters in Granular mode
 3. Change GRN mode from OFF to something else.
 4. Go Oscillator parameter page, and select OSC shape to "AUX L"
+5. Play notes
 
 ### Operation
 
