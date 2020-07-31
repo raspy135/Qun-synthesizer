@@ -565,6 +565,16 @@ Button 7:  Press the button and turn the dial. It's for number of Detune.
 
 Button 8: Press the button and turn the dial. GRN Mode. OFF, ONE(One shot), ONE_TS(One shot with time stretch), RPT(Repeat), RPT_TS(Repeat with time stretch). When the mode is not OFF, It will override AUX L signal to granular output when you use AUX L as Oscillator shape.
 
+### Granular synth tips
+
+- Play note slur with One-shot mode. It works very well. You can keep the tempo with One shot with time stretch mode.
+- Glide parameter is fun parameter with Granular.
+- Speed can go negative.
+- If you slice the audio to very short range with Repeat mode, the wave shape could be very simple and generic.
+- With Repeat mode, set length to about 0.5 sec and changing Pulse Width makes unique sound.
+
+
+
 ## SETTING MODE
 
 ### SET:LOAD(Bank 1 to 4)
