@@ -45,6 +45,14 @@ QUN V1.01
 
 # Release history
 
+### v1.40 beta
+
+It's beta version. The specification in the new feature could be changed. 
+
+- New feature : Temporary MIDI CC override. You can assign any MIDI CC to any parameter easily for temporary convenient control.
+- New feature : Granular synthesis engine.
+- Behavior change: Now MIDI channel 1 message is treated as global channel message.
+
 ### v1.32
 
 - Line in volume fix
