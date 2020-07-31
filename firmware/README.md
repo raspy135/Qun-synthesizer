@@ -47,7 +47,7 @@ QUN V1.01
 
 ### v1.40 beta
 
-It's beta version. The specification in the new feature could be changed. 
+It's beta version. The specification in the new feature could be changed. It may have bugs.
 
 - New feature : Temporary MIDI CC override. You can assign any MIDI CC to any parameter easily for temporary convenient control.
 - New feature : Granular synthesis engine.
