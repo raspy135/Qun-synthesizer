@@ -535,7 +535,7 @@ Since firmware v1.4, the synth supports Granular synthesis recorder.
 - 4 Modes are available. One shot, One shot with time stretch, Repeat, Repeat with time stretch. When you are in One shot mode and play note slur, then the playing position won't be reset. 
 - With Repeat mode, you can route the signal to OSC1 AUX L only.
 - With One shot mode, you can route the signal to OSC1 AUX L and OSC2 AUX L. 
-- When you use Preset 0-3, audio data can be saved.
+- You can save the recorded audio data up to 4 slots. When you use Preset 0-3 for save, audio data will be saved.
 - Parameters can be controlled via MIDI CC. See the parameter start with GRN.
 - If you don't change any parameters, C4 is the original pitch of the audio.
 
