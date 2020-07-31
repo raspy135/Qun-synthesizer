@@ -528,8 +528,8 @@ Button 4: Sequencer loop count. Default is 8.
 
 Since firmware v1.4, the synth supports Granular synthesis recorder.
 - When you are in Granular mode, sound engine is turned off.
-- You can record audio from LINE IN or MIC. Input sensitivity can be modified by AUX In Gain parameter.
-- The recorder engine is basically influenced by Granular synthesis, but the implementation is a bit unusual.
+- You can record audio from LINE IN or MIC. Input sensitivity can be modified by "AUX In Gain" parameter.
+- The engine is basically influenced by Granular synthesis, but the implementation is a bit unusual.
 - The granular synthesis signal output can be sent to AUX L channel. It can be used as one of Oscillator. 
 - Pulse Width modulation will change File position(starting position) of the audio. That means the File position can be modulated by LFO and others.
 - 4 Modes are available. One shot, One shot with time stretch, Repeat, Repeat with time stretch. When you are in One shot mode and play note slur, then the playing position won't be reset. 
@@ -539,7 +539,7 @@ Since firmware v1.4, the synth supports Granular synthesis recorder.
 - Parameters can be controlled via MIDI CC. See the parameter start with GRN.
 - If you don't change any parameters, C4 is the original pitch of the audio.
 
-Typical workflow is the following:
+A simple setup for granular synth is the following:
 
 1. Record audio
 2. Adjust parameters in Granular mode
@@ -548,6 +548,9 @@ Typical workflow is the following:
 5. Play notes
 
 ### Operation
+
+![diagram_grn](manual_images/diagram_grn.jpg)
+
 
 Button 1: Record audio. After the recording, audio data is analyzed.
 
@@ -563,7 +566,7 @@ Button 6: Press the button and turn the dial. It's for number of Grain. It won't
 
 Button 7:  Press the button and turn the dial. It's for number of Detune.
 
-Button 8: Press the button and turn the dial. GRN Mode. OFF, ONE(One shot), ONE_TS(One shot with time stretch), RPT(Repeat), RPT_TS(Repeat with time stretch). When the mode is not OFF, It will override AUX L signal to granular output when you use AUX L as Oscillator shape.
+Button 8: Press the button and turn the dial. GRN Mode. OFF, ONE(One shot), ONE_TS(One shot with time stretch), RPT(Repeat), RPT_TS(Repeat with time stretch). When the mode is not OFF, It will override AUX L signal to granular output when you use AUX L as Oscillator shape. With time stretch, playing speed will be preserved. Without it, pitch and speed are linked like an analog tape.
 
 ### Granular synth tips
 
