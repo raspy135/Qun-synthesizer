@@ -45,6 +45,11 @@ QUN V1.01
 
 # Release history
 
+### v1.41 beta
+
+- Improved time stretching quality
+- Small bug fixes
+
 ### v1.40 beta
 
 It's beta. The specification in the new feature could be changed. It may have bugs.
