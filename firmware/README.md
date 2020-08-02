@@ -45,9 +45,7 @@ QUN V1.01
 
 # Release history
 
-### v1.42 beta
 
-- Behavior change : Envelope generator parameter change will affect immediately. (e.g. Decay change will affect current playing note immediately. Previously the change was postponed until next trigger)
 
 ### v1.41 beta
 
