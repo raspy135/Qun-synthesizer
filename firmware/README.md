@@ -4,7 +4,7 @@
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 2. Install [ESPTool](https://github.com/espressif/esptool). You may need to install Python as well.
-3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections.
+3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
 4. Open terminal and check your USB Serial port name.  For example, `/dev/cu.SLAB_USBtoUART` . For Linux, something like `/dev/ttyUSB0`. For Windows, something like `COM4`. 
 5. Download the firmware from here.
 6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode.
@@ -24,7 +24,7 @@ QUN V1.01
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 2. Download Flash download tool https://www.espressif.com/en/support/download/other-tools
-3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections.
+3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
 4. Open Device Manager and check your USB Serial port name. 
 5. Download the firmware from here.
 6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode.
