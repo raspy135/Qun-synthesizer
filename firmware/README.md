@@ -7,7 +7,7 @@
 3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
 4. Open terminal and check your USB Serial port name.  For example, `/dev/cu.SLAB_USBtoUART` . For Linux, something like `/dev/ttyUSB0`. For Windows, something like `COM4`. 
 5. Download the firmware from here.
-6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode.
+6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
 7. Execute the following command. The number 0x230000 is very important. Don't put any other number. Otherwise it will break other important data such as saved preset or license information.
 ```
 esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
@@ -27,7 +27,7 @@ QUN V1.01
 3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
 4. Open Device Manager and check your USB Serial port name. 
 5. Download the firmware from here.
-6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode.
+6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
 7. Execute flash download tool. Select ESP32 download tool. Follow the screenshot for the parameters. 0x230000 is the very important number(starting address of the firmware), do not put any other numbers in the field.
 
 ![screenshot](../manual_images/flash_downloader.jpg)
