@@ -102,38 +102,38 @@ BLE MIDI : Bluetooth MIDIはiOSまたはmacOSに対応しています。Windows�
 * ボタンを押すだけで動作するパラメータもあります。（例： load presetなど）
 
 ### Dumping current preset
-All tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
-If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a tone preset.
+
+プレイモード以外では、すべての音色の設定をMIDI CC信号などから指定することができます。また"REC"と表記されているボタンをPRMモードで押すと、すべての設定をダンプできます。MIDI信号をMIDIレコーダーやDAWに録音すれば、トーンプリセットとして使用することができます。
 
 ### All note off
-Pressing “Mode” button on the base board (not red top board) will turn on / turn off receiving MIDI signal. It can be used as MIDI Panic button. 
+
+プレイモード以外の時は、ベースボード側（赤‎いボードではなく）の "Mode "と表記されているボタンを押すと、MIDI信号の受信をオン/オフに設定することができます。MIDIパニックボタンとしても利用できます。
 
 ## Parameter Mode
 
 ### PRM:OSCILLATOR1,2
 ![diagram_osc](manual_images/diagram_osc.jpg)
 
-**Blue : sources, Green: output**. This diagram shows OSC1 and OSC2 features. The diagram is for explanation, it may not cover all features in the OSCs. Unlike real hardware synths, all parameters can be controlled via MIDI including dials.
+**Blue : sources, Green: output**. 
+この図はOSC1とOSC2の機能を示しています。この図は説明のためのもので、OSCの全ての機能を網羅しているわけではありません。本物のハードウェアシンセとは異なり、ダイヤルを含む全てのパラメーターをMIDIでコントロールすることができます。
 
-The oscillator is a hybrid of classic analog synth and FM. FM has its own parameters, it can be configured in FM conf / ENV3/4 Other Mode.
+オシレーターは、クラシックなシンセとFM、グラニュラーのハイブリッドです。FMには独自のパラメーターがあり、FM conf / ENV3/4 Other Modeで各種設定が可能です。
 
-CV input routing is very flexible.
-One CV is connected to LFO (for tune/width).
-Another one is selectable. It could be one of EG1 to EG4, AUX (Audio in), OSC2 signal, OSC2 signal after EG processing, Freq level out from OSC1, or Freq level out from OSC2.
+CV入力のルーティングはとても柔軟にデザインされています。1つのCVはLFOに接続されています。もう1つは選択することが可能です。EG1からEG4、AUX（オーディオ入力）、OSC2、EG処理後のOSC2、OSC1からのFreqレベルアウト、OSC2からのFreqレベルアウトのいずれかを選択できます。
 
 1. SHAPE
 
-	`Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX`
-	*AUX means audio input from LINE or MIC.
-	*FM has 4 operators inside. See FM Conf Sub mode for detail.
+Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX から選択できます。
+*AUXはオーディオ入力（ラインまたはマイク）を指します。 means audio input from LINE or MIC.
+*FM は4つのオペレーターを持ちます。詳細はFM Conf Sub modeの項をご参照ください。
+*GranularはGranularの項をご参照ください。
 
 2. PULSE WIDTH
 	
-	The synth has an unique behavior with pulse width.
-	You can modulate the wave shape by pulse width, not only limited to Square wave.
-	* Triangle
-	* SAW
-	* Square
+本機では矩形波に限らずパルス幅を調整できるため、たいへんユニークなサウンドを得る事ができます
+    Triangle（三角波）
+    SAW（ノコギリ波）
+    Square（矩形波）
 
 3. TUNE
 
@@ -141,19 +141,19 @@ Another one is selectable. It could be one of EG1 to EG4, AUX (Audio in), OSC2 s
 
 5. MOD TUNE
 
-	MOD bus feedback to tune.
-
+ MOD で選択されているCVをTuneにフィードバックする量
+ 
 6. MOD WIDTH
 
-	MOD bus feedback to pulse width.
+ MOD で選択されているCVをWidthにフィードバックする量
 
 7. LFO TUNE
 
-	LFO feedback to tune.
+　LFOをTuneにフィードバックする量
 
 8. LFO WIDTH
 
-	LFO feedback to pulse width.
+　LFOをWidthにフィードバックする量
 
 ### PRM:MIX
 Mix controls mixer and effects.
