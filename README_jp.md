@@ -61,41 +61,45 @@ Qun-synthesizerはESP32LyraTをベースとしたアナログモデリングシ�
 
 ## CONNECTIONS
 
-* Power : Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
-* BLE MIDI : iOS or macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is a limitation of the BLE spec. For lower latency, use MIDI or MIDI UART.
-* MIDI : Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and MAKE NOISE's adapter.
-* MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect Lyrat's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
-	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
-* The synthesizer can process external audio signals. It also has microphones.
-* LINE IN and PHONE OUT is located at right side. The output is stereo but right and left channel will put the same signal.
+* Power : 良質の USB 電源を使用してください。USBケーブルをPOWERと表記されている方のUSBポートに接続してください。
+BLE MIDI : Bluetooth MIDIはiOSまたはmacOSに対応しています。Windowsには非対応です。BLE MIDIのレイテンシは一般的に15～20msとなるため、低レイテンシーで使用したい場合にはMIDIまたはMIDI UARTを使用してください。
+* MIDI : MIDIケーブルの接続には**TRS A**型のMIDIアダプタ（別売）を使用します。TRS AタイプのアダプターはKORGやAKAI、MAKE NOISEのアダプターと同タイプです。
+* MIDI UART: 従来のMIDIインターフェースの代わりにMIDI UARTを使用することもできます。専用のプログラムとMIDIブリッジ（WindowsのLoopMIDI、macOSのIACなど）が必要ですが、一度設定してしまえばUSB-MIDIのように使うことができます。LyratボードののUARTと表記されたUSB端子とコンピュータに接続します。UARTドライバをインストールする必要があります (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)MIDI UARTの詳細については、https://github.com/raspy135/serialmidi プロジェクトを参照してください。MIDIのbaud rateは31250bpsに設定します。
+* 本機は外部のオーディオ信号を処理することができます。簡易的なマイクもボード上に搭載しています。      
+* 右側にLINE INとPHONE OUT端子があります。出力はステレオプラグ対応ですが、左右のチャンネルは同じ信号を出力しています。
 
 ## MAJOR MODES
 
- The synth has three major modes, it can be changed by pressing ESP32 Lyrat's three touch buttons. Parameter mode is the main mode of the synthesizer. :
+本機には大きく分けて3つのモードがあり、ESP32 Lyrat上の3つのタッチボタンを押すことで変更することができます。パラメータモードはシンセサイザーのメインモードです。
 
-* “Play” Button = Play Mode. It’s for playing and sequencer.
-* “Set” Button = Setting. For load / save / system setting.
-* “Vol+” Button = Parameter Mode. Change synthesizer’s parameters.
-(VOL- button is disabled by hardware)
+**【ご注意】本機は汎用のESP32 Lyratメインボードを利用している為、ボード上の表記がそのまま本機の機能ではない場合がございます。例えばボード上にはPLAY、SET、VOL-、VOL+などの印字がありますが、印字通りの機能ではないことをご確認ください。つまりVOL-、VOL+のボタンを操作しても音量が調整できるというわけではありません。**
 
-* RST button will reset the board. Boot button is used only for firmware update.
+* “Play” Button = プレイモード。演奏やシーケンサーをするためのモード
+
+* “Set” Button = 設定のためのモード。ロード/セーブ/システム設定に使用
+
+* “Vol+” Button = パラメータモード。シンセサイザーのパラメータを変更します。(注意！-　VOL-ボタンは使用しません。ハード的に接続されていません)
+
+* RSTボタンはボードをリセットします。Bootボタンはファームウェアのアップデートにのみ使用します。
+
 
 * ![major_mode_change](manual_images/major_mode_change.gif)
 
 ## BASIC OPERATION
-Each major mode has sub modes. Select sub mode. For example, `Prm:OSC1` is a sub mode for Oscillator 1.
-* To switch sub mode, press Mode button (on the top board) + rotate dial. Keep pressing Mode button while you are selecting sub mode.
-* ![sub_mode_change](manual_images/sub_mode_change.gif)
-* Alternatively, if you press Mode button and release it, sticky mode button is activated (Square is indicated next to mode name). If you press one of 8 buttons, this will change first 8 of Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2 (second button of the 8 buttons) will switch to OSC2 sub mode. This might be quicker way to access the sub mode once you remember the position.
+各メジャーモードにはサブモードが用意されています。例：Prm:OSC1は Oscillator 1のサブモードです。
 
-After you enter the sub mode you want, then next you need to select and change the parameter.
-* Press one of 8 buttons + rotate dial = Change parameter
-If you just press one of 8 buttons and release, then it indicates the current value of the parameter.
-Once you selected the parameter, the parameter is assigned to the dial.
-* Rotate the dial = Change the current parameter. 
+* サブモードを切り替えるには、Modeボタンを押してダイヤルを回します。サブモード選択中はモードボタンを押し続けてください。
+* ![sub_mode_change](manual_images/sub_mode_change.gif)
+* サブモードを切り替える別の方法として、Modeボタンを押して離すと、スティッキーモードとなります（モード名の横に四角が表示されます）。8つのボタンのうち1つを押すと、メジャーモードのサブモードの最初の8つが切り替わります。例えば、パラメータモードでモードボタンを押した後、ボタン2（8つのボタンのうち2番目のボタン）を押すと、OSC2のサブモードに切り替わります。位置を覚えてしまえば、この方が時間を短縮できます。
+
+目的のサブモードに入ったら、次にパラメータの選択と変更を行います。
+
+* 8つのボタンのうち1つを押す＋ダイヤルを回す＝8つのボタンのうち1つを押すと、現在のパラメータの値が表示されます。パラメータを選択するとダイヤルにパラメーターがアサインされます。
+* ダイヤルを回転させる＝現在のパラメータを変更します。
+
 * ![parameter_select_change](manual_images/parameter_select_change.gif)
 
-*Some parameters do an action just by pressing the button. (e.g. load preset)
+* ボタンを押すだけで動作するパラメータもあります。（例： load presetなど）
 
 ### Dumping current preset
 All tone configuration can be specified as sort of MIDI CC signals. Pressing “REC” button will dump all configuration.
