@@ -45,6 +45,14 @@ QUN V1.01
 
 # Release history
 
+### v1.43 beta
+
+- Bug fix: Skipping Sysex message
+
+- Bug fix: Some bugs in granular
+
+  
+
 ### v1.42 beta
 
 - Behavior change : Envelope generator parameter change will affect immediately. (e.g. Decay change will affect current playing note immediately. Previously the change was postponed until next trigger)
