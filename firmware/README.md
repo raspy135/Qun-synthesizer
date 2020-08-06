@@ -45,6 +45,10 @@ QUN V1.01
 
 # Release history
 
+### v1.44 beta
+
+- Bug fix: Temporary MIDI override bug fix
+
 ### v1.43 beta
 
 - Bug fix: Skipping Sysex message
