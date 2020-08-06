@@ -20,7 +20,7 @@ QUN V1.01
 
 
 
-## Steps to update by using Flash downlod tool (Windows only)
+## Steps to update by using Flash download tool (Windows only)
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 2. Download Flash download tool https://www.espressif.com/en/support/download/other-tools

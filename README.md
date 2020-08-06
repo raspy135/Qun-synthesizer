@@ -34,7 +34,7 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
   * Oscillators can be used as dual tone. 
   * Multiple QUN synths can be stacked to achieve a **Polyphonic** setup. 
   * **Ultra Flexible MOD (CV) routing**. The signal routing is very flexible, close to modular synthesizer experience. You can route signals as normal, or totally radical.
-  * 1 (2 channels with changing the LyraT circuit) AUX(R/L) input can be used for **external audio signal**, or **external CV inputs**
+  * 1 (2 channels with changing the ESP32-LyraT circuit) AUX(R/L) input can be used for **external audio signal**, or **external CV inputs**
   * 4 Envelope Generators
   * FM (4 Operators x 2)
   * 1 LFO, rate can be controlled by MIDI notes
@@ -62,7 +62,7 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
 * Power: Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
 * BLE MIDI: iOS and macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is a limitation of the BLE spec. For lower latency, use MIDI or MIDI UART.
 * MIDI: Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and Make Noise's adapter.
-* MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect LyraT's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
+* MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect the ESP32-LyraT's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals, it also has microphones.
 * LINE IN and PHONE OUT is located at right side. The output utilizes both left and right channels, but both channels have identical signals.
@@ -433,7 +433,7 @@ In Play mode, you can use piano key and sequencer. Piano key is mainly just for 
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
-The sequencer has 7 banks (patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key in LyraT board.
+The sequencer has 7 banks (patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key on the ESP32-LyraT board.
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
@@ -505,7 +505,7 @@ Pressing button 1 to 8 will save to preset 1 to 8. It has 4 banks.
 ### SET:SYSTEM
 System Setting is the setting that is not included in the patch setting. To change the parameter, press the one of 8 buttons and rotate the dial.
 
-AUX: Audio source select. It's LyraT's microphone, the microphone is not high quality. Mic (the board has two onboard microphones) or Line in. It will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)".
+AUX: Audio source select. It's the ESP32-LyraT's microphone, the microphone is not high quality. Mic (the board has two onboard microphones) or Line in. It will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)".
 
 Number of devices: Number of devices for poly mode. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
@@ -601,7 +601,7 @@ Minimum setup to achieve PolyDuo (1 Oscillator per voice) will be the following 
 ### Polyphonic tips
 
 Two devices can lose sync for a variety of reasons.
-To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. If you still see issues like out of tune in slave device, try MIDI RECV toggle switch (LyraT's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
+To synchronize all parameters one more time, press “Rec” button to dump all parameters. It will be sent to slave devices. If you still see issues like out of tune in slave device, try MIDI RECV toggle switch (ESP32-LyraT's "Mode" button, next to Rec button). It will reset pitch bend or other controller values.
 
 If it starts making ground loop noise, use separated power supply and use standalone setup or use separated MIDI cable to avoid MIDI signal noise.
 
@@ -636,7 +636,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* Maybe it’s not worth spending time to figure out why, reset the preset.
 	* Save your preset on DAW by pressing REC button to dump MIDI data, then you don’t lose the preset It’s a series of CC changes.
 	* Check "Device Index" and "Number of Devices" in system menu. If the Device Index is 2 or more, and you are using it as a primary device, then it may produce no sound.
-	* Check MIDI Receiving status. To toggle it, press "Mode" button on LyraT board, next to the Rec button.
+	* Check MIDI Receiving status. To toggle it, press "Mode" button on the ESP32-LyraT board, next to the Rec button.
 	
 * BLE trouble with Windows: We don’t support Windows for BLE MIDI connection. Please use MIDI UART or MIDI TRS A.
 
@@ -702,7 +702,7 @@ The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage to th
 The QUN synth was initially designed as a sound module without any user interface, because of this, all tone-related parameters can be controlled by MIDI CC signal.
 
 A set of MIDI CC signal can be used as preset save data. Press "Rec" button to dump MIDI CC messages.
-If the synth enters an undesirable state, you can use LyraT's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as a "Panic" button.
+If the synth enters an undesirable state, you can use the ESP32-LyraT's "Mode" button (next to Rec button) to toggle MIDI receiving status. This can be used as a "Panic" button.
 
 Here are some special commands available through MIDI:
 * Program change will load a preset. Through UI, 32 presets can be accessed through UI, but actually it has 128 slots.
