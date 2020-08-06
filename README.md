@@ -107,6 +107,26 @@ If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a
 ### All notes off
 When you are not in Play mode, pressing “Mode” button on the base board (not the red top board) will turn on / turn off receiving MIDI signal. It can be used as a MIDI Panic button. 
 
+### Temporary MIDI CC override
+
+From v1.4 firmware, you can override MIDI CC temporary. Assigning proper MIDI CC to your MIDI keyboard is recommended for frequently used paramaters, however, you can override MIDI CC temporary by the following operation:
+
+1. In parameter mode, press corresponding MIDI CC button long time (about 3 sec). For example, OSC1's Pulse Width is button 2 in OSC1 sub mode.
+2. Then "MIDI Learning" message is shown. Keep pressing the button.
+3. Send MIDI CC signal from your MIDI keyboard (Turn the knob or move fader). The sent MIDI CC# will control the assigned parameter.
+
+Once the parameter is assigned, then "*" mark is indicated before the CC number. Original CC assignment is still working. It won't be affected with MIDI dumping.
+
+To cancel the override, do the same operation again.
+
+To avoid confusion, this setting won't be saved, but still useful for temporary control.
+
+## Parameter sheet
+SVG and PNG versions are available.
+![qun_synth](./manual_images/qun_cheat_sheet.png)
+./manual_images/qun_cheat_sheet.svg
+
+
 ## Parameter Mode
 
 ### PRM:OSCILLATOR1,2
@@ -129,10 +149,11 @@ The QUN's CV input routing is very flexible. One CV is connected to LFO (for tun
 	
 	The synth has an unique behavior with pulse width.
 	You can modulate the wave shape by pulse width, not only limited to Square wave.
+	
 	* Triangle
 	* SAW
-	* Square
-
+* Square
+	
 3. TUNE
 
 4. OCTAVE
@@ -492,15 +513,75 @@ Button | Function
 3 | Scale. Playing note will be quantized by this scale.
 4 | Sequencer loop count. Default is 8.
 
+## Ply: Granular
+
+### Overview
+
+Since firmware v1.4, the synth supports Granular synthesis recorder.
+- When you are in Granular mode, sound engine is turned off.
+- You can record audio from LINE IN or MIC. Input sensitivity can be modified by "AUX In Gain" parameter.
+- The engine is basically influenced by Granular synthesis, but the implementation is a bit unusual.
+- The granular synthesis signal output can be sent to AUX L channel. It can be used as one of Oscillator. 
+- Pulse Width modulation will change File position(starting position) of the audio. That means the File position can be modulated by LFO and others.
+- 4 Modes are available. One shot, One shot with time stretch, Repeat, Repeat with time stretch. When you are in One shot mode and play note slur, then the playing position won't be reset. 
+- With Repeat mode, you can route the signal to OSC1 AUX L only.
+- With One shot mode, you can route the signal to OSC1 AUX L and OSC2 AUX L. 
+- You can save the recorded audio data up to 4 slots. When you use Preset 0-3 for save, audio data will be saved.
+- Parameters can be controlled via MIDI CC. See the parameter start with GRN.
+- If you don't change any parameters, C4 is the original pitch of the audio.
+
+A simple setup for granular synth is the following:
+
+1. Record audio
+2. Adjust parameters in Granular mode
+3. Change GRN mode from OFF to something else.
+4. Go Oscillator parameter page, and select OSC shape to "AUX L"
+5. Play notes
+
+### Operation
+
+![diagram_grn](manual_images/diagram_grn.jpg)
+
+
+Button 1: Record audio. After the recording, audio data is analyzed.
+
+Button 2: Play / Stop audio.
+
+Button 3: Press the button and turn the dial. It's for File position (Starting point).
+
+Button 4: Press the button and turn the dial. It's for Length
+
+Button 5: Press the button and turn the dial. It's for Speed. It won't work with non-time stretch modes.
+
+Button 6: Press the button and turn the dial. It's for number of Grain. It won't work with One-shot modes.
+
+Button 7:  Press the button and turn the dial. It's for number of Detune.
+
+Button 8: Press the button and turn the dial. GRN Mode. OFF, ONE(One shot), ONE_TS(One shot with time stretch), RPT(Repeat), RPT_TS(Repeat with time stretch). When the mode is not OFF, It will override AUX L signal to granular output when you use AUX L as Oscillator shape. With time stretch, playing speed will be preserved. Without it, pitch and speed are linked like an analog tape.
+
+### Granular synth tips
+
+- Play note slur with One-shot mode. It works very well. You can keep the tempo with One shot with time stretch mode.
+- Glide parameter is fun parameter with Granular.
+- Speed can go negative.
+- If you slice the audio to very short range with Repeat mode, the wave shape could be very simple and generic.
+- With Repeat mode, set length to about 0.5 sec and changing Pulse Width makes unique sound.
+
+
+
 ## SETTING MODE
 
 ### SET:LOAD(Bank 1 to 4)
 Load from the saved preset.
 Pressing button 1 to 8 will load preset 1 to 8. It has 4 banks.
+Preset 0 to 3 also loads audio data in Granular.
+
 
 ### SET:SAVE(Bank 1 to 4)
 Save current parameters to the preset.
 Pressing button 1 to 8 will save to preset 1 to 8. It has 4 banks.
+Preset 0 to 3 also saves audio data in Granular.
+
 
 ### SET:SYSTEM
 System Setting is the setting that is not included in the patch setting. To change the parameter, press the one of 8 buttons and rotate the dial.
@@ -710,7 +791,7 @@ Here are some special commands available through MIDI:
 
 If you want to control parameters by your MIDI keyboard, use the chart below to check the CC number.
 Or, you can see the CC# in the screen at the top of the parameter name.
-Assigned CC# cannot be configured.
+Assigned CC# can be override temporary.
 
 When you change CC parameters through MIDI keyboard or any other devices, the changed parameter will be shown on the display in real-time, you will see what you are changing, the value and mode names just like when you change parameters directly on the QUN.
 
@@ -757,11 +838,11 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 26                            "ENV3/4 Decay", //a
 27                            "ENV3/4 Sustain", //b
 28                            "ENV3/4 Release", //c
-29                            "", //d
-30                            "", //e
-31                            "", //f
+29                            "GRN File Pos", //d
+30                            "GRN Length", //e
+31                            "GRN Speed", //f
                             //-----------------------0x20
-32                            "", //0x0
+32                            "GRN Grain", //0x0
 33                            "FM", //1
 34                            "Efct Feedback", //2
 35                            "LFO Pulse Width", //3
@@ -775,8 +856,8 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 43                            "", //b
 44                            "Efct Type", //c
 45                            "VCF OSC1 bypass SW", //d
-46                            "", //e
-47                            "", //f
+46                            "GRN Detune", //e
+47                            "GRN Mode", //f
                             //-----------------------0x30
 48                            "LFO Mod Tune", //0x0
 49                            "LFO Mod Width", //1
