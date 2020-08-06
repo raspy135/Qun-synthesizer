@@ -28,7 +28,7 @@ QUN V1.01
 4. Open Device Manager and check your USB Serial port name. 
 5. Download the firmware from here.
 6. Press "Boot" button and "RST" button on the ESP32-LyraT board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
-7. Execute flash download tool. Select ESP32 download tool. Follow the screenshot for the parameters. 0x230000 is the very important number(starting address of the firmware), do not put any other numbers in the field.
+7. Execute flash download tool. Select Developer Mode. Select ESP32 download tool. Follow the screenshot for the parameters. 0x230000 is the very important number (starting address of the firmware), do not put any other numbers in the field.
 
 ![screenshot](../manual_images/flash_downloader.jpg)
 
