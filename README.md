@@ -517,16 +517,16 @@ Button | Function
 
 ### Overview
 
-Since firmware v1.4, the synth supports Granular synthesis recorder.
+Since firmware v1.4, the Qun synth features a Granular synthesis recorder.
 - When you are in Granular mode, sound engine is turned off.
 - You can record audio from LINE IN or MIC. Input sensitivity can be modified by "AUX In Gain" parameter.
-- The engine is basically influenced by Granular synthesis, but the implementation is a bit unusual.
+- The engine is basically influenced by Granular synthesis, but the implementation is somewhat unusual.
 - The granular synthesis signal output can be sent to AUX L channel. It can be used as one of Oscillator. 
-- Pulse Width modulation will change File position(starting position) of the audio. That means the File position can be modulated by LFO and others.
+- Pulse Width modulation will change File position (starting position) of the audio. That means the File position can be modulated by LFO and others.
 - 4 Modes are available. One shot, One shot with time stretch, Repeat, Repeat with time stretch. When you are in One shot mode and play note slur, then the playing position won't be reset. 
 - With Repeat mode, you can route the signal to OSC1 AUX L only.
 - With One shot mode, you can route the signal to OSC1 AUX L and OSC2 AUX L. 
-- You can save the recorded audio data up to 4 slots. When you use Preset 0-3 for save, audio data will be saved.
+- You can save up to 4 slots of recorded audio data. When you use Preset 0-3 for save, audio data will be saved.
 - Parameters can be controlled via MIDI CC. See the parameter start with GRN.
 - If you don't change any parameters, C4 is the original pitch of the audio.
 
