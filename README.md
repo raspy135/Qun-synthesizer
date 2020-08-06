@@ -109,7 +109,7 @@ When you are not in Play mode, pressing “Mode” button on the base board (not
 
 ### Temporary MIDI CC override
 
-From v1.4 firmware, you can override MIDI CC temporary. Assigning proper MIDI CC to your MIDI keyboard is recommended for frequently used paramaters, however, you can override MIDI CC temporary by the following operation:
+From v1.4 firmware, you can override MIDI CC temporary. Assigning proper MIDI CC to your MIDI keyboard is recommended for frequently used parameters, however, you can override MIDI CC temporary by the following operation:
 
 1. In parameter mode, press corresponding MIDI CC button long time (about 3 sec). For example, OSC1's Pulse Width is button 2 in OSC1 sub mode.
 2. Then "MIDI Learning" message is shown. Keep pressing the button.
