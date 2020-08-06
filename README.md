@@ -530,7 +530,7 @@ Since firmware v1.4, the Qun synth features a Granular synthesis recorder.
 - Parameters can be controlled via MIDI CC. See the parameter start with GRN.
 - If you don't change any parameters, C4 is the original pitch of the audio.
 
-A simple setup for granular synth is the following:
+A simple setup to use the granular mode:
 
 1. Record audio
 2. Adjust parameters in Granular mode
