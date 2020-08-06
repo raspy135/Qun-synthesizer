@@ -1,9 +1,9 @@
 # Firmware
 
-## Steps to update by using esptool (Mac OS X, Linux, or Windows)
+## Steps to update by using esptool.py (Mac OS X, Linux, or Windows)
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
-2. Install [ESPTool](https://github.com/espressif/esptool). You may need to install Python as well.
+2. Install [esptool.py](https://github.com/espressif/esptool). You may need to install Python as well.
 3. Connect USB cable to ESP32-LyraT's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
 4. Open terminal and check your USB Serial port name.  For example, `/dev/cu.SLAB_USBtoUART` . For Linux, something like `/dev/ttyUSB0`. For Windows, something like `COM4`. 
 5. Download the firmware from here.
@@ -47,7 +47,7 @@ QUN V1.01
 
 ### v1.43 beta
 
-- Bug fix: Skipping Sysex message
+- Bug fix: Skipping SysEx message
 
 - Bug fix: Some bugs in granular
 
