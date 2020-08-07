@@ -45,6 +45,11 @@ QUN V1.01
 
 # Release history
 
+### v1.45 beta
+
+- Bug fix: Audio record save area was overlapped.
+- Time shift algorithm slightly improved.
+
 ### v1.44 beta
 
 - Bug fix: Temporary MIDI override bug fix
