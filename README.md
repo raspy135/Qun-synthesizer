@@ -37,6 +37,7 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
   * 1 (2 channels with changing the ESP32-LyraT circuit) AUX(R/L) input can be used for **external audio signal**, or **external CV inputs**
   * 4 Envelope Generators
   * FM (4 Operators x 2)
+  * Granular / Sampler engine
   * 1 LFO, rate can be controlled by MIDI notes
   * 1 Organic sounding VCF
     * 2/4 Poles, Low-pass, Band-pass, High-pass, Notch)
