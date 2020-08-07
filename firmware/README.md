@@ -45,6 +45,10 @@ QUN V1.01
 
 # Release history
 
+### v1.46beta
+
+- Behavior change: In the sequencer mode, when note width(length) is long enough to touch next note, then it will be slurs or ties. EG will not be retriggered.
+
 ### v1.45 beta
 
 - Bug fix: Audio record save area was overlapped.
