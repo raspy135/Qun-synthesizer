@@ -1,13 +1,13 @@
 # Firmware
 
-## Steps to update by using esptool (Mac OS X, Linux, or Windows)
+## Steps to update by using esptool.py (Mac OS X, Linux, or Windows)
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
-2. Install [ESPTool](https://github.com/espressif/esptool). You may need to install Python as well.
-3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
+2. Install [esptool.py](https://github.com/espressif/esptool). You may need to install Python as well.
+3. Connect USB cable to ESP32-LyraT's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
 4. Open terminal and check your USB Serial port name.  For example, `/dev/cu.SLAB_USBtoUART` . For Linux, something like `/dev/ttyUSB0`. For Windows, something like `COM4`. 
 5. Download the firmware from here.
-6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
+6. Press "Boot" button and "RST" button on ESP32-LyraT board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
 7. Execute the following command. The number 0x230000 is very important. Don't put any other number. Otherwise it will break other important data such as saved preset or license information.
 ```
 esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
@@ -20,21 +20,21 @@ QUN V1.01
 
 
 
-## Steps to update by using Flash downlod tool (Windows only)
+## Steps to update by using Flash download tool (Windows only)
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 2. Download Flash download tool https://www.espressif.com/en/support/download/other-tools
-3. Connect USB cable to Lyrat's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
-4. Open Device Manager and check your USB Serial port name. 
+3. Connect USB cable to ESP32-LyraT's (the base board) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
+4. Open Device Manager and check your USB Serial port name. You can locate it under 'Ports (COM & LPT), and it should read similarly to 'Silicon Labs CP210x USB to UART Bridge' followed by your port number in brackets.
 5. Download the firmware from here.
-6. Press "Boot" button and "RST" button on Lyrat board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
-7. Execute flash download tool. Select ESP32 download tool. Follow the screenshot for the parameters. 0x230000 is the very important number(starting address of the firmware), do not put any other numbers in the field.
+6. Press "Boot" button and "RST" button on the ESP32-LyraT board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
+7. Execute flash download tool. Select Developer Mode. Select ESP32 download tool. Follow the screenshot for the parameters. Choose the '…' button to select the firmware file that you downloaded. 0x230000 is the very important number (starting address of the firmware), do not put any other numbers in the field.
 
 ![screenshot](../manual_images/flash_downloader.jpg)
 
-
-8. Press green button to flash the program. 
-9. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
+8. Be sure to enter your USB Serial port name into the COM field.
+9. Press the 'START' button under the status area to flash the firmware. 
+10. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
 ```
 QUN V1.01
 ```
@@ -60,7 +60,7 @@ QUN V1.01
 
 ### v1.43 beta
 
-- Bug fix: Skipping Sysex message
+- Bug fix: Skipping SysEx message
 
 - Bug fix: Some bugs in granular
 
@@ -137,7 +137,7 @@ It's beta. The specification in the new feature could be changed. It may have bu
 ### V1.10
 
 - Improved filter transition response.
-- ADC button logic update, affected only for specific Lyrat boards which have unusual value.
+- ADC button logic update, affected only for specific ESP32-LyraT boards which have unusual value.
 
 ### V1.01
 
