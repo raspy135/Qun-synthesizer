@@ -546,21 +546,16 @@ A simple setup to use the granular mode:
 ![diagram_grn](manual_images/diagram_grn.jpg)
 
 
-Button 1: Record audio. After the recording, audio data is analyzed.
-
-Button 2: Play / Stop audio.
-
-Button 3: Press the button and turn the dial. It's for File position (Starting point).
-
-Button 4: Press the button and turn the dial. It's for Length
-
-Button 5: Press the button and turn the dial. It's for Speed. It won't work with non-time stretch modes.
-
-Button 6: Press the button and turn the dial. It's for number of Grain. It won't work with One-shot modes.
-
-Button 7:  Press the button and turn the dial. It's for number of Detune.
-
-Button 8: Press the button and turn the dial. GRN Mode. OFF, ONE(One shot), ONE_TS(One shot with time stretch), RPT(Repeat), RPT_TS(Repeat with time stretch). When the mode is not OFF, It will override AUX L signal to granular output when you use AUX L as Oscillator shape. With time stretch, playing speed will be preserved. Without it, pitch and speed are linked like an analog tape.
+Button | Function
+------------ | -------------
+1 | Record audio. After the recording, audio data is analyzed.
+2 | Play / Stop audio.
+3 | File position (Starting point).
+4 | Length
+5 | Speed. It won't work with non-time stretch modes.
+6 | Number of Grain. It won't work with One-shot modes.
+7 | Detune. (Octave highs and lows)
+8 | GRN Mode. OFF, ONE(One shot), ONE_TS(One shot with time stretch), RPT(Repeat), RPT_TS(Repeat with time stretch). When the mode is not OFF, It will override AUX L signal to granular output when you use AUX L as Oscillator shape. With time stretch, playing speed will be preserved. Without it, pitch and speed are linked like an analog tape.
 
 ### Granular synth tips
 
