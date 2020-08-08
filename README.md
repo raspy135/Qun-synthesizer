@@ -511,8 +511,8 @@ Button 8: Save all banks to flash memory. Otherwise sequencer changes will not b
 
 ### PLY:SEQ TUNE
 Press one of the eight buttons and turn the dial, then it will modify tune offset for each step.
-
-If you play note from external MIDI keyboard while you are pressing one of the eight buttons, the note will be recorded as the tune for the step.
+Alternatevely, you can step record notes by external MIDI keyboard. Play note by MIDI keyboard while you are pressing one of the eight buttons, the note will be recorded as the tune for the step.
+https://www.youtube.com/watch?v=aV2YL0idMHA
 
 ### PLY:SEQ WIDTH
 Press one of the eight buttons and turn the dial, then it will modify width (note length) offset for each step. If the width is long enough to touch next step note, it becomes ties or slurs. The note will not be retriggered.
@@ -531,23 +531,22 @@ Button | Function
 ### Overview
 
 Since firmware v1.4, the Qun synth features a Granular synthesis recorder.
-- When you are in Granular mode, sound engine is turned off.
+- When you are in Granular sub mode, sound engine is turned off. Once you finish the editing, you can connect the Granular engine's output to AUX L channel. It means **Granular engine can be used as one of Oscillator shape**. You can assign Granular engine to Oscillator 1, and you still have Oscillator 2.
 - You can record audio from LINE IN or MIC. Input sensitivity can be modified by "AUX In Gain" parameter.
 - The engine is basically influenced by Granular synthesis, but the implementation is somewhat unusual.
-- The granular synthesis signal output can be sent to AUX L channel. It can be used as one of Oscillator. 
 - Pulse Width modulation will change File position (starting position) of the audio. That means the File position can be modulated by LFO and others.
-- 4 Modes are available. One shot, One shot with time stretch, Repeat, Repeat with time stretch. When you are in One shot mode and play note slur, then the playing position won't be reset. 
+- 4 Modes are available. **One shot, One shot with time stretch, Repeat, Repeat with time stretch**. When you are in One shot mode and play note slur, then the playing position won't be reset. 
 - With Repeat mode, you can route the signal to OSC1 AUX L only.
 - With One shot mode, you can route the signal to OSC1 AUX L and OSC2 AUX L. 
 - You can save up to 4 slots of recorded audio data. When you use Preset 0-3 for save, audio data will be saved.
 - Parameters can be controlled via MIDI CC. See the parameter start with GRN.
-- If you don't change any parameters, C4 is the original pitch of the audio.
+- With initialized state of oscillator, C4 is the original pitch of the audio.
 
-A simple setup to use the granular mode:
+This is a simple setup to use the granular engine:
 
-1. Record audio
+1. Move to Granular sub mode, and record audio.
 2. Adjust parameters in Granular mode
-3. Change GRN mode from OFF to something else.
+3. Change GRN mode from OFF to something else. It overrides AUX L channel to Granular engine's output.
 4. Go Oscillator parameter page, and select OSC shape to "AUX L"
 5. Play notes
 
@@ -574,7 +573,6 @@ Button | Function
 - Speed can go negative.
 - If you slice the audio to very short range with Repeat mode, the wave shape could be very simple and generic.
 - With Repeat mode, set length to about 0.5 sec and changing Pulse Width makes unique sound.
-
 
 
 ## SETTING MODE
