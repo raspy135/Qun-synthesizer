@@ -475,7 +475,7 @@ Button | Function
 3 | Width (note length).
 4 | Note Randomness.
 5 | Arpeggiator.
-6 - 8 | Looper. It always synchronizes with the sequencer.
+6 | Looper Record / Overdub
 7 | Play the looper.
 5 | Stop playback or delete the recording.
 
