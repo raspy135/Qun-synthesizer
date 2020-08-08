@@ -122,10 +122,19 @@ To cancel the override, do the same operation again.
 
 To avoid confusion, this setting won't be saved, but still useful for temporary control.
 
-## Parameter sheet
+## Parameter sheet / Guide sheet
+
 SVG and PNG versions are available.
 ![qun_synth](./manual_images/qun_cheat_sheet.png)
 ./manual_images/qun_cheat_sheet.svg
+
+Guide sheet might be useful as well.
+PDF version is ./manual_images/guide_sheet.pdf
+
+Please print the PDF and put it on your QUN synth. 
+![qun_synth](./manual_images/guide_sheet.png)
+
+
 
 
 ## Parameter Mode
