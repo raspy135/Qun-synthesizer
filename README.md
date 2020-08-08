@@ -502,8 +502,10 @@ Button 8: Save all banks to flash memory. Otherwise sequencer changes will not b
 ### PLY:SEQ TUNE
 Press one of the eight buttons and turn the dial, then it will modify tune offset for each step.
 
+If you play note from external MIDI keyboard while you are pressing one of the eight buttons, the note will be recorded as the tune for the step.
+
 ### PLY:SEQ WIDTH
-Press one of the eight buttons and turn the dial, then it will modify width (note length) offset for each step.
+Press one of the eight buttons and turn the dial, then it will modify width (note length) offset for each step. If the width is long enough to touch next step note, it becomes ties or slurs. The note will not be retriggered.
 
 ### PLY:SEQ CONFIG
 

@@ -45,6 +45,13 @@ QUN V1.01
 
 # Release history
 
+
+
+### v1.47
+
+- New feature: Now you can set Sequencer's tune by MIDI keyboard in Seq tune mode. While you are pressing step index button 1 to 8, play note from MIDI keyboard. The note will be used for the sequencer step.
+- Bug fix : Some bug fixes related sequencer. (Scale quantize, key shifting, BPM and others)
+
 ### v1.46beta
 
 - Behavior change: In the sequencer mode, when note width(length) is long enough to touch next note, then it will be slurs or ties. EG will not be retriggered.
