@@ -37,7 +37,7 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
   * 1 (2 channels with changing the ESP32-LyraT circuit) AUX(R/L) input can be used for **external audio signal**, or **external CV inputs**
   * 4 Envelope Generators
   * FM (4 Operators x 2)
-  * Granular / Sampler engine
+  * **Granular / Sampler engine**
   * 1 LFO, rate can be controlled by MIDI notes
   * 1 Organic sounding VCF
     * 2/4 Poles, Low-pass, Band-pass, High-pass, Notch)
@@ -154,6 +154,7 @@ The QUN's CV input routing is very flexible. One CV is connected to LFO (for tun
 	`Saw, Sine, S&H, Square, Triangle, W Noise, P Noise, FM, AUX`
 	*AUX means audio input from LINE or MIC.
 	*FM has 4 operators inside. See FM Conf Sub mode for detail.
+	*Granular synth engine can be connected to AUX L channel. See Granular sub mode for detail.
 
 2. PULSE WIDTH
 	
