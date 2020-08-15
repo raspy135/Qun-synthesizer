@@ -802,7 +802,7 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 - Cutoff: (22)
 - Resonance: (91)
 - LFO Tune: (24)
-- VCF Volume: (72)
+- FM Freq Snap: (72)
 
 
 
