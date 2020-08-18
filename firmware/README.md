@@ -49,6 +49,10 @@ QUN V1.01
 
 # Release history
 
+### v1.51
+
+- Fix the typo in button adjustment mode.
+
 ### v1.50
 
 - Some code for battery operation. Battery opertaion is still testing. The documentation will be updated when the test is finished.
