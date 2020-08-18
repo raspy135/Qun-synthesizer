@@ -780,7 +780,57 @@ Set your DAW to send MIDI clock. We tested Ableton Live and Logic Pro X. It has 
 ### Sync IN
 The synth can take 2PPQ, 4PPQ or 24 PPQ signals. Don't supply high voltage to the synth, it will break. The signal must be supplied to LEFT channel (tip of TRS connector). Using the tip as a sync signal is compatible with Teenage Engineering's Pocket Operator. Supply voltage needs to be more than 500mV. RIGHT channel (AUXR) still can be used as audio signal or CV in.
 
+## Battery Operation (ADVANCED)
 
+Since v1.50 firmware, the synth can be operated by 3.7V Lipo battery.  With 2000mAh battery, it lasts about 10 to 12 hours.
+Please note it's outside of standard configuraiton and warranty. If you are not comfortable with the instructions, we recommend to use USB powerbank instead.
+If you connect battery wrong way, it will break the hardware!
+
+### Bettery choice
+
+You can use 1 cell (3.7V) Litium polymer battery around 2000mAh, with JST-PH connector.
+I tested with the following battery.
+https://www.amazon.com/YDL-2000mAh-battery-Rechargeable-Connector/dp/B07BTVT2HH/
+This kind of battery has discharge protection circuit. 
+**Please purchase Lipo battery with the protection circuit**.
+
+### !WARNING!
+
+**The board has three JST PH sockets. Two of them on right side are for speakers, not for batteries!!! if you connect the battery to the ports, the board will be broken.**
+
+**Battery polarity might be opposite!!!! Double check the polarity before you connect!!**
+
+### Steps for the battery installation
+
+1. Unscrew the nuts on the board and take off the daughter board.
+2. Connect purchased battery to your board. The connector is located on left side of the board, next to POWER USB socket. Do not connect it to right side of sockets, they are for speakers. 
+3. DOUBLE CHECK the polarity. Upper side is Positive, and down side is Negative. Some batteries have opposite polarity that will break the board. If your purchased battery has opposite polarity, you can pull the white plastic socket off from the board, turn 180 degree and push it back. The white plastic socket is not glued, it should be able to be removed easily.
+![qun_synth](./manual_images/battery_connector.jpg)
+4. Place the battery somewhere. If you use the battery like we tested, you will be able to find some area between LyraT board and daughter board. Battery may get some pressure, but little pressure should be fine. (For extra safety, You may want to make a battery holder)
+5. Put the daughter board back. Probably you cannot screw nuts to the end, you need to make extra space for the battery. Do not overtight the nuts.
+
+### Button Adjustment
+
+After the battery installation, you need to perform button voltage calibration, otherwise button recognition could be incorrect.
+
+1. Power the board (Connect USB cable to POWER port).  We want to measure when the voltage is full, so USB cable connection is necessary.
+2. Press "MODE" button on the daughter board and keep pressing it, and press RST button to restart the board. The synth will indicate "BTN ADJ MODE".
+2. A few seconds later, it says "Press BTN :1" . 
+3. Keep pressing button 1 until the message changes to "Press BTN:2"
+4. Keep pressing button 2  until the message changes to "Press BTN:3"
+5. Continue the same procedure to the end. "MODE" button means MODE button on the daughter board.
+6. At the end, "Saved" message is shown. Reset the board.
+7. Check all buttons on the daughter board (Ply:Seq On/Off mode is good for the checking)
+
+### Operations 
+
+- If you connect USB cable to POWER  socket, battery start charging. When the charge is done, LED color on the LyraT board becomes green.
+- To power off the board, press "Mode" button on Lyrat Board more than 4 seconds. It will go sleep mode. OLED will be turned off but still you see the red LED. With 2000mAh battery, it will last about a week in sleep mode. 
+- If you want complete shutdown, you need to make JST PT switch. https://learn.adafruit.com/on-slash-off-switches/overview
+- Please reset the board when you change power source. Otherwise buttons will be malfunction.
+- After the button calibration, battery indicator will be shown at the top-right corner. This is just rough battery estimate.
+- If you want to go back non-battery configuration, please recalibrate the button one more time.
+- You can get extra hours by turning off BLE MIDI. To disable BLE MIDI, press Play button more than 4 seconds. Result message will be shown in the screen. Reset the device. The change will be applied after the reset.
 
 
 
@@ -808,7 +858,7 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 - Cutoff: (22)
 - Resonance: (91)
 - LFO Tune: (24)
-- VCF Volume: (72)
+- VCF Volume: (90)
 
 
 
@@ -890,7 +940,7 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 69                            "OSC2 Env Sel", //5
 70                            "ENV2 Inv SW", //6
 71                            "LFO Gatesync SW", //7
-72                            "OSC2 Keysync SW", //8
+72                            "FM FREQ SNAP SW", //8
 73                            "OSC1 Wide Tune SW", //9
 74                            "OSC2 Wide Tune SW", //a
 75                            "OSC2 Octave", //b

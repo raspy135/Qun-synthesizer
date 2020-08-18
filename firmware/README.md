@@ -48,7 +48,7 @@ QUN V1.01
 ### v1.50
 
 - Some code for battery operation. Battery opertaion is still testing. The documentation will be updated when the test is finished.
-- UI code was rewritten to support battery operation. It should work for most of devices, but if you experience button recognition issue, please contact info@nunomo.com
+- UI code was rewritten to support battery operation. It should work for most of devices, but if you experience button recognition issue, please perform Button Adjustment widzard (Check the manual for detail). If you keep having trouble, please contact info@nunomo.com
 - Suspend: The device goes suspend mode by long pressing (4 sec) Mode button on LyraT board. Press RST to resume.
 - BLE MIDI on/off : BLE MIDI can be turn off by long pressing "Play" button. The change will not be applied until rebooting. It will save power consumption with battery operation. 
 - Bug fix: Bug fix with Running status MIDI handling. If you are experiencing MIDI input issue with MIDI clock, then it could fix the issue.
