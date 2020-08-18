@@ -859,6 +859,7 @@ Suggested MIDI CC parameters to be assigned if your MIDI keyboard has some knobs
 - Resonance: (91)
 - LFO Tune: (24)
 - VCF Volume: (90)
+>>>>>>> 6f066ad3c07fec9252f6be88646258ad957cc38a
 
 
 
