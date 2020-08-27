@@ -2,7 +2,7 @@
 
 There are two ways to update firmware.
 One is using Flash download tool. This is easier option for most of people, but works only on Windows.
-Another option is using esptool.py. This requires Terminal operation and basic knowledge of Python, so it will be more advanced, but it should not be hard.
+Another option is using esptool.py. It will be a bit more advanced, but it should not be hard.
 
 ## Steps to update by using esptool.py (Mac OS X, Linux, or Windows)
 
