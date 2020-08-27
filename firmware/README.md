@@ -74,7 +74,14 @@ QUN V1.01
 
 # Release history
 
+
+
+### V1.61
+
+- Fix very low frequency issue with LFO.
+
 ### v1.60
+
 - Help message added with sticky_mode button. When you press MODE button on the dauther board, sub-mode list will be shown.
 - Behavior change: Now sequencer data is paired with Tone preset.
 	- Sequencer data save button (In Seq bank menu) was removed. 8 sequencer banks are available.
