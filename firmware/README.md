@@ -49,6 +49,22 @@ QUN V1.01
 
 # Release history
 
+### v1.60
+- Help message added with sticky_mode button. When you press MODE button on the dauther board, sub-mode list will be shown.
+- Behavior change: Now sequencer data is paired with Tone preset.
+	- Sequencer data save button (In Seq bank menu) was removed. 8 sequencer banks are available.
+	- Sequencer data will be saved when preset is saved (Set:Save Bnk1-4).
+	- Sequencer data will be loaded when preset is loaded (Set:Load Bnk1-4).
+	- **By this change, previous saved sequencer data will be erased**.
+- Sequencer count can go more than 8. When it's set more than 8, next bank will be played. (If you set it as 16 in Bank 1, then bank 1 and bank 2 will be connected)
+- Sequencer bank data can be cleared(Initialized) in Seq bank menu. In Seq bank mode, press button + turn dial, it goes to COPY mode. Select "Clear" to clear the bank.
+- Sequencer can start / stop from Seq bank sub mode. Play or stop by long-pressing any button of button 1 to 8.
+- Sound engine won't be turned off with Granular sub-mode.
+- Fixed some issues with touch buttons
+- Fixed the dial linearity issue
+- Fixed : 4 pole non-linear issue
+- Fixed : Improved VCF bass response.
+
 ### v1.51
 
 - Fix the typo in button adjustment mode.

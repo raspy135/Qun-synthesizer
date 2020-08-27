@@ -461,11 +461,13 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 ## PLAY MODE
 
-In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more practical. The sequencer is an 8-step sequencer, but each step can have double note, second half note or triple note, thus it is more than a normal 8-step sequencer.
+In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more practical. The sequencer is an 8-step sequencer, but each step can have double note, second half note or triple note, thus it is more than a normal 8-step sequencer. Also you can connect sequencer banks up to 4 banks = 32 steps.
+
+**Since v1.60 firmware, the sequencer data is paired with tone preset.** Sequencer data will be saved when you save tone preset. Each preset can have 8 sequencer banks.
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
-The sequencer has 7 banks (patterns). Bank can be switched in Seq Bank mode, or pressing "Rec / Mode" key on the ESP32-LyraT board.
+The sequencer has 8 banks (patterns). Bank can be switched in Seq Bank mode, or **pressing "Rec / Mode" key on the ESP32-LyraT board**.
 
 In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
 
@@ -500,17 +502,19 @@ Fully-filled circle | Two notes in the step (1/16th).
 Striped circle | 3 notes in the step (triplet).
 
 ### PLY:SEQ BANK
-The sequencer has 7 banks, you can switch the bank while playing.
-This will not be saved unless you press button 8.
+The sequencer has 8 banks, you can switch the bank while playing.
 
-Button 1 to 7: Change bank 1 to 7
+You can start or stop sequencer by long pressing one of 8 buttons.
 
-Pressing Button 1 to 7 and changing dial: Copy bank to other bank. It's useful when you want to make a new bank by using existing data. If you want to cancel the operation, turn to the end, then "NONE" will be indicated as the destination.
+Button 1 to 8: Change bank 1 to 8
 
-Button 8: Save all banks to flash memory. Otherwise sequencer changes will not be saved when power is off.
+Pressing Button 1 to 8 and changing dial: Copy bank to other bank. It's useful when you want to make a new bank by using existing data. If you want to cancel the operation, turn to the end, then "CANCEL" will be indicated as the destination. To initialize the bank data, turn the dial to "CLEAR".
 
 ### PLY:SEQ TUNE
 Press one of the eight buttons and turn the dial, then it will modify tune offset for each step.
+
+"Result:" shows the final playing note. (There are many parameters will affect the final playing note such as scale quantize, key and transpose. Sometimes it's hard to guess the final playing note. )
+
 Alternatevely, you can step record notes by external MIDI keyboard. Play note by MIDI keyboard while you are pressing one of the eight buttons, the note will be recorded as the tune for the step.
 https://www.youtube.com/watch?v=aV2YL0idMHA
 
@@ -524,14 +528,18 @@ Button | Function
 1 | BPM.
 2 | Key (for scale).
 3 | Scale. Playing note will be quantized by this scale.
-4 | Sequencer loop count. Default is 8.
+4 | Sequencer loop count. Default is 8. You can set more than 8 steps. the steps is more than 8, next bank will be connected when playing. For example, if you set 16 on bank 1, bank 1 and bank 2 are connected. 
+5 | BPM factor. Playing speed can be double or half.
+6 | Velocity period (steps). You can play different velocity notes. Make sure you set Velocity Period Volume parameter and Velocity SW is ON
+7 | Velocity Period Volume for off-beat note.
+8 | Velocity Period Offset
 
 ## Ply: Granular
 
 ### Overview
 
 Since firmware v1.4, the Qun synth features a Granular synthesis recorder.
-- When you are in Granular sub mode, sound engine is turned off. Once you finish the editing, you can connect the Granular engine's output to AUX L channel. It means **Granular engine can be used as one of Oscillator shape**. You can assign Granular engine to Oscillator 1, and you still have Oscillator 2.
+- Once you finish the editing, you can connect the Granular engine's output to AUX L channel. It means **Granular engine can be used as one of Oscillator shape**. You can assign Granular engine to Oscillator 1, and you still have Oscillator 2.
 - You can record audio from LINE IN or MIC. Input sensitivity can be modified by "AUX In Gain" parameter.
 - The engine is basically influenced by Granular synthesis, but the implementation is somewhat unusual.
 - Pulse Width modulation will change File position (starting position) of the audio. That means the File position can be modulated by LFO and others.
