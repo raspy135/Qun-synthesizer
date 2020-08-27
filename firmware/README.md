@@ -1,17 +1,27 @@
 # Firmware
 
+There are two ways to update firmware.
+One is using Flash download tool. This is easier option for most of people, but works only on Windows.
+Another option is using esptool.py. This requires Terminal operation and basic knowledge of Python, so it will be more advanced, but it should not be hard.
+
 ## Steps to update by using esptool.py (Mac OS X, Linux, or Windows)
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
-2. Install [esptool.py](https://github.com/espressif/esptool). You may need to install Python as well.
+2. Install [esptool.py](https://github.com/espressif/esptool). You may need to install Python as well. Please be aware **MAC OS X comes with Python2. If you installed Python3, then command will be "python3 /path/to/esptools.py" at step 7**.
 3. Connect USB cable to ESP32-LyraT's (base board's) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
-4. Open terminal and check your USB Serial port name.  For example, `/dev/cu.SLAB_USBtoUART` . For Linux, something like `/dev/ttyUSB0`. For Windows, something like `COM4`. 
+4. Open Terminal and check your USB Serial port name.  For example, `/dev/cu.SLAB_USBtoUART` . For Linux, something like `/dev/ttyUSB0`. For Windows, something like `COM4`. 
 5. Download the firmware from here.
 6. Press "Boot" button and "RST" button on ESP32-LyraT board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
 7. Execute the following command. The number 0x230000 is very important. Don't put any other number. Otherwise it will break other important data such as saved preset or license information.
 ```
 esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
 ```
+If esptool.py is not in the path, the command will be something like this:
+```
+python3 /path/to/esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
+(Please replace "/path/to" to your downloaded esptool.py path.)
+```
+
 7. If you stall at  `Connecting......____`, then the board is not in firmware uploading mode. 
 8. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
 ```
