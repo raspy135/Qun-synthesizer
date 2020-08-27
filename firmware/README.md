@@ -7,7 +7,7 @@ Another option is using esptool.py. It will be a bit more advanced, but it shoul
 ## Steps to update by using esptool.py (Mac OS X, Linux, or Windows)
 
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
-2. Install [esptool.py](https://github.com/espressif/esptool). You may need to install Python as well. There are several ways to install the software, but the most less confusing way is using Homebrew(https://brew.sh/) . Open the Terminal app, then put the following command.
+2. Install [esptool.py](https://github.com/espressif/esptool). You may need to install Python as well. There are several ways to install the software, but the most less confusing way is using Homebrew(https://brew.sh/) for OS X. Open the Terminal app, then put the following command.
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
