@@ -493,6 +493,7 @@ Button | Function
 
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
+You can set different type of notes by turning dial while you press the button.
 
 Status | Meaning
 ------------ | -------------
