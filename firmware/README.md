@@ -74,7 +74,9 @@ QUN V1.01
 
 # Release history
 
+### V1.62
 
+- Slight change of VCF range.
 
 ### V1.61
 
