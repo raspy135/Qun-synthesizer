@@ -36,12 +36,23 @@ If you don't see `/dev/cu.SLAB_USBtoUART` or similar device even you connect the
 esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
 ```
 
-
 7. If you stall at  `Connecting......____`, then the board is not in firmware uploading mode. 
 8. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
 ```
 QUN V1.01
 ```
+
+### Troubleshooting with OS X firmware update
+
+1. "Command not found" when I execute esptool.py : esptool.py was not installed properly. See the messages in homebrew.
+2. I don't see `/dev/cu.SLAB_USBtoUART` : Driver installation was failed, or, cable issue. Make sure you are using two cables, and you are using right microUSB cable. Some cheap USB cables don't have data lines.
+3. "File not found" error : Probably you specify wrong path to the downloaded firmware. Please note the file path is case sensitive.
+
+If you keep having the issue, please email to info@nunomo.com.
+
+
+
+
 
 
 
