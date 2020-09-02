@@ -74,6 +74,13 @@ QUN V1.01
 
 # Release history
 
+### V1.63
+
+- Sending 14-bit MIDI internally for VCF cutoff and OSC tunes for better transition (If you have 14-bit MIDI controller it can be done by external controller as well)
+- More smooth dial transition for all parameters
+- You can name preset when saving.
+- Indication improvements
+
 ### V1.62
 
 - Slight change of VCF range.

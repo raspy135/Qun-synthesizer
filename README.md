@@ -595,7 +595,11 @@ Preset 0 to 3 also loads audio data in Granular.
 ### SET:SAVE(Bank 1 to 4)
 Save current parameters to the preset.
 Pressing button 1 to 8 will save to preset 1 to 8. It has 4 banks.
-Preset 0 to 3 also saves audio data in Granular.
+Preset 0 to 3 is special, it saves audio data in Granular. 
+
+When you press one of 8 buttons, it will as for preset name. Use button 1-6 for text position, turn dial to select letter. button 7 is for cancel, button 8 is for save.
+
+
 
 
 ### SET:SYSTEM
