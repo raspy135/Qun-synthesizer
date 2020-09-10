@@ -6,6 +6,8 @@ Another option is using esptool.py. It will be a bit more advanced, but it shoul
 
 ## Steps to update by using esptool.py (Mac OS X, Linux, or Windows)
 
+**For OS X user: This video might be helpful to understand. https://youtu.be/gtFntynAsYw **
+
 1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 2. Install [esptool.py](https://github.com/espressif/esptool). You may need to install Python as well. There are several ways to install the software, but the most less confusing way is using Homebrew(https://brew.sh/) for OS X. Open the Terminal app, then put the following command.
 ```
@@ -43,6 +45,7 @@ QUN V1.01
 ```
 
 ### Troubleshooting with OS X firmware update
+
 
 1. "Command not found" when I execute esptool.py : esptool.py was not installed properly. See the messages in homebrew.
 2. I don't see `/dev/cu.SLAB_USBtoUART` : Driver installation was failed, or, cable issue. Make sure you are using two cables, and you are using right microUSB cable. Some cheap USB cables don't have data lines.
