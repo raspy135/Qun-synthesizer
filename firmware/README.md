@@ -90,7 +90,8 @@ QUN V1.01
 
 ### v1.64
 
-- Second filter (only available with 2 pole
+- Second filter is added. It works when 2 pole filter is selected.
+- Swing (shuffle) with the sequencer.
 
 ### V1.63
 
