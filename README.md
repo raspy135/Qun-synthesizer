@@ -66,7 +66,7 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
 * MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect the ESP32-LyraT's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals, it also has microphones.
-* LINE IN and PHONE OUT is located at right side. The output utilizes both left and right channels, but both channels have identical signals.
+* LINE IN and PHONE OUT is located at right side. The output utilizes both left and right channels, but both channels have identical signals. **Please use a stereo cable for the sound output**. If you use mono cable for the output, one channel goes to ground level forcefully, it will create sound degrading.
 
 ## MAJOR MODES
 
@@ -430,9 +430,27 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
 ### PRM:ENV3/4 / Other
 
-1. OSC1/2 KEY SYNC
+1. 2ND FILTER
 
-	Frequency lock SW for OSC1. When it's OFF (indicated as "N"), it will ignore MIDI notes.
+  Second filter can be used when you use 2 pole filter for VCF.
+
+  Mode | 
+------------ | -------------
+NC200 | Notch filter at 200Hz. It will remove some muddy.
+NC1K | Notch filter at 1kHz. It will remove some highs.
+LS100 | Low-shelf at 100Hz. It will boot bass without cutting high.
+LS150 | Low-shelf at 150Hz. It will boot bass without cutting high.
+LS200 | Low-shelf at 200Hz. It will boot bass without cutting high.
+LS300 | Low-shelf at 300Hz. It will boot bass without cutting high.
+HP80 | Highpass at 80Hz. It will remove low-end bass to get more clear sound.
+LP4K | Lowpass at 4kHz. It will remove high-end.
+PK100 | Peak filter at 100Hz. Similar to band-pass filter, but Peak filter boots the peak frequency but it will not cut other frequency like band-pass filter.
+PK150 | Peak filter at 150Hz.
+PK200 | Peak filter at 200Hz.
+PK300 | Peak filter at 300Hz.
+PK400 | Peak filter at 400Hz.
+PK800 | Peak filter at 800Hz.
+
 
 2. FM FREQ SNAP SW
 
@@ -526,7 +544,7 @@ Press one of the eight buttons and turn the dial, then it will modify width (not
 
 Button | Function
 ------------ | -------------
-1 | BPM.
+1 | BPM. / SWING. You can change swing (shuffle) by long pressing the button. 
 2 | Key (for scale).
 3 | Scale. Playing note will be quantized by this scale.
 4 | Sequencer loop count. Default is 8. You can set more than 8 steps. the steps is more than 8, next bank will be connected when playing. For example, if you set 16 on bank 1, bank 1 and bank 2 are connected. 

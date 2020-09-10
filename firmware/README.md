@@ -85,6 +85,10 @@ QUN V1.01
 
 # Release history
 
+### v1.64
+
+- Second filter (only available with 2 pole
+
 ### V1.63
 
 - Sending 14-bit MIDI internally for VCF cutoff and OSC tunes for better transition (If you have 14-bit MIDI controller it can be done by external controller as well)
