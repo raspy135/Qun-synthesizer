@@ -88,6 +88,10 @@ QUN V1.01
 
 # Release history
 
+### v1.65
+
+- Bug fix: Possible system crush when saving / loading tone.
+
 ### v1.64
 
 - Second filter is added. It works when 2 pole filter is selected.
