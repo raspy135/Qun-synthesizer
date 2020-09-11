@@ -124,9 +124,9 @@ To avoid confusion, this setting won't be saved, but still useful for temporary 
 
 ## Parameter sheet / Guide sheet
 
-SVG and PNG versions are available.
+PDF and PNG versions are available.
 ![qun_synth](./manual_images/qun_cheat_sheet.png)
-./manual_images/qun_cheat_sheet.svg
+./manual_images/qun_cheat_sheet.pdf
 
 Guide sheet might be useful as well.
 PDF version is ./manual_images/guide_sheet.pdf
