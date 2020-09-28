@@ -88,6 +88,24 @@ QUN V1.01
 
 # Release history
 
+### v2.0 beta
+
+- Looper becomes Multitrack (3 tracks) + Copy & Paste buffer
+- Mixer sub-mode is added. Output can be panned (stereo). 
+- Looper signal can be routed to AUX L
+- Fixed arpeggiator logic
+- Keysync was removed
+- Sound engine optimizations
+
+### v1.70
+
+- Wavefolding is added (VCF/button 7), OSC1 Bypass was removed from UI.
+- Mode indication becomes icon
+
+### v1.66
+
+- Seq tune : MIDI keyboard input result is more predictable when key is not C.
+
 ### v1.65
 
 - Bug fix: Possible system crush when saving / loading tone.

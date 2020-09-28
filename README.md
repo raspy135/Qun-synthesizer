@@ -2,6 +2,7 @@
 
 Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that works with Nunomo's daughter board.
 
+
 ![qun_synth](./manual_images/qun_synth.jpg)
 
 ## Links and Information
@@ -56,7 +57,12 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
     * Arpeggiate steps
   * Looper
     * Looper can record the sound up to 30 sec, synchronized with the sequencer.
+    * **3 tracks**
+    * Cut / Paste
     * Play / Rec / Overdub
+  * Mixer
+  	* Looper tracks can be panned for stereo
+  	* Routing looper mixout to sound engine (AUX L)
 
 ## CONNECTIONS
 
@@ -66,7 +72,7 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
 * MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect the ESP32-LyraT's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals, it also has microphones.
-* LINE IN and PHONE OUT is located at right side. The output utilizes both left and right channels, but both channels have identical signals. **Please use a stereo cable for the sound output**. If you use mono cable for the output, one channel goes to ground level forcefully, it will create sound degrading.
+* LINE IN and PHONE OUT is located at right side. The sound engine is mono, but looper mixer is stereo. **Please use a stereo cable for the sound output**. If you use mono cable for the output, one channel goes to ground level forcefully, it will create sound degrading.
 
 ## MAJOR MODES
 
@@ -110,7 +116,7 @@ When you are not in Play mode, pressing “Mode” button on the base board (not
 
 ### Temporary MIDI CC override
 
-From v1.4 firmware, you can override MIDI CC temporary. Assigning proper MIDI CC to your MIDI keyboard is recommended for frequently used parameters, however, you can override MIDI CC temporary by the following operation:
+Assigning proper MIDI CC to your MIDI keyboard is recommended for frequently used parameters, however, you can override MIDI CC temporary by the following operation:
 
 1. In parameter mode, press corresponding MIDI CC button long time (about 3 sec). For example, OSC1's Pulse Width is button 2 in OSC1 sub mode.
 2. Then "MIDI Learning" message is shown. Keep pressing the button.
@@ -342,9 +348,19 @@ The synth has one filter. LPF / BPF/ HPF / Notch can be selected. It also has a 
 
 	LFO feedback to VCF’s input volume.
 
-7. OSC1 BYPASS
+7. Wave folding
 
-	Filter bypass switch for OSC1.
+  When it is on, aggressive clipping curve (wave folding) is applied.
+
+  It works better with simple wave shape such as sine wave.
+
+  Purple : Agreesive asymmetricaltric curve
+
+  Blue : Aggressive symmetric curve
+
+  Green : Medium symmetric curve
+
+  Red : Gentle symmetric curve
 
 8. VCF KEY SYNC
 
@@ -483,15 +499,15 @@ In Play mode, you can use piano key and sequencer. Piano key is mainly just for 
 
 **Since v1.60 firmware, the sequencer data is paired with tone preset.** Sequencer data will be saved when you save tone preset. Each preset can have 8 sequencer banks.
 
-In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
+In Play mode, sequence bank number (1-8) and looper track number (A-D) are indicated.
 
 The sequencer has 8 banks (patterns). Bank can be switched in Seq Bank mode, or **pressing "Rec / Mode" key on the ESP32-LyraT board**.
 
-In Play mode, display always indicates mode name ("Ply"), bank number and sub-mode name.
+The looper has 3 tracks. Track can be switched in Seq Play mode.
 
 The sequencer also has Looper. You can record and overdub played notes.
 
-### PLY:PLAY
+### PLY:PLAY PIANO
 The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance, though you can just use an external sequencer or DAW.
 
 ### PLY:SEQ PLAY
@@ -503,11 +519,18 @@ Button | Function
 1 | Play/Stop the sequencer.
 2 | Transpose.
 3 | Width (note length).
-4 | Note Randomness.
-5 | Arpeggiator.
-6 | Looper Record / Overdub
-7 | Play the looper.
-5 | Stop playback or delete the recording.
+4 | Note Randomness / Long press for looper track cut.
+5 | Arpeggiator /  Long press for looper track paste.
+6 | Looper Record / Overdub for the current track
+7 | Play the looper / Next track when playing 
+8 | Stop playback or Adjust recording volume by rotating dial. / Next track when not playing / **Long press to delete whole recording.** 
+
+Looper has 3 tracks.  Pressing Play or Stop to switch current track. 
+Reduce record volume (-6.0dB or more) in Mixer to avoid clipping.
+The first recording will determine the length of the recording, this cannot be changed later. Cut / Paste is supported. Cut / Paste can be used for temporary saved area or delete the track.
+Recorded data cannot be saved.
+
+Each track can record up to about 30 seconds, however, the synth doesn't have enough memory for 3 tracks when the loop length is long. In case the device doesn't have more memory, it will out "No Memory" error.
 
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
@@ -529,6 +552,8 @@ Button 1 to 8: Change bank 1 to 8
 
 Pressing Button 1 to 8 and changing dial: Copy bank to other bank. It's useful when you want to make a new bank by using existing data. If you want to cancel the operation, turn to the end, then "CANCEL" will be indicated as the destination. To initialize the bank data, turn the dial to "CLEAR".
 
+It is useful to keep one bank is blank, it can be used as mute.
+
 ### PLY:SEQ TUNE
 Press one of the eight buttons and turn the dial, then it will modify tune offset for each step.
 
@@ -544,7 +569,7 @@ Press one of the eight buttons and turn the dial, then it will modify width (not
 
 Button | Function
 ------------ | -------------
-1 | BPM. / SWING. You can change swing (shuffle) by long pressing the button. 
+1 | BPM / SWING. Long pressing the button for Swing. 
 2 | Key (for scale).
 3 | Scale. Playing note will be quantized by this scale.
 4 | Sequencer loop count. Default is 8. You can set more than 8 steps. the steps is more than 8, next bank will be connected when playing. For example, if you set 16 on bank 1, bank 1 and bank 2 are connected. 
@@ -600,6 +625,50 @@ Button | Function
 - Speed can go negative.
 - If you slice the audio to very short range with Repeat mode, the wave shape could be very simple and generic.
 - With Repeat mode, set length to about 0.5 sec and changing Pulse Width makes unique sound.
+
+### PLY:MIXER
+
+It is a mixer after in the looper. Record volume can be used as final stage volume from the sound engine. At the last stage, signal can be **stereo** by panning tracks.
+
+Button | Function
+------------ | -------------
+1 | Track A volume / Long press for Pan
+2 | Track B volume / Long press for Pan
+3 | Track C volume / Long press for Pan
+4 | Track A mute
+5 | Track B mute
+6 | Track C mute
+7 | Record volume (After the clipper)
+8 | Looper mixout routes to AUX L
+
+You can route looper mixout to AUX L. When it is routed to AUX L, Looper output is turned off. By the following configuration, you can hear the output from looper and apply effects and filters.
+
+1. When playing the looper, press button 8. Mixout routes to AUX L. Playing sound will be stopped. (The signal goes AUX L, not the synth's output)
+2. Set OSC 1 signal to AUX L
+3. OSC1 Env Sel to "ON". You will hear the looper sound again.
+4. Apply effects and filter
+
+
+The processed signal can be recorded. For example, the following operation adds delay to track A.
+
+
+3. Let's say track A has a recorded data. Mute all tracks except A. Set record volume to 0dB(Maximum) to keep volume.
+
+4. Play looper.
+
+5. Looper mixout routes to AUX L (It becomes silence)
+
+6. Initialize the tone (Long press Rec button)
+
+7. Set OSC 1 signal to AUX L
+
+8. OSC1 Env Sel to "ON"
+
+9. Add delay
+
+10. Select Track B on Looper
+
+11. Play sequencer with silent pattern (for better timing) and Perform Overdub. Track A sound with delay is recorded to track B.
 
 
 ## SETTING MODE
@@ -780,10 +849,10 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* AUX is connected to a lot of modules for CV control, so you can use AUX to control tune/width/LFO and others. However, the LINE in has capacitor in the path, it means the signal is AC. Using it as LFO should work, probably down to 2 to 5Hz. But DC signal, e.g. holding the same voltage 5 seconds, might not work.
 
 * MIDI is flooding when I connect MIDI out to DAW.
-	* MIDI forwarding is probably ON.
+	* MIDI forwarding is ON.
 
-* No volume
-	* VCF Volume works for most purposes. However in order to utilize clipping (overdrive) logic, attenuation of volume through other equipment is recommended.
+* No volume?
+	* VCF Volume works before software clipping logic, and recording volume works after the clipping logic. However in order to utilize clipping (overdrive) logic, attenuation of volume through other equipment is recommended.
 	* Other than this, MIDI CC #7 will also control hardware volume, though it will lose dynamic range. It's not available to control through UI.
 
 ## External Audio processing
