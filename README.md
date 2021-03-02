@@ -399,9 +399,19 @@ Configures other parameters.
 7. MONO/DUO/POLY
 
 	One synthesizer can be used as Monophonic or Duophonic.
+	
 	* Mono = Mono (2 OSCs per voice)
 	* Duo = Duo Tone (1 OSC per voice)
+	
 	With duo tone mode, MIX should be middle and set the same parameters to both EGs.
+	
+	Here is an example to set up Duo mode
+	1. Initialize tone
+	2. Set MIX to middle (64)
+	3. Set "OSC2 ENV SEL" to "EG2"
+	4. Set this parameter to "Duo" mode
+	5. Play two notes by external MIDI keyboard. You will hear two voices.
+	
 	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to build polyphonic synth.
 	Please see “Polyphonic setup” for detail.
 
