@@ -7,7 +7,8 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
 
 ## Links and Information
 
-* [Online Shop](https://shop.nunomo.com/products/qun-pocket-synthesizer): Purchase your own QUN from our website.
+** nunomo.com domain is having issue right now. Please use shop.nunomo.net instead **
+* [Online Shop](https://shop.nunomo.net/products/qun-pocket-synthesizer): Purchase your own QUN from our website.
 
 * [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips.
 
