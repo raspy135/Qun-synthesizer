@@ -1,4 +1,4 @@
-# ** nunomo.com domain is having issue right now. Please use shop.nunomo.net instead **
+# ** nunomo.com domain is having issue right now. Please use shop.nunomo.net instead. info@nunomo.com is not working, please open issues for inquiries. **
 
 
 # Qun-synthesizer
