@@ -1,3 +1,6 @@
+# ** nunomo.com domain is having issue right now. Please use shop.nunomo.net instead **
+
+
 # Qun-synthesizer
 
 Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that works with Nunomo's daughter board.
@@ -5,9 +8,9 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
 
 ![qun_synth](./manual_images/qun_synth.jpg)
 
+
 ## Links and Information
 
-** nunomo.com domain is having issue right now. Please use shop.nunomo.net instead **
 * [Online Shop](https://shop.nunomo.net/products/qun-pocket-synthesizer): Purchase your own QUN from our website.
 
 * [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips.
