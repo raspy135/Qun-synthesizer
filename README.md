@@ -1,3 +1,6 @@
+# ** nunomo.com is expired. Please send email to info@nunomo.net , or open issues for inquiries. **
+
+
 # Qun-synthesizer
 
 Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that works with Nunomo's daughter board.
@@ -5,9 +8,10 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
 
 ![qun_synth](./manual_images/qun_synth.jpg)
 
+
 ## Links and Information
 
-* [Online Shop](https://shop.nunomo.com/products/qun-pocket-synthesizer): Purchase your own QUN from our website.
+* [Online Shop](https://shop.nunomo.net/products/qun-pocket-synthesizer): Purchase your own QUN from our website.
 
 * [Wiki](https://github.com/raspy135/Qun-synthesizer/wiki) for ideas and tips.
 
@@ -21,7 +25,7 @@ Qun-synthesizer is an analog modeling synthesizer engine for ESP32-LyraT that wo
 
 **We are looking for pull requests for patches, we will add them to this repository.**
 
-**We are looking for your feedback! For general impressions and feedback, please email them to info@nunomo.com.**
+**We are looking for your feedback! For general impressions and feedback, please email them to info@nunomo.net.**
 
 ## Overview of the QUN synth
 The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesizer successfully uses it to achieve affordable pricing as a synthesizer. Though since the ESP32-LyraT is not designed to be a synthesizer, it has some limitations, e.g. it has USB, but it's not typical USB-MIDI, it's MIDI UART.
