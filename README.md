@@ -95,7 +95,8 @@ Each major mode has sub modes. Select sub mode. For example, `Prm:OSC1` is a sub
 
 ![sub_mode_change](manual_images/sub_mode_change.gif)
 
-* Alternatively, if you press Mode button and release it, sticky mode button is activated (Square is indicated next to mode name). If you press one of 8 buttons, this will change first 8 of Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2 (second button of the 8 buttons) will switch to OSC2 sub mode. This may offer a quicker way to access the sub mode once you remember the position.
+* Alternatively, if you press Mode button and release it, sticky mode button is activated. Help will be shown. If you press one of 8 buttons or press "Rec" or "Mode" on the base board,this will change Sub mode in the Major mode. For example in Parameter mode, press Mode button, then press button 2 (second button of the 8 buttons) will switch to OSC2 sub mode. If you press Mode and "Rec" in the base board, "FM Conf" mode will be selected.
+This offers a quicker way to access the sub mode once you remember the position.
 
 After you enter the sub mode you want, then next you need to select and change the parameter.
 * Press one of 8 buttons + rotate dial = Change parameter
@@ -403,16 +404,18 @@ Configures other parameters.
 	* Mono = Mono (2 OSCs per voice)
 	* Duo = Duo Tone (1 OSC per voice)
 	
-	With duo tone mode, MIX should be middle and set the same parameters to both EGs.
+    (From firmware 2.10) When the mode is Duo or Poly Duo, MIX parameter and "OSC2 Env Sel" are ignored. MIX is set to middle, and OSC2 Env Sel is set to EG2.
+    You may want to use the same parameters between Osc1 and Osc2 with Duo mode. To copy the parameter from OSC1 to OSC2 (and EG1 and EG2), long press button 7. "OSCs synched" message will be shown. 
 	
 	Here is an example to set up Duo mode
-	1. Initialize tone
-	2. Set MIX to middle (64)
-	3. Set "OSC2 ENV SEL" to "EG2"
-	4. Set this parameter to "Duo" mode
+	1. Initialize tone.
+    2. Configure OSC1 as you like.
+	3. Set this parameter to "Duo" mode by pressing button 7.
+    4. If you want to copy OSC1 parameters to OSC2, in the same submode, long press button 7 until "OSCs synched" message shown.
 	5. Play two notes by external MIDI keyboard. You will hear two voices.
 	
-	Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to build polyphonic synth.
+
+    Poly Mono and Poly Duo is for multiple device stacked configuration. You can use multiple Qun Synthesizers to build polyphonic synth.
 	Please see “Polyphonic setup” for detail.
 
 8. LFO SYNC SW
