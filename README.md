@@ -1,4 +1,4 @@
-# ** nunomo.com is expired. Please send email to info@nunomo.net , or open issues for inquiries. **
+# ** Please send email to info@nunomo.net , or open issues for inquiries. **
 
 
 # Qun-synthesizer
@@ -76,25 +76,26 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
 * MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect the ESP32-LyraT's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals, it also has microphones.
-* LINE IN and PHONE OUT is located at right side. The sound engine is mono, but looper mixer is stereo. **Please use a stereo cable for the sound output**. If you use mono cable for the output, one channel goes to ground level forcefully, it will create sound degrading.
+* LINE IN and PHONE OUT is located at right side. The sound engine is mono, but looper mixer is stereo. **Please use a stereo cable for the sound output**.
 
 ## MAJOR MODES
 
  The synth has three major modes, it can be changed by pressing ESP32-LyraT's three touch buttons. Parameter mode is the main mode of the synthesizer:
-
+l
 Button | Function
 ------------ | -------------
-Play | Play Mode. It’s for playing the sequencer.
+Play | Play Mode. It’s for sequencer.
 Set | Setting. For load / save / system setting.
 Vol+ | Parameter Mode. Change synthesizer’s parameters.
-Vol- | N/A. Button is disabled by hardware.
+Vol- | N/A. The button is disabled by hardware.
 RST | Reset the board.
 Boot | Only used for updating the firmware. Find out more [here](https://github.com/raspy135/Qun-synthesizer/blob/master/firmware/README.md).
 
 ![major_mode_change](manual_images/major_mode_change.gif)
 
 ## BASIC OPERATION
-Each major mode has sub modes. Select sub mode. For example, `Prm:OSC1` is a sub mode for Oscillator 1.
+
+Each major mode has sub modes. Select sub mode. For example, `OSC1` is a sub mode for Oscillator 1.
 * To switch sub mode, press Mode button (on the top board) + rotate dial. Keep pressing Mode button while you are selecting sub mode.
 
 ![sub_mode_change](manual_images/sub_mode_change.gif)
@@ -106,9 +107,11 @@ After you enter the sub mode you want, then next you need to select and change t
 * Press one of 8 buttons + rotate dial = Change parameter
 If you just press one of 8 buttons and release, then it indicates the current value of the parameter.
 Once you selected the parameter, the parameter is assigned to the dial.
-* Rotate the dial = Change the current parameter. 
+* Rotate the dial = Change the current parameter.
 
  ![parameter_select_change](manual_images/parameter_select_change.gif)
+
+* Sometimes fine adjustment is hard. In this case, you can use "Rec" and "Mode" button to change the value by 1. To do this, keep pressing one of 8 buttons and press "Rec" for decrease, "Mode" for increase.
 
 * Some parameters will perform an action just by pressing the button, e.g. loading a preset.
 
@@ -119,7 +122,7 @@ If you record the MIDI signals to your MIDI recorder or DAW, it can be used as a
 ### All notes off
 When you are not in Play mode, pressing “Mode” button on the base board (not the red top board) will turn on / turn off receiving MIDI signal. It can be used as a MIDI Panic button. 
 
-### Temporary MIDI CC override
+### MIDI learning
 
 Assigning proper MIDI CC to your MIDI keyboard is recommended for frequently used parameters, however, you can override MIDI CC temporary by the following operation:
 
@@ -128,6 +131,7 @@ Assigning proper MIDI CC to your MIDI keyboard is recommended for frequently use
 3. Send MIDI CC signal from your MIDI keyboard (Turn the knob or move fader). The sent MIDI CC# will control the assigned parameter.
 
 Once the parameter is assigned, then "*" mark is indicated before the CC number. Original CC assignment is still working. It won't be affected with MIDI dumping.
+MIDI learning will take any MIDI channel. For example, even if you set the device to receive MIDI channel 2, MIDI learning can receive CC# for channel 3, or any other channels.
 
 To cancel the override, do the same operation again.
 
@@ -393,9 +397,10 @@ Configures other parameters.
 
 	Pitch bend range.
 
-5. MOD MODE
+5. OSC1/2 Keysync
 
-	Modulation mode. `OSC1 and OSC2 (Pulse Width), OSC1 only, OSC2 only, or VCF's cutoff.`
+	This is a switch to connect MIDI input note and oscillators. Y = Follow MIDI note pitch. N =Ignore MIDI note pitch. This is useful when you make percussion sound.
+    You can still use freq1 freq2 for modulation to use MIDI note pitch.
 
 6. VELOCITY SW
 
@@ -408,8 +413,8 @@ Configures other parameters.
 	* Mono = Mono (2 OSCs per voice)
 	* Duo = Duo Tone (1 OSC per voice)
 	
-    (From firmware 2.10) When the mode is Duo or Poly Duo, MIX parameter and "OSC2 Env Sel" are ignored. MIX is set to middle, and OSC2 Env Sel is set to EG2.
-    You may want to use the same parameters between Osc1 and Osc2 with Duo mode. To copy the parameter from OSC1 to OSC2 (and EG1 and EG2), long press button 7. "OSCs synched" message will be shown. 
+    (From firmware 2.10) When the mode is Duo or Poly Duo, MIX  and "OSC2 Env Sel" are ignored. MIX is always set to middle, and OSC2 Env Sel is always set to EG2.
+    Most of cases you want to use the same parameters between Osc1 and Osc2 with Duo mode. To copy the parameter from OSC1 to OSC2 (and EG1 and EG2), long press button 7. "OSCs synched" message will be shown. 
 	
 	Here is an example to set up Duo mode
 	1. Initialize tone.
@@ -528,26 +533,42 @@ The sequencer also has Looper. You can record and overdub played notes.
 The mode is simple piano playing mode. Scale will be determined by the scale setting. Useful to check the sound. This is probably not useful for live performance. The sequencer is more practical for live performance, though you can just use an external sequencer or DAW.
 
 ### PLY:SEQ PLAY
-Main sequencer control mode.
+This is main page of sequencer control mode.
 Some buttons will perform an action just by pressing the button, without rotating the dial.
 
 Button | Function
 ------------ | -------------
 1 | Play/Stop the sequencer.
 2 | Transpose.
-3 | Width (note length).
+3 | Width Offset (note length). / Long press for playing Pattern shuffle
 4 | Note Randomness / Long press for looper track cut.
 5 | Arpeggiator /  Long press for looper track paste.
 6 | Looper Record / Overdub for the current track
-7 | Play the looper / Next track when playing 
-8 | Stop playback or Adjust recording volume by rotating dial. / Next track when not playing / **Long press to delete whole recording.** 
+7 | Play looper / Toggle recording track (A,B or C) when playing 
+8 | Stop looper / Toggle recording track (A,B, or C) when not playing / **Long press to delete whole recording.** 
 
-Looper has 3 tracks.  Pressing Play or Stop to switch current track. 
+
+This sub mode has a lot of features to play sequencer with fun.
+Transpose, Width Offset, Pattern shuffle, Randomness, Arpeggiator are pattern modifier. It will be applied to current pattern without breaking the pattern.
+
+- Transpose will add offset to the pattern. Scale quantize (SEQ Config button 3) will help to keep the result musical.
+- Width Offset will change the note length.
+- Randomness will add some randomness to playing notes.  Scale quantize (SEQ Config button 3) will help to keep the result musical.
+- Arpeggiator will add note offset. Scale quantize (SEQ Config button 3) is important to generate usable Arpeggiator result.
+- Pattern Shuffle will shuffle the playing order of the pattern.
+
+This sub mode also controls sequencer synchronized looper.
+To start pattern recording, hit Overdub button (button 6) first, then start the sequencer (button 1). Press stop (button 8) when you finished the recording.
+Looper keeps playing the recorded sound.
+
+
+Looper has 3 tracks.Pressing Play or Stop to switch current track.
+
 Reduce record volume (-6.0dB or more) in Mixer to avoid clipping.
 The first recording will determine the length of the recording, this cannot be changed later. Cut / Paste is supported. Cut / Paste can be used for temporary saved area or delete the track.
 Recorded data cannot be saved.
 
-Each track can record up to about 30 seconds, however, the synth doesn't have enough memory for 3 tracks when the loop length is long. In case the device doesn't have more memory, it will out "No Memory" error.
+Each track can record up to about 30 seconds, however, the synth doesn't have enough memory for 3 tracks when the loop length is long. In case the device doesn't have more memory, it will emit "No Memory" error.
 
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
@@ -690,10 +711,17 @@ The processed signal can be recorded. For example, the following operation adds 
 
 ## SETTING MODE
 
+
+
 ### SET:LOAD(Bank 1 to 4)
+
 Load from the saved preset.
-Pressing button 1 to 8 will load preset 1 to 8. It has 4 banks.
-Preset 0 to 3 also loads audio data in Granular.
+Pressing button 1 to 8 will load preset 1 to 8. It has 4 banks for user, and 4 banks for factory preset.
+To switch between user and factory banks, press "Rec" button at the bottom of the board.
+Factory preset is a new feature that comes with after 2022 purchase. If factory presets are not available, you need to install factory preset. See firmware README for detail.
+
+In bank 1, first 4 slots (Preset 0 to 3) are special. It can store audio data in Granular.
+
 
 
 ### SET:SAVE(Bank 1 to 4)
@@ -735,48 +763,14 @@ _Tested well with two devices, using more than 2 devices is experimental at this
 
 There are two ways for audio setup:
 
-1. Connect Slave's audio out to Master's Line IN. It is recommended for most of cases. It will save audio input to the mixer or audio interface, and Master will process Slave's audio digitally, so it will get a nice soft clipping. That is great for polyphonic (Polyphonic is easier to reach clipping level). It has a little latency by the process, but probably it is not noticeable. 
-2. Connect all audio signals to your mixer. Technically there is no latency but it will use more audio inputs.
+1. Connect Slave's audio out to Master's Line IN to combine outputs.
+2. Connect all audio signals to your mixer.
 
-### Method A. Use DAW as MIDI router. 
+### MIDI connection
 
-It assumes you connect the synths to the DAW or MIDI controller that will echo the synth’s MIDI OUT to MIDI IN. Normally it can be done by just turning on recording mode in the DAW.
-Some hardware MIDI keyboard might have the feature.
-
-Make sure MIDI forwarding is OFF before you connect it to DAW, otherwise it will make infinite MIDI message loop.
-
-Set up MIDI to receive exact same data for all devices. It can be done by any method of MIDI connection, but using UART or classic MIDI will be easier than BLE MIDI.
-If you use UART or classic MIDI, also you can use the 4 pin located above the OLED screen to connect between devices.
-
-Pin connection is shown below:
-
-```
-1   2   3   4
-V   T   R   G
-C   X   X   N
-C           D
-```
-Determine master and slave devices. 
-
-Connect Master’s RX to slave’s RX, Master’s GND to slave’s GND (pin 3 to 3, pin 4 to 4). This will connect MIDI-IN signal between devices. VCC and TX are not used. The benefit of this method is that it's no latency, the connection is true MIDI through. However it will be easier to be out-of-sync state because MIDI data forwarding is relying on DAW.
-
-Alternatively, you can use 2 MIDI OUT port from DAW to Master and Slave. 
-
-Sometimes ground-loop noise can happen, in this case, use separated power supply.
-
-Connect DAW's MIDI OUT to Master's MIDI IN.
-
-Configure DAW to echo all received MIDI signal. 
-
-### Method B. Use the synth as MIDI router
-
-It's simpler setup than Method A. 
-
-Use TRS cable to connect Master's MIDI out to Slave's MIDI IN. This will not make any ground connection, it will prevent ground loop noise.
+Use TRS cable to connect Master's MIDI out to Slave's MIDI IN.
 
 Turn on MIDI Forwarding in System menu. All received MIDI signal will be forwarded to Slave device. This is more reliable than DAW setup since it's not relying on DAW's MIDI routing, but you will lose MIDI out function to DAW. (You may still be able to use Slave's MIDI out though)
-
-Also the MIDI forwarding is done by software so it will have a bit of latency to slave device.
 
 Please make sure you turn off MIDI forwarding when you connect MIDI OUT to DAW next time. Normally DAW echoes the received MIDI packet, so MIDI forwarding setting will cause MIDI message flood.
 
@@ -796,11 +790,9 @@ Minimum setup to achieve PolyDuo (1 Oscillator per voice) will be the following 
 1. In System menu, "Num of devices" should be 2 for all devices. Set Dev Index=1 for Master device, 2 for Slave device.
 2. Initialize a preset (4 second press of Rec button) on Master device.
 3. Make sure it can play initial SAW wave sound.
-4. We are going to configure Duo mode first. Set "MIX" parameter in Mix menu to 64. It should mix OSC1 and OSC2.
-5. Set "OSC Env SEL" to use EG2.
-6. Go Key / Other sub-menu and set MonoDuoPolyMode to "PolyDuo"
-7. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
-8. Play multiple notes. You should hear four voices.
+4. Go Key / Other sub-menu and set MonoDuoPolyMode to "PolyDuo"
+5. Press "Rec" button on Master device. It will dump all preset commands. After the dump, all preset state should be in sync between devices.
+6. Play multiple notes. You should hear four voices.
 
 ### Polyphonic tips
 
@@ -822,16 +814,8 @@ If it starts making ground loop noise, use separated power supply and use standa
   * When booting some noise is sent (it's ESP32's boot message) . Please avoid to receive MIDI signals when you reset the device. Use initializing preset (4 seconds press of REC button), instead of hardware reset.
   
 * Trouble with Duo Mode: You need to set up properly to play duo mode properly.
-  * Mix in Mix sub menu has to be center (64).
-  * Associated Envelope (OSC1 -> EG1 or 3, OSC2 -> EG2 or 4. Normally OSC1 uses EG1, OSC2 uses EG2)
-  * Set OSCs settings identically to get the same tone. Associated Envelopes parameters also need to be identical, e.g. EG1 and EG2 setting should be identical.
+  * Go Key / Other sub-menu and long press button 7. It will sync the parameters OSC1 and OSC2, it will resolve most of issues.
   * VCF’s key sync will not work well.
-  * I suggest to start with simple patch.
-     1. Initialize a patch. Long pressing (4 sec) Rec button.
-     2. Set Mix to 64 (in Mix sub-menu). You can hear both OSC's sound.
-     3. Set OSC2 Env Sel to EG2 (in OSC Switches). OSC2 will use EG2.
-     4. Set Mono/Duo/Poly mode to "Duo". EG2 will be triggered separately with Duo mode.
-     5. Now you should be able to play up to 2 voices.
 
 * No sound suddenly
 	* Reset the preset. Long pressing (4 seconds) of REC button will initialize the preset.
@@ -869,8 +853,7 @@ If it starts making ground loop noise, use separated power supply and use standa
 	* MIDI forwarding is ON.
 
 * No volume?
-	* VCF Volume works before software clipping logic, and recording volume works after the clipping logic. However in order to utilize clipping (overdrive) logic, attenuation of volume through other equipment is recommended.
-	* Other than this, MIDI CC #7 will also control hardware volume, though it will lose dynamic range. It's not available to control through UI.
+  * There is a volume (Record volume) in Play:Mixer menu.
 
 ## External Audio processing
 

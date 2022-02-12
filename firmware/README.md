@@ -83,10 +83,32 @@ QUN V1.01
 ```
 
 
+# Factory presets
 
+Factory presets data is available by installing qun_factory_preset.bin.
+qun_factory_preset.bin is the special firmware just to install factory presets.
+
+Here is the steps to install factory presets.
+1. Update the firmware to 2.10 and later.
+2. Download qun_factory_preset.bin and install.
+3. Boot the device. "Imported" message will be shown.
+4. Reinstall the latest firmware (v2.10 and later)
+
+To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the base board.
 
 
 # Release history
+
+### v2.10
+
+- Some changes to configure Duo mode easier. Now MIX and OSC2 Env sel are ignored in Duo mode, those parameters are forcefully set properly for Duo Mode to avoid configuration erros. OSC1 parameters can be copied to OSC2 by long pressing button 7 in Poly/Duo mode configuration.
+- MIDI learning will learn CC# and MIDI channel. It means it can learn CC# even the MIDI channel is different.
+- 9th and 10th Submode such as FM Conf can be selected by "Rec" or "Mode" buttons on the base board.
+- Master pan removed to improve stability
+- Sound engine optimizations, including better filter response.
+- Keysync (following MIDI note pitch) paramater resumed. Modulation wheel mode was deleted instead.
+- Sometimes fine adjustment is hard. Now you can use "Rec" and "Mode" button to change the value by 1. To do this, keep pressing one of 8 buttons and instead of rotating dial, press "Rec" for decrease, "Mode" for increase.
+- Pattern shuffle is added to sequencer. You can shuffle sequencer's playing order.
 
 ### v2.0 beta
 
