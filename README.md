@@ -71,8 +71,8 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
 ## CONNECTIONS
 
 * Power: Use a good quality USB power supply. Connect the USB cable to `POWER` labeled USB port.
+* MIDI: Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and Make Noise's adapter. This is the lowest latency option.
 * BLE MIDI: iOS and macOS are supported. Windows is NOT supported. BLE MIDI has 15 to 20ms latency in general, it is a limitation of the BLE spec. For lower latency, use MIDI or MIDI UART.
-* MIDI: Use **TRS A** MIDI adapter to connect MIDI cables. TRS A type adapter is the same as KORG, AKAI and Make Noise's adapter.
 * MIDI UART: You can use MIDI UART instead of traditional MIDI interface. It requires a special program and MIDI bridges (e.g. LoopMIDI in Windows, IAC for macOS) but once you set them up then you can use it like USB-MIDI. Connect the ESP32-LyraT's `UART` labeled USB to your computer. You may need to install a UART driver (https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 	* For detail of MIDI UART, please refer https://github.com/raspy135/serialmidi project. Set baud rate to MIDI's traditional 31250bps.
 * The synthesizer can process external audio signals, it also has microphones.
@@ -472,7 +472,7 @@ On top of two FM engines, you can do FM modulation between oscillators.
 
   Second filter can be used when you use 2 pole filter for VCF.
 
-  Mode | 
+Mode | Description
 ------------ | -------------
 NC200 | Notch filter at 200Hz. It will remove some muddy.
 NC1K | Notch filter at 1kHz. It will remove some highs.
@@ -519,7 +519,7 @@ PK800 | Peak filter at 800Hz.
 
 In Play mode, you can use piano key and sequencer. Piano key is mainly just for checking tone. Sequencer is more practical. The sequencer is an 8-step sequencer, but each step can have double note, second half note or triple note, thus it is more than a normal 8-step sequencer. Also you can connect sequencer banks up to 4 banks = 32 steps.
 
-**Since v1.60 firmware, the sequencer data is paired with tone preset.** Sequencer data will be saved when you save tone preset. Each preset can have 8 sequencer banks.
+Sequencer data will be saved when you save tone preset. Each preset can have 8 sequencer banks.
 
 In Play mode, sequence bank number (1-8) and looper track number (A-D) are indicated.
 
