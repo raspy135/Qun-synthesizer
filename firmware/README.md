@@ -27,8 +27,9 @@ $ brew install esptool
 4. Open Terminal and check your USB Serial port name.  For example, `/dev/cu.SLAB_USBtoUART` . For Linux, something like `/dev/ttyUSB0`. For Windows, something like `COM4`. You can confirm the port is available by the following command on Mac OS X:
 ```
 $ ls /dev/cu.*
+$ ls /dev/tty.*
 ```
-If you don't see `/dev/cu.SLAB_USBtoUART` or similar device even you connect the synth's POWER and UART port to the computer, probably you failed to install CP210X driver.
+If you don't see `/dev/cu.SLAB_USBtoUART` or similar device name (`/dev/tty.usbserial-0000`, `/dev/cu.usbserial-0000` are other examples) even you connect the synth's POWER and UART port to the computer, probably you failed to install CP210X driver.
 
 5. Download the firmware from here.
 
