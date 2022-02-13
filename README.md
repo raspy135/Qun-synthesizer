@@ -111,7 +111,9 @@ Once you selected the parameter, the parameter is assigned to the dial.
 
  ![parameter_select_change](manual_images/parameter_select_change.gif)
 
-* Sometimes fine adjustment is hard. In this case, you can use "Rec" and "Mode" button to change the value by 1. To do this, keep pressing one of 8 buttons and press "Rec" for decrease, "Mode" for increase.
+* If you want to do fine value adjustment, you can use "Rec" and "Mode" button to change the value by 1. To do this, keep pressing one of 8 buttons and press "Rec" for decrease, "Mode" for increase.
+
+* Once you entered the adjustment mode, dial is disabled while you keep pressing one of 8 buttons. However, it can be used as "Catch" mode. When the current value is matched with the knob value, "*" is indicated next to value. You can use this feature to avoid value jumping.
 
 * Some parameters will perform an action just by pressing the button, e.g. loading a preset.
 
