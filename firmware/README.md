@@ -99,6 +99,12 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 
 # Release history
 
+### v2.11
+
+- A bug fix : System crash with precise value adjustment.
+- Catch value indicator: Dial value adjustment is disable when you do precise value adjustment by "Rec" and "Mode" button. However, if you turn the dial, "*" character will be indicated when the current value matches the knob value. It can be used as "Catch" mode to prevent value jumping.
+
+
 ### v2.10
 
 - Some changes to configure Duo mode easier. Now MIX and OSC2 Env sel are ignored in Duo mode, those parameters are forcefully set properly for Duo Mode to avoid configuration erros. OSC1 parameters can be copied to OSC2 by long pressing button 7 in Poly/Duo mode configuration.
