@@ -28,69 +28,8 @@ $ brew install esptool
 ```
 $ ls /dev/cu.*
 $ ls /dev/tty.*
-```
-If you don't see `/dev/cu.SLAB_USBtoUART` or similar device name (`/dev/tty.usbserial-0000`, `/dev/cu.usbserial-0000` are other examples) even you connect the synth's POWER and UART port to the computer, probably you failed to install CP210X driver.
-
-5. Download the firmware from here.
-
-6. Press "Boot" button and "RST" button on ESP32-LyraT board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
-7. Execute the following command. The number 0x230000 is very important. Don't put any other number. Otherwise it will break other important data such as saved preset or license information.
-```
-esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
-```
-
-7. If you stall at  `Connecting......____`, then the board is not in firmware uploading mode. 
-8. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
-```
-QUN V1.01
-```
-
-### Troubleshooting with OS X firmware update
-
-
-1. "Command not found" when I execute esptool.py : esptool.py was not installed properly. See the messages in homebrew.
-2. I don't see `/dev/cu.SLAB_USBtoUART` : Driver installation was failed, or, cable issue. Make sure you are using two cables, and you are using right microUSB cable. Some cheap USB cables don't have data lines.
-3. "File not found" error : Probably you specify wrong path to the downloaded firmware. Please note the file path is case sensitive.
-
-If you keep having the issue, please email to info@nunomo.com.
-
-
-
-
-
-
-
-## Steps to update by using Flash download tool (Windows only)
-
-1. Download and install CP210X driver. https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
-2. Download Flash download tool https://www.espressif.com/en/support/download/other-tools
-3. Connect USB cable to ESP32-LyraT's (the base board) "UART" port. Disconnect all MIDI connections. You still need the USB cable for POWER port, it means two cables need to be connected. 
-4. Open Device Manager and check your USB Serial port name. You can locate it under 'Ports (COM & LPT)', and it should read similarly to 'Silicon Labs CP210x USB to UART Bridge' followed by your port number in brackets.
-5. Download the firmware from here.
-6. Press "Boot" button and "RST" button on the ESP32-LyraT board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
-7. Run the 'flash_download_tool_x.x.x.exe' file, your version number will be in place of the 'x'.
-8. Select Developer Mode.
-9. Select ESP32 DownloadTool.
-10. Follow the screenshot for the parameters.
-![screenshot](../manual_images/flash_downloader.jpg)
-11. Choose the '…' button to select the firmware file that you downloaded.
-12. 0x230000 is a very important number, it is the starting address of the firmware. Do **NOT** put any other numbers in the field.
-13. Make sure that the checkbox to the left of the firmware file path is ticked and that the whole horizontal row is highlighted green, otherwise whilst you may establish successful sync with the ESP32-LyraT, the firmware will not be flashed.
-14. Be sure to enter your USB Serial port name into the COM field.
-15. Press the 'START' button under the status area to flash the firmware. 
-16. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
-```
-QUN V1.01
-```
-
-
-# Factory presets
-
-Factory presets data is available by installing qun_factory_preset.bin.
-qun_factory_preset.bin is the special firmware just to install factory presets.
-
 Here is the steps to install factory presets.
-1. Update the firmware to 2.10 and later.
+1. Update the firmware to the latest (2.10 and later).
 2. Download qun_factory_preset.bin and install.
 3. Boot the device. "Imported" message will be shown.
 4. Reinstall the latest firmware (v2.10 and later)
@@ -99,6 +38,11 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 
 
 # Release history
+
+### v2.20
+
+- A bug fix of Pulth Width mod behavior modulated by freq1/freq2.
+- Note on for note zero will be ignored (Keystep Pro sends the message for some reason)
 
 ### v2.11
 
