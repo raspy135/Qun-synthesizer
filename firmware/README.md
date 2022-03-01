@@ -39,6 +39,14 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 
 # Release history
 
+
+## v2.30 (Beta)
+
+- Sound quality improved from 44.1kHz to 48kHz. (Floating point is used for internal calculation). This might cause some behavior changes.
+- Send and Return function added. When the mode is ON, signal before Envelope generator from OSC1 can be captured through Right output, and will be returned back to AUX R. Returned signal will be processed as OSC1.
+- Fixed some issues with MIDI learning.
+- Granular logic was improved, more snappy response, more possibilty to get usable result. It can be used as kind of wavetable synth when you set very short length with one grain.
+
 ### v2.20
 
 - A bug fix of Pulth Width mod behavior modulated by freq1/freq2.

@@ -754,9 +754,10 @@ Button | Function
 
 AUX: Input source select. Select Mic (the board has two onboard microphones) or Line in. The setting will be stored in the flash memory. When you use LINE IN, set this setting to "LINE IN(2CH)". You can record the source to granular engine.
 
-Send And Return : OSC1 output before Envelope generator is coonnected to right channel. You need stereo channel separator to do this. Connection will be the following:
+Send And Return : OSC1 output before Envelope generator is coonnected to right channel. You need stereo channel separator to do this. Connection should the following:
 
      Qun's stereo output ->(channel separator cable, right channel)--(mono cable)--> effectors --(mono_cable)-> Qun's line in
+
 
 Number of devices: Number of devices for poly mode. Set 1 if you don’t have multiple devices. It will be stored in the flash memory.
 
