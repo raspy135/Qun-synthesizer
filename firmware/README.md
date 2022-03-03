@@ -28,6 +28,8 @@ $ brew install esptool
 ```
 $ ls /dev/cu.*
 $ ls /dev/tty.*
+```
+
 Here is the steps to install factory presets.
 1. Update the firmware to the latest (2.10 and later).
 2. Download qun_factory_preset.bin and install.
