@@ -72,7 +72,11 @@ $ ls /dev/tty.*
 esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
 ```
 
-8. Reset the board. The new firmware number should be indicated.
+8. If you stall at  `Connecting......____`, then the board is not in firmware uploading mode. 
+9. Press "RST" button to reboot the board. You should be able to see firmware version in the booting message.
+```
+QUN V1.01
+```
 
 
 # Factory presets
