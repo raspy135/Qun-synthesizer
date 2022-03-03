@@ -63,6 +63,16 @@ $ ls /dev/cu.*
 $ ls /dev/tty.*
 ```
 
+5. Download the firmware from here.
+
+6. Press "Boot" button and "RST" button on ESP32-LyraT board, keep pressing it, then release "RST" button only, then release "Boot" button. Now it should be firmware uploading mode. (There is no UI feedback or indication)
+7. Execute the following command. The number 0x230000 is very important. Don't put any other number. Otherwise it will break other important data such as saved preset or license information.
+
+```
+esptool.py --port /dev/cu.SLAB_USBtoUART write_flash 0x230000 qun_v101.bin
+```
+
+8. Reset the board. The new firmware number should be indicated.
 
 
 # Factory presets
