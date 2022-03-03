@@ -40,6 +40,11 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 # Release history
 
 
+## v2.31
+
+- Slightly better MIDI latency
+- EG behavior change, the curve is closer to analog envelope generator, it's suitable for filter modulation.
+
 ## v2.30 (Beta)
 
 - Sound quality improved from 44.1kHz to 48kHz. (Floating point is used for internal calculation). This might cause some behavior changes.
