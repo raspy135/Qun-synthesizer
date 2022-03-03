@@ -94,7 +94,7 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 # Release history
 
 
-## v2.31
+## v2.32
 
 - Slightly better MIDI latency
 - EG behavior change, the curve is closer to analog envelope generator, it's suitable for filter modulation.
