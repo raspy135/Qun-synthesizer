@@ -19,8 +19,10 @@ Another option is using esptool.py. It will be a bit more advanced, but it shoul
  8. Select Developer Mode.
  9. Select ESP32 DownloadTool.
  10. Follow the screenshot for the parameters.
+
  ![screenshot](../manual_images/flash_downloader.jpg)
- 11. Choose the '…' button to select the firmware file that you downloaded.
+
+11. Choose the '…' button to select the firmware file that you downloaded.
  12. 0x230000 is a very important number, it is the starting address of the firmware. Do **NOT** put any other numbers in the field.
  13. Make sure that the checkbox to the left of the firmware file path is ticked and that the whole horizontal row is highlighted green, otherwise whilst you may establish successful sync with the ESP32-LyraT, the firmware will not be flashed.
  14. Be sure to enter your USB Serial port name into the COM field.
