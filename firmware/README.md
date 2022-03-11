@@ -94,6 +94,10 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 # Release history
 
 
+## v2.33
+
+- Improved delay algorithm. It has much more organic response. Very short delay time can be used making sound fatter.
+
 ## v2.32
 
 - Slightly better MIDI latency
