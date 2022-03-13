@@ -93,6 +93,10 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 
 # Release history
 
+## v2.34
+
+- Bug fix of MIDI message receiving introduced at v2.32
+
 
 ## v2.33
 
