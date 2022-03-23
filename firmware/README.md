@@ -93,6 +93,16 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 
 # Release history
 
+## v2.39
+
+- Fix bugs with Cut/Paste/Delete looper track
+- Change operation for Cut/Paste and changing looper tracks
+
+## v2.38
+
+- Attack curve is changed to linear.
+- Looper performance improved. Looper mixout menu in mixer was eliminated due to performance issue.
+
 ## v2.35
 
 - Bug fix of Envelope Generator modulation, introduced v2.32

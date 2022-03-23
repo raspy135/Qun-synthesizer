@@ -66,7 +66,6 @@ The ESP32-LyraT was originally designed for use in smart speakers. QUN synthesiz
     * Play / Rec / Overdub
   * Mixer
   	* Looper tracks can be panned for stereo
-  	* Routing looper mixout to sound engine (AUX L)
 
 ## CONNECTIONS
 
@@ -543,12 +542,13 @@ Button | Function
 1 | Play/Stop the sequencer.
 2 | Transpose.
 3 | Width Offset (note length). / Long press for playing Pattern shuffle
-4 | Note Randomness / Long press for looper track cut.
-5 | Arpeggiator /  Long press for looper track paste.
-6 | Looper Record / Overdub for the current track
-7 | Play looper / Toggle recording track (A,B or C) when playing 
-8 | Stop looper / Toggle recording track (A,B, or C) when not playing / **Long press to delete whole recording.** 
+4 | Note Randomness
+5 | Arpeggiator
+6 | Looper Overdub for the current track / Holding this button then press [Rec] or [Mode] on the base board to Cut or Paste selected looper track.
+7 | Play looper / Toggle recording track (A,B or C) by holding this button and press [Rec] and [Mode] buttons on the base board.
+8 | Stop looper / **Long press to delete whole recording.**
 
+#### Sequencer
 
 This sub mode has a lot of features to play sequencer with fun.
 Transpose, Width Offset, Pattern shuffle, Randomness, Arpeggiator are pattern modifier. It will be applied to current pattern without breaking the pattern.
@@ -559,18 +559,24 @@ Transpose, Width Offset, Pattern shuffle, Randomness, Arpeggiator are pattern mo
 - Arpeggiator will add note offset. Scale quantize (SEQ Config button 3) is important to generate usable Arpeggiator result.
 - Pattern Shuffle will shuffle the playing order of the pattern.
 
+#### Looper
+
 This sub mode also controls sequencer synchronized looper.
 To start pattern recording, hit Overdub button (button 6) first, then start the sequencer (button 1). Press stop (button 8) when you finished the recording.
 Looper keeps playing the recorded sound.
 
 
-Looper has 3 tracks.Pressing Play or Stop to switch current track.
+Looper has 3 tracks. Button 6 to 8 is assigned for the looper.
+
+Pressing Play (Button 7) and press [Rec] or [Mode] buttons on the base board to toggle recording tracks.
 
 Reduce record volume (-6.0dB or more) in Mixer to avoid clipping.
-The first recording will determine the length of the recording, this cannot be changed later. Cut / Paste is supported. Cut / Paste can be used for temporary saved area or delete the track.
+The first recording will determine the length of the recording, this cannot be changed later.
+Cut / Paste can be used for temporary saved area or delete the track. Holding button 6 and pressing [Rec] or [Mode] on the base board to do Cut or Paste.
 Recorded data cannot be saved.
 
 Each track can record up to about 30 seconds, however, the synth doesn't have enough memory for 3 tracks when the loop length is long. In case the device doesn't have more memory, it will emit "No Memory" error.
+
 
 ### PLY:SEQ ON/OFF
 The sequencer has 8 steps, but it has more modes than ON/OFF.
@@ -679,36 +685,7 @@ Button | Function
 5 | Track B mute
 6 | Track C mute
 7 | Record volume (After the clipper)
-8 | Looper mixout routes to AUX L
-
-You can route looper mixout to AUX L. When it is routed to AUX L, Looper output is turned off. By the following configuration, you can hear the output from looper and apply effects and filters.
-
-1. When playing the looper, press button 8. Mixout routes to AUX L. Playing sound will be stopped. (The signal goes AUX L, not the synth's output)
-2. Set OSC 1 signal to AUX L
-3. OSC1 Env Sel to "ON". You will hear the looper sound again.
-4. Apply effects and filter
-
-
-The processed signal can be recorded. For example, the following operation adds delay to track A.
-
-
-3. Let's say track A has a recorded data. Mute all tracks except A. Set record volume to 0dB(Maximum) to keep volume.
-
-4. Play looper.
-
-5. Looper mixout routes to AUX L (It becomes silence)
-
-6. Initialize the tone (Long press Rec button)
-
-7. Set OSC 1 signal to AUX L
-
-8. OSC1 Env Sel to "ON"
-
-9. Add delay
-
-10. Select Track B on Looper
-
-11. Play sequencer with silent pattern (for better timing) and Perform Overdub. Track A sound with delay is recorded to track B.
+8 | N/A
 
 
 ## SETTING MODE
