@@ -93,7 +93,7 @@ To switch to factory preset banks, in the load1 to 4 mode, press "Rec" on the ba
 
 # Release history
 
-# v2.40
+## v2.40
 
 - SAW wave's PWM disabled to improve the performance
 - Granular's width (starting point of the playback) can be controlled more precisely. PWM response is more organic with Granular.
